@@ -1,0 +1,46 @@
+{
+  "container_id": "BC_COYSLOG_STAGING",
+  "business_name": "Coys Logistics",
+  "owner": "Shakur Coy Mac",
+  "email": "admin@coyslogistics.com",
+  "industry": "Trucking & Logistics",
+  "domains": ["https://coyslogistics.com"],
+  "modules": [
+    "contacts",
+    "pipelines",
+    "moduroute",
+    "fieldops_mobile",
+    "sms",
+    "dialer",
+    "automation",
+    "compliance_docs",
+    "shippers_crm",
+    "documents",
+    "payment"
+  ],
+  "payment_gateway": {
+    "provider": "Stripe",
+    "api_key": "pk_test_dummy_key",
+    "secret_key": "sk_test_dummy_key",
+    "owner_stripe_account": "modcrm_main"
+  },
+  "communication_providers": {
+    "sms_voice": "TELNYX",
+    "telnyx_number": "+10000000001",
+    "telnyx_api_key": "dummy_telnyx_key"
+  },
+  "mobile_stack": "React Native",
+  "branding": {
+    "primary_color": "#16A34A",
+    "secondary_color": "#15803D",
+    "logo_url": "/assets/coyslogistics-logo.png"
+  },
+  "compliance": {
+    "fmcsa_enabled": true,
+    "eld_integration": true,
+    "dot_number": "DUMMY_DOT_123456",
+    "mc_number": "DUMMY_MC_789012"
+  },
+  "status": "staging",
+  "created_at": "2025-12-25T00:00:00Z"
+}

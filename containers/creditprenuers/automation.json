@@ -1,0 +1,155 @@
+{
+  "automations": [
+    {
+      "id": "welcome_new_lead",
+      "name": "Welcome New Lead",
+      "trigger": {
+        "type": "form_submit",
+        "form_id": "lead_capture"
+      },
+      "conditions": [],
+      "actions": [
+        {
+          "type": "send_email",
+          "template": "welcome_email",
+          "delay_minutes": 0
+        },
+        {
+          "type": "add_tag",
+          "tag": "new_lead"
+        },
+        {
+          "type": "move_to_pipeline_stage",
+          "pipeline": "funding_journey",
+          "stage": "new_lead"
+        }
+      ],
+      "active": true
+    },
+    {
+      "id": "ebook_delivery",
+      "name": "eBook Purchase Delivery",
+      "trigger": {
+        "type": "payment_complete",
+        "product_id": "ebook_27"
+      },
+      "conditions": [],
+      "actions": [
+        {
+          "type": "send_email",
+          "template": "ebook_delivery",
+          "delay_minutes": 0
+        },
+        {
+          "type": "deliver_document",
+          "document_id": "creditprenuers_ebook"
+        },
+        {
+          "type": "move_to_pipeline_stage",
+          "pipeline": "funding_journey",
+          "stage": "ebook_purchased"
+        },
+        {
+          "type": "add_tag",
+          "tag": "ebook_buyer"
+        }
+      ],
+      "active": true
+    },
+    {
+      "id": "mentorship_upsell_sequence",
+      "name": "Mentorship Upsell Sequence",
+      "trigger": {
+        "type": "tag_added",
+        "tag": "ebook_buyer"
+      },
+      "conditions": [
+        {
+          "type": "not_tagged",
+          "tag": "membership_active"
+        }
+      ],
+      "actions": [
+        {
+          "type": "send_email",
+          "template": "mentorship_offer_1",
+          "delay_minutes": 1440
+        },
+        {
+          "type": "send_sms",
+          "message": "Hey {{first_name}}, did you get a chance to check out the mentorship program? Reply YES for details!",
+          "delay_minutes": 2880
+        },
+        {
+          "type": "send_email",
+          "template": "mentorship_offer_2",
+          "delay_minutes": 4320
+        }
+      ],
+      "active": true
+    },
+    {
+      "id": "membership_onboarding",
+      "name": "Membership Onboarding",
+      "trigger": {
+        "type": "payment_complete",
+        "product_id": "membership_47"
+      },
+      "conditions": [],
+      "actions": [
+        {
+          "type": "send_email",
+          "template": "membership_welcome"
+        },
+        {
+          "type": "add_tag",
+          "tag": "membership_active"
+        },
+        {
+          "type": "move_to_pipeline_stage",
+          "pipeline": "funding_journey",
+          "stage": "membership_active"
+        },
+        {
+          "type": "create_task",
+          "title": "Schedule onboarding call with {{first_name}}",
+          "assign_to": "team_lead",
+          "due_days": 2
+        },
+        {
+          "type": "webhook",
+          "url": "https://discord.com/api/webhooks/dummy",
+          "payload": {
+            "content": "🎉 New member joined: {{first_name}} {{last_name}}"
+          }
+        }
+      ],
+      "active": true
+    },
+    {
+      "id": "lead_routing_pitch",
+      "name": "Route Lead to Pitch Marketing",
+      "trigger": {
+        "type": "form_submit",
+        "form_id": "*"
+      },
+      "conditions": [],
+      "actions": [
+        {
+          "type": "webhook",
+          "url": "https://pitchmarketing.agency/api/leads",
+          "method": "POST",
+          "payload": {
+            "name": "{{first_name}} {{last_name}}",
+            "email": "{{email}}",
+            "phone": "{{phone}}",
+            "source": "creditprenuers.com",
+            "campaign": "{{utm_campaign}}",
+            "timestamp": "{{submitted_at}}"
+          }
+        }
+      ],
+      "active": true
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "container_id": "BC_CREDITPREN_STAGING",
+  "business_name": "CreditPreneurs",
+  "owner": "Shakur Coy Mac",
+  "email": "admin@creditprenuers.com",
+  "industry": "General",
+  "domains": ["https://creditprenuers.com"],
+  "modules": [
+    "contacts",
+    "pipelines",
+    "forms",
+    "documents",
+    "modmail",
+    "sms",
+    "dialer",
+    "payment",
+    "membership",
+    "automation",
+    "webcms",
+    "course_module"
+  ],
+  "payment_gateway": {
+    "provider": "Stripe",
+    "api_key": "pk_test_dummy_key",
+    "secret_key": "sk_test_dummy_key",
+    "owner_stripe_account": "modcrm_main"
+  },
+  "communication_providers": {
+    "sms_voice": "TELNYX",
+    "telnyx_number": "+10000000000",
+    "telnyx_api_key": "dummy_telnyx_key"
+  },
+  "branding": {
+    "primary_color": "#2563EB",
+    "secondary_color": "#1E40AF",
+    "logo_url": "/assets/creditprenuers-logo.png"
+  },
+  "status": "staging",
+  "created_at": "2025-12-25T00:00:00Z"
+}

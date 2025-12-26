@@ -1,0 +1,132 @@
+{
+  "modules": [
+    {
+      "id": "contacts",
+      "name": "Contacts",
+      "description": "Central CRM contact record system",
+      "enabled": true,
+      "config": {
+        "max_contacts": 10000,
+        "custom_fields": ["credit_score", "funding_goal", "mentorship_tier"]
+      }
+    },
+    {
+      "id": "pipelines",
+      "name": "Pipelines",
+      "description": "Funding stage pipelines",
+      "enabled": true,
+      "config": {
+        "default_pipeline": "funding_journey"
+      }
+    },
+    {
+      "id": "forms",
+      "name": "Forms",
+      "description": "Lead collection & onboarding forms",
+      "enabled": true,
+      "config": {
+        "spam_protection": true,
+        "recaptcha_enabled": true
+      }
+    },
+    {
+      "id": "documents",
+      "name": "Documents",
+      "description": "PDF uploads, contracts, eBook delivery",
+      "enabled": true,
+      "config": {
+        "max_file_size_mb": 25,
+        "allowed_types": ["pdf", "doc", "docx", "png", "jpg"]
+      }
+    },
+    {
+      "id": "modmail",
+      "name": "ModMail",
+      "description": "Integrated email with Gmail/Yahoo auth",
+      "enabled": true,
+      "config": {
+        "providers": ["gmail", "yahoo", "outlook"],
+        "tracking_enabled": true
+      }
+    },
+    {
+      "id": "sms",
+      "name": "SMS",
+      "description": "TELNYX-based SMS messaging",
+      "enabled": true,
+      "config": {
+        "provider": "TELNYX",
+        "mms_enabled": true
+      }
+    },
+    {
+      "id": "dialer",
+      "name": "Dialer",
+      "description": "TELNYX-backed voice dialer",
+      "enabled": true,
+      "config": {
+        "provider": "TELNYX",
+        "recording_enabled": true,
+        "voicemail_enabled": true
+      }
+    },
+    {
+      "id": "payment",
+      "name": "Payment",
+      "description": "Stripe API adapter for all transactions",
+      "enabled": true,
+      "config": {
+        "provider": "Stripe",
+        "currency": "USD",
+        "subscription_enabled": true
+      }
+    },
+    {
+      "id": "membership",
+      "name": "Membership",
+      "description": "$47/mo mentorship access tier",
+      "enabled": true,
+      "config": {
+        "tiers": [
+          {
+            "name": "Monthly Mentorship",
+            "price": 47,
+            "interval": "month",
+            "features": ["Direct mentor access", "Discord community", "Weekly calls"]
+          }
+        ]
+      }
+    },
+    {
+      "id": "automation",
+      "name": "Automation",
+      "description": "Trigger → Condition → Action workflows",
+      "enabled": true,
+      "config": {
+        "max_automations": 50,
+        "triggers": ["form_submit", "payment_complete", "tag_added", "pipeline_stage_change"]
+      }
+    },
+    {
+      "id": "webcms",
+      "name": "WebCMS",
+      "description": "Webflow-style modular page builder",
+      "enabled": true,
+      "config": {
+        "templates_enabled": true,
+        "custom_code_enabled": true
+      }
+    },
+    {
+      "id": "course_module",
+      "name": "Course Module",
+      "description": "eBook + credit curriculum system",
+      "enabled": true,
+      "config": {
+        "video_hosting": "vimeo",
+        "drip_content_enabled": true,
+        "certificates_enabled": true
+      }
+    }
+  ]
+}

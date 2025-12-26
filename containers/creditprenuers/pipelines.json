@@ -1,0 +1,91 @@
+{
+  "pipelines": [
+    {
+      "id": "funding_journey",
+      "name": "Funding Journey Pipeline",
+      "description": "Track clients from lead to funded",
+      "stages": [
+        {
+          "id": "new_lead",
+          "name": "New Lead",
+          "order": 1,
+          "color": "#6B7280",
+          "auto_actions": ["send_welcome_email", "assign_to_team"]
+        },
+        {
+          "id": "ebook_purchased",
+          "name": "eBook Purchased ($27)",
+          "order": 2,
+          "color": "#3B82F6",
+          "auto_actions": ["deliver_ebook", "start_email_sequence"]
+        },
+        {
+          "id": "mentorship_interested",
+          "name": "Mentorship Interested",
+          "order": 3,
+          "color": "#8B5CF6",
+          "auto_actions": ["send_mentorship_offer"]
+        },
+        {
+          "id": "membership_active",
+          "name": "Membership Active ($47/mo)",
+          "order": 4,
+          "color": "#10B981",
+          "auto_actions": ["grant_community_access", "schedule_onboarding_call"]
+        },
+        {
+          "id": "credit_repair_started",
+          "name": "Credit Repair Started",
+          "order": 5,
+          "color": "#F59E0B",
+          "auto_actions": ["create_credit_task_list"]
+        },
+        {
+          "id": "funding_ready",
+          "name": "Funding Ready",
+          "order": 6,
+          "color": "#EF4444",
+          "auto_actions": ["send_funding_checklist"]
+        },
+        {
+          "id": "funded",
+          "name": "Funded / Success",
+          "order": 7,
+          "color": "#059669",
+          "auto_actions": ["request_testimonial", "offer_affiliate_program"]
+        }
+      ]
+    },
+    {
+      "id": "white_label_partners",
+      "name": "White Label Partners",
+      "description": "Track affiliate and resale partners",
+      "stages": [
+        {
+          "id": "partner_inquiry",
+          "name": "Partner Inquiry",
+          "order": 1,
+          "color": "#6B7280"
+        },
+        {
+          "id": "application_review",
+          "name": "Application Review",
+          "order": 2,
+          "color": "#3B82F6"
+        },
+        {
+          "id": "approved_partner",
+          "name": "Approved Partner",
+          "order": 3,
+          "color": "#10B981"
+        },
+        {
+          "id": "active_reseller",
+          "name": "Active Reseller",
+          "order": 4,
+          "color": "#059669"
+        }
+      ]
+    }
+  ]
+}

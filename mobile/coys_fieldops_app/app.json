@@ -1,0 +1,64 @@
+{
+  "expo": {
+    "name": "Coys FieldOps",
+    "slug": "coys-fieldops",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#16A34A"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.coyslogistics.fieldops",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "We need your location to track delivery routes and provide accurate ETAs.",
+        "NSLocationAlwaysUsageDescription": "Background location is used to track deliveries even when the app is closed.",
+        "NSCameraUsageDescription": "Camera access is needed to upload photos of deliveries and documents."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#16A34A"
+      },
+      "package": "com.coyslogistics.fieldops",
+      "permissions": [
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_BACKGROUND_LOCATION",
+        "CAMERA"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow Coys FieldOps to use your location to track deliveries."
+        }
+      ],
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow Coys FieldOps to access your camera for document uploads."
+        }
+      ]
+    ],
+    "extra": {
+      "apiUrl": "https://api.modcrm.local",
+      "businessId": "BC_COYSLOG_STAGING",
+      "eas": {
+        "projectId": "your-project-id"
+      }
+    }
+  }
+}

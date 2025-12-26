@@ -1,0 +1,310 @@
+{
+  "leadflows": [
+    {
+      "id": "lf_creditpren_ebook",
+      "name": "eBook Download Lead Flow",
+      "business": "creditprenuers",
+      "businessId": "BC_CREDITPREN_STAGING",
+      "trigger": {
+        "type": "form_submit",
+        "formId": "ebook_optin"
+      },
+      "actions": [
+        {
+          "order": 1,
+          "type": "create_contact",
+          "config": {
+            "pipeline": "funding_journey",
+            "stage": "new_lead",
+            "tags": ["ebook-download", "organic"]
+          }
+        },
+        {
+          "order": 2,
+          "type": "send_email",
+          "config": {
+            "templateId": "ebook_delivery",
+            "delay": 0
+          }
+        },
+        {
+          "order": 3,
+          "type": "send_sms",
+          "config": {
+            "template": "welcome",
+            "delay": 60
+          }
+        },
+        {
+          "order": 4,
+          "type": "route_to_pitch",
+          "config": {
+            "condition": "score >= 50",
+            "leadType": "ebook_lead"
+          }
+        }
+      ]
+    },
+    {
+      "id": "lf_creditpren_membership",
+      "name": "Membership Signup Lead Flow",
+      "business": "creditprenuers",
+      "businessId": "BC_CREDITPREN_STAGING",
+      "trigger": {
+        "type": "payment_complete",
+        "productType": "membership"
+      },
+      "actions": [
+        {
+          "order": 1,
+          "type": "update_contact",
+          "config": {
+            "tags_add": ["member", "paying-customer"],
+            "customFields": {
+              "membership_start": "{{now}}",
+              "membership_status": "active"
+            }
+          }
+        },
+        {
+          "order": 2,
+          "type": "move_pipeline",
+          "config": {
+            "pipeline": "funding_journey",
+            "stage": "active_member"
+          }
+        },
+        {
+          "order": 3,
+          "type": "send_email",
+          "config": {
+            "templateId": "membership_welcome",
+            "delay": 0
+          }
+        },
+        {
+          "order": 4,
+          "type": "send_sms",
+          "config": {
+            "template": "membershipWelcome",
+            "delay": 300
+          }
+        },
+        {
+          "order": 5,
+          "type": "route_to_pitch",
+          "config": {
+            "leadType": "membership",
+            "priority": "high"
+          }
+        }
+      ]
+    },
+    {
+      "id": "lf_creditpren_whitelabel",
+      "name": "White Label Partner Lead Flow",
+      "business": "creditprenuers",
+      "businessId": "BC_CREDITPREN_STAGING",
+      "trigger": {
+        "type": "form_submit",
+        "formId": "whitelabel_inquiry"
+      },
+      "actions": [
+        {
+          "order": 1,
+          "type": "create_contact",
+          "config": {
+            "pipeline": "white_label_partners",
+            "stage": "inquiry",
+            "tags": ["white-label", "b2b-prospect"]
+          }
+        },
+        {
+          "order": 2,
+          "type": "send_email",
+          "config": {
+            "templateId": "whitelabel_info",
+            "delay": 0
+          }
+        },
+        {
+          "order": 3,
+          "type": "internal_notify",
+          "config": {
+            "channel": "slack",
+            "message": "🔥 New White Label Partner Inquiry: {{contact.name}} - {{contact.email}}"
+          }
+        },
+        {
+          "order": 4,
+          "type": "route_to_pitch",
+          "config": {
+            "leadType": "whiteLabelPartner",
+            "priority": "urgent"
+          }
+        }
+      ]
+    },
+    {
+      "id": "lf_coyslog_dispatch",
+      "name": "Dispatch Academy Lead Flow",
+      "business": "coyslogistics",
+      "businessId": "BC_COYSLOG_STAGING",
+      "trigger": {
+        "type": "form_submit",
+        "formId": "dispatch_interest"
+      },
+      "actions": [
+        {
+          "order": 1,
+          "type": "create_contact",
+          "config": {
+            "pipeline": "dispatch_training",
+            "stage": "lead",
+            "tags": ["dispatch-prospect", "organic"]
+          }
+        },
+        {
+          "order": 2,
+          "type": "send_email",
+          "config": {
+            "templateId": "dispatch_info",
+            "delay": 0
+          }
+        },
+        {
+          "order": 3,
+          "type": "send_sms",
+          "config": {
+            "template": "welcome",
+            "delay": 120
+          }
+        },
+        {
+          "order": 4,
+          "type": "route_to_pitch",
+          "config": {
+            "condition": "score >= 40",
+            "leadType": "dispatchTraining"
+          }
+        }
+      ]
+    },
+    {
+      "id": "lf_coyslog_fleet",
+      "name": "Fleet Owner Lead Flow",
+      "business": "coyslogistics",
+      "businessId": "BC_COYSLOG_STAGING",
+      "trigger": {
+        "type": "form_submit",
+        "formId": "fleet_services"
+      },
+      "actions": [
+        {
+          "order": 1,
+          "type": "create_contact",
+          "config": {
+            "pipeline": "freight_jobs",
+            "stage": "shipper_lead",
+            "tags": ["fleet-owner", "b2b"]
+          }
+        },
+        {
+          "order": 2,
+          "type": "send_email",
+          "config": {
+            "templateId": "fleet_welcome",
+            "delay": 0
+          }
+        },
+        {
+          "order": 3,
+          "type": "internal_notify",
+          "config": {
+            "channel": "slack",
+            "message": "🚛 New Fleet Owner Lead: {{contact.company}} - {{contact.fleetSize}} trucks"
+          }
+        },
+        {
+          "order": 4,
+          "type": "route_to_pitch",
+          "config": {
+            "leadType": "fleetOwner",
+            "priority": "high"
+          }
+        }
+      ]
+    },
+    {
+      "id": "lf_coyslog_driver_app",
+      "name": "Driver App Download Lead Flow",
+      "business": "coyslogistics",
+      "businessId": "BC_COYSLOG_STAGING",
+      "trigger": {
+        "type": "app_install",
+        "app": "coys_fieldops"
+      },
+      "actions": [
+        {
+          "order": 1,
+          "type": "create_contact",
+          "config": {
+            "pipeline": "driver_onboarding",
+            "stage": "app_downloaded",
+            "tags": ["driver", "app-user"]
+          }
+        },
+        {
+          "order": 2,
+          "type": "send_sms",
+          "config": {
+            "template": "welcome",
+            "delay": 60
+          }
+        },
+        {
+          "order": 3,
+          "type": "schedule_task",
+          "config": {
+            "type": "follow_up",
+            "delay": 86400,
+            "taskName": "Check driver onboarding progress"
+          }
+        }
+      ]
+    }
+  ],
+  "routingRules": {
+    "pitchMarketing": {
+      "enabled": true,
+      "apiEndpoint": "https://api.pitchmarketingagency.com/leads",
+      "minimumScore": 40,
+      "businesses": ["creditprenuers", "coyslogistics"],
+      "excludeTags": ["do-not-route", "internal-only"],
+      "retryPolicy": {
+        "maxRetries": 3,
+        "delaySeconds": 60
+      }
+    }
+  },
+  "scoring": {
+    "creditprenuers": {
+      "ebook_download": 15,
+      "form_submit": 20,
+      "email_open": 5,
+      "email_click": 10,
+      "pricing_page_visit": 15,
+      "membership_interest": 25,
+      "whitelabel_inquiry": 35,
+      "call_booked": 30
+    },
+    "coyslogistics": {
+      "form_submit": 20,
+      "video_watched": 10,
+      "course_interest": 25,
+      "fleet_inquiry": 35,
+      "app_download": 20,
+      "app_active_user": 30
+    }
+  }
+}

@@ -1,0 +1,207 @@
+{
+  "automations": [
+    {
+      "id": "dispatch_inquiry_welcome",
+      "name": "Dispatch Inquiry Welcome",
+      "trigger": {
+        "type": "form_submit",
+        "form_id": "dispatch_academy_inquiry"
+      },
+      "conditions": [],
+      "actions": [
+        {
+          "type": "send_email",
+          "template": "dispatch_welcome",
+          "delay_minutes": 0
+        },
+        {
+          "type": "add_tag",
+          "tag": "dispatch_inquiry"
+        },
+        {
+          "type": "move_to_pipeline_stage",
+          "pipeline": "dispatch_training",
+          "stage": "inquiry"
+        },
+        {
+          "type": "create_task",
+          "title": "Follow up with {{first_name}} about Dispatch Academy",
+          "assign_to": "sales_team",
+          "due_days": 1
+        }
+      ],
+      "active": true
+    },
+    {
+      "id": "course_enrollment_basic",
+      "name": "Basic Course Enrollment",
+      "trigger": {
+        "type": "payment_complete",
+        "product_id": "dispatch_course_197"
+      },
+      "conditions": [],
+      "actions": [
+        {
+          "type": "send_email",
+          "template": "course_access_basic"
+        },
+        {
+          "type": "add_tag",
+          "tag": "enrolled_basic"
+        },
+        {
+          "type": "move_to_pipeline_stage",
+          "pipeline": "dispatch_training",
+          "stage": "enrolled_basic"
+        },
+        {
+          "type": "grant_course_access",
+          "course_id": "dispatch_fundamentals"
+        }
+      ],
+      "active": true
+    },
+    {
+      "id": "course_enrollment_premium",
+      "name": "Premium Course Enrollment",
+      "trigger": {
+        "type": "payment_complete",
+        "product_id": "dispatch_course_497"
+      },
+      "conditions": [],
+      "actions": [
+        {
+          "type": "send_email",
+          "template": "course_access_premium"
+        },
+        {
+          "type": "add_tag",
+          "tag": "enrolled_premium"
+        },
+        {
+          "type": "move_to_pipeline_stage",
+          "pipeline": "dispatch_training",
+          "stage": "enrolled_premium"
+        },
+        {
+          "type": "grant_course_access",
+          "course_id": "dispatch_mastery"
+        },
+        {
+          "type": "create_task",
+          "title": "Schedule mentor intro call with {{first_name}}",
+          "assign_to": "mentor_team",
+          "due_days": 2
+        }
+      ],
+      "active": true
+    },
+    {
+      "id": "load_assignment_notification",
+      "name": "Load Assignment Notification",
+      "trigger": {
+        "type": "pipeline_stage_change",
+        "pipeline": "freight_jobs",
+        "to_stage": "assigned"
+      },
+      "conditions": [],
+      "actions": [
+        {
+          "type": "send_sms",
+          "message": "🚛 New load assigned! Check the Coys FieldOps app for details. Load #{{load_id}} - {{pickup_city}} to {{delivery_city}}"
+        },
+        {
+          "type": "push_notification",
+          "title": "New Load Assigned",
+          "body": "{{pickup_city}} → {{delivery_city}} | {{rate}}"
+        }
+      ],
+      "active": true
+    },
+    {
+      "id": "delivery_complete_flow",
+      "name": "Delivery Complete Flow",
+      "trigger": {
+        "type": "pipeline_stage_change",
+        "pipeline": "freight_jobs",
+        "to_stage": "delivered"
+      },
+      "conditions": [],
+      "actions": [
+        {
+          "type": "send_sms",
+          "message": "✅ Delivery confirmed for Load #{{load_id}}. Please upload POD in the app."
+        },
+        {
+          "type": "send_email",
+          "to": "{{shipper_email}}",
+          "template": "delivery_confirmation"
+        },
+        {
+          "type": "create_task",
+          "title": "Generate invoice for Load #{{load_id}}",
+          "assign_to": "billing",
+          "due_days": 1
+        }
+      ],
+      "active": true
+    },
+    {
+      "id": "compliance_expiration_alert",
+      "name": "Compliance Document Expiration Alert",
+      "trigger": {
+        "type": "scheduled",
+        "schedule": "daily"
+      },
+      "conditions": [
+        {
+          "type": "document_expiring_soon",
+          "days_before": 30
+        }
+      ],
+      "actions": [
+        {
+          "type": "send_email",
+          "template": "compliance_expiration_warning"
+        },
+        {
+          "type": "send_sms",
+          "message": "⚠️ Your {{document_type}} expires in {{days_until_expiry}} days. Please update it in the app."
+        },
+        {
+          "type": "create_task",
+          "title": "Follow up on {{document_type}} renewal for {{driver_name}}",
+          "assign_to": "compliance_team",
+          "due_days": 7
+        }
+      ],
+      "active": true
+    },
+    {
+      "id": "lead_routing_pitch",
+      "name": "Route Lead to Pitch Marketing",
+      "trigger": {
+        "type": "form_submit",
+        "form_id": "*"
+      },
+      "conditions": [],
+      "actions": [
+        {
+          "type": "webhook",
+          "url": "https://pitchmarketing.agency/api/leads",
+          "method": "POST",
+          "payload": {
+            "name": "{{first_name}} {{last_name}}",
+            "email": "{{email}}",
+            "phone": "{{phone}}",
+            "source": "coyslogistics.com",
+            "campaign": "{{utm_campaign}}",
+            "interest": "{{interest_type}}",
+            "timestamp": "{{submitted_at}}"
+          }
+        }
+      ],
+      "active": true
+    }
+  ]
+}

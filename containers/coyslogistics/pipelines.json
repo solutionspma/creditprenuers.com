@@ -1,0 +1,161 @@
+{
+  "pipelines": [
+    {
+      "id": "dispatch_training",
+      "name": "Dispatch Training Pipeline",
+      "description": "Track students from inquiry to certified dispatcher",
+      "stages": [
+        {
+          "id": "inquiry",
+          "name": "Inquiry",
+          "order": 1,
+          "color": "#6B7280",
+          "auto_actions": ["send_welcome_email", "assign_to_sales"]
+        },
+        {
+          "id": "consultation_scheduled",
+          "name": "Consultation Scheduled",
+          "order": 2,
+          "color": "#3B82F6",
+          "auto_actions": ["send_calendar_invite"]
+        },
+        {
+          "id": "enrolled_basic",
+          "name": "Enrolled - Basic ($197)",
+          "order": 3,
+          "color": "#8B5CF6",
+          "auto_actions": ["grant_course_access", "send_onboarding_materials"]
+        },
+        {
+          "id": "enrolled_premium",
+          "name": "Enrolled - Premium ($497)",
+          "order": 4,
+          "color": "#EC4899",
+          "auto_actions": ["grant_full_course_access", "assign_mentor"]
+        },
+        {
+          "id": "in_training",
+          "name": "In Training",
+          "order": 5,
+          "color": "#F59E0B",
+          "auto_actions": ["track_progress"]
+        },
+        {
+          "id": "certified",
+          "name": "Certified Dispatcher",
+          "order": 6,
+          "color": "#10B981",
+          "auto_actions": ["issue_certificate", "add_to_alumni"]
+        },
+        {
+          "id": "job_placed",
+          "name": "Job Placed",
+          "order": 7,
+          "color": "#059669",
+          "auto_actions": ["request_testimonial"]
+        }
+      ]
+    },
+    {
+      "id": "freight_jobs",
+      "name": "Freight Jobs Pipeline",
+      "description": "Track loads from assignment to delivery",
+      "stages": [
+        {
+          "id": "available",
+          "name": "Available Load",
+          "order": 1,
+          "color": "#6B7280"
+        },
+        {
+          "id": "assigned",
+          "name": "Assigned to Driver",
+          "order": 2,
+          "color": "#3B82F6",
+          "auto_actions": ["notify_driver", "send_load_details"]
+        },
+        {
+          "id": "en_route_pickup",
+          "name": "En Route to Pickup",
+          "order": 3,
+          "color": "#8B5CF6",
+          "auto_actions": ["start_tracking"]
+        },
+        {
+          "id": "loaded",
+          "name": "Loaded",
+          "order": 4,
+          "color": "#F59E0B",
+          "auto_actions": ["upload_bol_reminder"]
+        },
+        {
+          "id": "in_transit",
+          "name": "In Transit",
+          "order": 5,
+          "color": "#EF4444",
+          "auto_actions": ["eta_updates"]
+        },
+        {
+          "id": "delivered",
+          "name": "Delivered",
+          "order": 6,
+          "color": "#10B981",
+          "auto_actions": ["upload_pod_reminder", "notify_shipper"]
+        },
+        {
+          "id": "invoiced",
+          "name": "Invoiced",
+          "order": 7,
+          "color": "#059669",
+          "auto_actions": ["send_invoice"]
+        },
+        {
+          "id": "paid",
+          "name": "Paid",
+          "order": 8,
+          "color": "#047857",
+          "auto_actions": ["mark_complete"]
+        }
+      ]
+    },
+    {
+      "id": "driver_onboarding",
+      "name": "Driver Onboarding",
+      "description": "Track new driver applications and compliance",
+      "stages": [
+        {
+          "id": "application_received",
+          "name": "Application Received",
+          "order": 1,
+          "color": "#6B7280"
+        },
+        {
+          "id": "documents_pending",
+          "name": "Documents Pending",
+          "order": 2,
+          "color": "#F59E0B",
+          "auto_actions": ["send_document_checklist"]
+        },
+        {
+          "id": "background_check",
+          "name": "Background Check",
+          "order": 3,
+          "color": "#8B5CF6"
+        },
+        {
+          "id": "approved",
+          "name": "Approved",
+          "order": 4,
+          "color": "#10B981",
+          "auto_actions": ["grant_app_access", "assign_first_load"]
+        },
+        {
+          "id": "active_driver",
+          "name": "Active Driver",
+          "order": 5,
+          "color": "#059669"
+        }
+      ]
+    }
+  ]
+}

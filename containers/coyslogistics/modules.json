@@ -1,0 +1,130 @@
+{
+  "modules": [
+    {
+      "id": "contacts",
+      "name": "Contacts",
+      "description": "Central CRM contact record system for drivers and shippers",
+      "enabled": true,
+      "config": {
+        "max_contacts": 10000,
+        "custom_fields": ["driver_license", "cdl_class", "truck_type", "experience_years", "shipper_type"]
+      }
+    },
+    {
+      "id": "pipelines",
+      "name": "Pipelines",
+      "description": "Freight job and dispatch training pipelines",
+      "enabled": true,
+      "config": {
+        "default_pipeline": "dispatch_training"
+      }
+    },
+    {
+      "id": "moduroute",
+      "name": "ModuRoute",
+      "description": "Route tracking via MAJ Cellular module",
+      "enabled": true,
+      "config": {
+        "gps_tracking": true,
+        "real_time_updates": true,
+        "geofencing_enabled": true,
+        "eta_calculations": true,
+        "route_optimization": true
+      }
+    },
+    {
+      "id": "fieldops_mobile",
+      "name": "FieldOps Mobile",
+      "description": "React Native app interface for drivers",
+      "enabled": true,
+      "config": {
+        "platforms": ["ios", "android"],
+        "offline_mode": true,
+        "push_notifications": true,
+        "camera_access": true,
+        "location_tracking": true
+      }
+    },
+    {
+      "id": "sms",
+      "name": "SMS",
+      "description": "TELNYX-based SMS for driver notifications",
+      "enabled": true,
+      "config": {
+        "provider": "TELNYX",
+        "mms_enabled": true,
+        "auto_dispatch_alerts": true
+      }
+    },
+    {
+      "id": "dialer",
+      "name": "Dialer",
+      "description": "TELNYX-backed voice dialer for dispatch",
+      "enabled": true,
+      "config": {
+        "provider": "TELNYX",
+        "recording_enabled": true,
+        "voicemail_enabled": true,
+        "conference_calls": true
+      }
+    },
+    {
+      "id": "automation",
+      "name": "Automation",
+      "description": "Dispatch and training workflow automation",
+      "enabled": true,
+      "config": {
+        "max_automations": 50,
+        "triggers": ["load_assigned", "delivery_complete", "training_enrolled", "document_uploaded"]
+      }
+    },
+    {
+      "id": "compliance_docs",
+      "name": "Compliance Docs",
+      "description": "FMCSA & ELD management layer",
+      "enabled": true,
+      "config": {
+        "fmcsa_integration": true,
+        "eld_providers": ["KeepTruckin", "Samsara", "Omnitracs"],
+        "document_types": ["CDL", "Medical Card", "Insurance", "Vehicle Registration", "IFTA"],
+        "expiration_alerts": true
+      }
+    },
+    {
+      "id": "shippers_crm",
+      "name": "Shippers CRM",
+      "description": "Embedded shippers & freight sourcing database",
+      "enabled": true,
+      "config": {
+        "load_board_integration": true,
+        "shipper_rating_system": true,
+        "rate_history_tracking": true,
+        "preferred_lanes": true
+      }
+    },
+    {
+      "id": "documents",
+      "name": "Documents",
+      "description": "BOL, POD, contracts, and training materials",
+      "enabled": true,
+      "config": {
+        "max_file_size_mb": 50,
+        "allowed_types": ["pdf", "doc", "docx", "png", "jpg", "jpeg"],
+        "e_signature_enabled": true,
+        "docusign_integration": true
+      }
+    },
+    {
+      "id": "payment",
+      "name": "Payment",
+      "description": "Stripe API for training programs and services",
+      "enabled": true,
+      "config": {
+        "provider": "Stripe",
+        "currency": "USD",
+        "invoice_enabled": true,
+        "factoring_ready": true
+      }
+    }
+  ]
+}
