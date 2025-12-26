@@ -39,6 +39,9 @@ export default function Header() {
                 {item.name}
               </Link>
             ))}
+            <Link href="/signin" className="text-gray-600 hover:text-accent-gold font-medium transition-colors">
+              Sign In
+            </Link>
             <Link href="/ebook" className="btn-primary">
               Get Started
             </Link>
@@ -87,6 +90,13 @@ export default function Header() {
                 {item.name}
               </Link>
             ))}
+            <Link
+              href="/signin"
+              className="block py-2 text-gray-600 hover:text-accent-gold font-medium"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Sign In
+            </Link>
             <Link
               href="/ebook"
               className="btn-primary inline-block mt-4"
