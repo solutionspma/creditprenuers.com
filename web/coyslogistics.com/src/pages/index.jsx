@@ -65,10 +65,12 @@ export default function Home() {
         <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style={{ backgroundColor: scrollY > 50 ? 'rgba(15,23,42,0.95)' : 'transparent', backdropFilter: scrollY > 50 ? 'blur(20px)' : 'none' }}>
           <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <Link href="/" className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg flex items-center justify-center">
-                <span className="text-xl">🚛</span>
-              </div>
-              <span className="font-bold text-xl">Coys Logistics</span>
+              <img 
+                src="/images/coyslogo.jpg" 
+                alt="Coys Logistics" 
+                className="w-12 h-12 rounded-lg object-cover"
+              />
+              <span className="font-bold text-xl hidden sm:block">Coys Logistics</span>
             </Link>
             <div className="hidden md:flex items-center gap-8">
               <Link href="/academy" className="text-gray-300 hover:text-green-400 transition-colors">Academy</Link>
@@ -88,15 +90,20 @@ export default function Home() {
 
         {/* HERO SECTION */}
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-          {/* Video/Image Background */}
+          {/* Video Background */}
           <div className="absolute inset-0 z-0">
-            <div 
-              className="w-full h-full bg-cover bg-center scale-105"
-              style={{ 
-                backgroundImage: 'url("/images/truck-hero.jpg")',
-                filter: 'brightness(0.25)'
-              }}
-            />
+            <video
+              ref={videoRef}
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full h-full object-cover scale-105"
+              style={{ filter: 'brightness(0.3)' }}
+              poster="/images/truck-highway-1.jpg"
+            >
+              <source src="/images/hero-truck-video.mp4" type="video/mp4" />
+            </video>
             {/* Animated gradient overlay */}
             <div className="absolute inset-0 bg-gradient-to-b from-slate-900/70 via-transparent to-slate-900" />
             <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 via-transparent to-slate-900/80" />
@@ -312,10 +319,9 @@ export default function Home() {
                 <div className="relative">
                   <div className="bg-gradient-to-br from-slate-700 to-slate-800 rounded-2xl aspect-square w-full flex items-center justify-center shadow-2xl overflow-hidden">
                     <img 
-                      src="/images/shakur-mac.jpg" 
-                      alt="Shakur Mac" 
+                      src="/images/coy-mac.jpg" 
+                      alt="Shakur Mac - Trucking Mentor" 
                       className="w-full h-full object-cover"
-                      onError={(e) => { e.target.style.display = 'none'; e.target.parentElement.innerHTML = '<span class="text-8xl">👨🏾‍💼</span>'; }}
                     />
                   </div>
                   <div className="absolute -bottom-6 -right-6 bg-gradient-to-r from-green-500 to-emerald-600 text-white p-6 rounded-2xl shadow-xl">
@@ -644,9 +650,11 @@ export default function Home() {
             <div className="grid md:grid-cols-4 gap-10 mb-12">
               <div className="md:col-span-2">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg flex items-center justify-center">
-                    <span className="text-xl">🚛</span>
-                  </div>
+                  <img 
+                    src="/images/coyslogo.jpg" 
+                    alt="Coys Logistics" 
+                    className="w-14 h-14 rounded-lg object-cover"
+                  />
                   <span className="font-bold text-xl">Coys Logistics</span>
                 </div>
                 <p className="text-gray-400 max-w-md">

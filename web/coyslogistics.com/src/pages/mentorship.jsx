@@ -23,10 +23,12 @@ export default function Mentorship() {
         <nav className="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style={{ backgroundColor: scrollY > 50 ? 'rgba(15,23,42,0.95)' : 'transparent', backdropFilter: scrollY > 50 ? 'blur(20px)' : 'none' }}>
           <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <Link href="/" className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg flex items-center justify-center">
-                <span className="text-xl">🚛</span>
-              </div>
-              <span className="font-bold text-xl">Coys Logistics</span>
+              <img 
+                src="/images/coyslogo.jpg" 
+                alt="Coys Logistics" 
+                className="w-12 h-12 rounded-lg object-cover"
+              />
+              <span className="font-bold text-xl hidden sm:block">Coys Logistics</span>
             </Link>
             <div className="hidden md:flex items-center gap-8">
               <Link href="/" className="text-gray-300 hover:text-green-400 transition-colors">Home</Link>
@@ -288,9 +290,11 @@ export default function Mentorship() {
           <div className="max-w-7xl mx-auto px-6">
             <div className="flex flex-col md:flex-row justify-between items-center gap-6">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg flex items-center justify-center">
-                  <span className="text-xl">🚛</span>
-                </div>
+                <img 
+                  src="/images/coyslogo.jpg" 
+                  alt="Coys Logistics" 
+                  className="w-12 h-12 rounded-lg object-cover"
+                />
                 <span className="font-bold text-xl">Coys Logistics</span>
               </div>
               <div className="flex gap-8 text-gray-400 text-sm">
@@ -299,7 +303,24 @@ export default function Mentorship() {
                 <Link href="/fleet" className="hover:text-green-400">Fleet</Link>
                 <Link href="/contact" className="hover:text-green-400">Contact</Link>
               </div>
-              <p className="text-gray-500 text-sm">© 2024 Coys Logistics</p>
+            </div>
+            <div className="border-t border-white/10 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+              <p className="text-gray-500 text-sm">© 2024 Coys Logistics. All rights reserved.</p>
+              <div className="text-center md:text-right">
+                <p className="text-gray-500 text-sm">
+                  Powered by{' '}
+                  <a href="https://pitchmodularspaces.com" target="_blank" rel="noopener noreferrer" className="text-green-400 hover:text-green-300 hover:underline">
+                    Pitch Modular Spaces
+                  </a>
+                  {' '}|{' '}
+                  <a href="https://pitchmarketing.agency" target="_blank" rel="noopener noreferrer" className="text-orange-400 hover:text-orange-300 hover:underline">
+                    Pitch Marketing Agency
+                  </a>
+                </p>
+                <p className="text-gray-600 text-xs mt-1">
+                  A division of Pitch Market Strategies & Public Relations LLC
+                </p>
+              </div>
             </div>
           </div>
         </footer>

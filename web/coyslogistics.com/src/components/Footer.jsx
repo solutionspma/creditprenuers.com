@@ -28,9 +28,11 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 bg-primary-600 rounded-lg flex items-center justify-center">
-                <span className="text-white text-xl">🚛</span>
-              </div>
+              <img 
+                src="/images/coyslogo.jpg" 
+                alt="Coys Logistics" 
+                className="w-10 h-10 rounded-lg object-cover"
+              />
               <span className="font-display font-bold text-xl text-white">
                 Coys Logistics
               </span>
@@ -105,13 +107,21 @@ export default function Footer() {
           <p className="text-sm text-gray-500">
             © {currentYear} Coys Logistics. All rights reserved.
           </p>
-          <p className="text-sm text-gray-500">
-            A{' '}
-            <a href="https://pitchmarketing.agency" className="text-primary-400 hover:underline">
-              Pitch Marketing Agency
-            </a>{' '}
-            Brand
-          </p>
+          <div className="text-center md:text-right">
+            <p className="text-sm text-gray-500">
+              Powered by{' '}
+              <a href="https://pitchmodularspaces.com" target="_blank" rel="noopener noreferrer" className="text-primary-400 hover:text-primary-300 hover:underline">
+                Pitch Modular Spaces
+              </a>
+              {' '}|{' '}
+              <a href="https://pitchmarketing.agency" target="_blank" rel="noopener noreferrer" className="text-accent-orange hover:text-orange-400 hover:underline">
+                Pitch Marketing Agency
+              </a>
+            </p>
+            <p className="text-gray-600 text-xs mt-1">
+              A division of Pitch Market Strategies & Public Relations LLC
+            </p>
+          </div>
         </div>
       </div>
     </footer>

@@ -17,9 +17,11 @@ export default function Header() {
         <div className="flex justify-between h-16 items-center">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-primary-600 rounded-lg flex items-center justify-center">
-              <span className="text-white text-xl">🚛</span>
-            </div>
+            <img 
+              src="/images/coyslogo.jpg" 
+              alt="Coys Logistics" 
+              className="w-10 h-10 rounded-lg object-cover"
+            />
             <span className="font-display font-bold text-xl text-gray-900">
               Coys Logistics
             </span>
