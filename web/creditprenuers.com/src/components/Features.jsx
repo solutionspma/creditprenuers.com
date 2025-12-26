@@ -4,7 +4,7 @@ export default function Features() {
       icon: '📊',
       title: 'Credit Repair System',
       description: 'Step-by-step process to identify, dispute, and remove negative items from your credit reports.',
-      color: 'bg-blue-100',
+      color: 'bg-yellow-100',
     },
     {
       icon: '💰',

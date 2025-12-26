@@ -23,7 +23,7 @@ export default function Hero() {
               <span className="text-accent-gold">Your Future.</span>
             </h1>
             
-            <p className="text-xl text-blue-100 mb-8 max-w-lg">
+            <p className="text-xl text-gray-300 mb-8 max-w-lg">
               Economic empowerment through credit repair, funding strategies, and mentorship. 
               Join thousands transforming their financial futures with CreditPreneurs.
             </p>
@@ -55,7 +55,7 @@ export default function Hero() {
                     <span key={i}>{star}</span>
                   ))}
                 </div>
-                <p className="text-sm text-blue-200">500+ Lives Changed</p>
+                <p className="text-sm text-gray-400">500+ Lives Changed</p>
               </div>
             </div>
           </div>
@@ -86,7 +86,7 @@ export default function Hero() {
               <div className="mt-8 pt-6 border-t border-white/20">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm text-blue-200">Starting at</p>
+                    <p className="text-sm text-gray-400">Starting at</p>
                     <p className="text-3xl font-bold">$27</p>
                   </div>
                   <Link href="/ebook" className="btn-secondary">

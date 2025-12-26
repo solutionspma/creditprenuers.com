@@ -7,17 +7,17 @@ export default function AboutCoy() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Image placeholder */}
           <div className="relative">
-            <div className="aspect-square bg-gradient-to-br from-primary-100 to-primary-200 rounded-2xl flex items-center justify-center">
+            <div className="aspect-square bg-gradient-to-br from-yellow-100 to-yellow-200 rounded-2xl flex items-center justify-center">
               <div className="text-center p-8">
-                <div className="w-48 h-48 mx-auto bg-primary-300 rounded-full flex items-center justify-center mb-4">
+                <div className="w-48 h-48 mx-auto bg-yellow-300 rounded-full flex items-center justify-center mb-4">
                   <span className="text-8xl">👨🏾‍💼</span>
                 </div>
-                <p className="text-primary-600 font-medium">Shakur "Coy Mac"</p>
+                <p className="text-gray-700 font-medium">Shakur "Coy Mac"</p>
               </div>
             </div>
             {/* Floating stats */}
             <div className="absolute -bottom-6 -right-6 bg-white rounded-xl shadow-xl p-4">
-              <p className="text-3xl font-bold text-primary-600">500+</p>
+              <p className="text-3xl font-bold text-accent-gold">500+</p>
               <p className="text-sm text-gray-600">Lives Changed</p>
             </div>
           </div>

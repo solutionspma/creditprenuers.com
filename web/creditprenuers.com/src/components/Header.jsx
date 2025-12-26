@@ -18,8 +18,8 @@ export default function Header() {
         <div className="flex justify-between h-16 items-center">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-primary-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-xl">CP</span>
+            <div className="w-10 h-10 bg-accent-gold rounded-lg flex items-center justify-center">
+              <span className="text-black font-bold text-xl">CP</span>
             </div>
             <span className="font-display font-bold text-xl text-gray-900">
               CreditPreneurs
@@ -32,7 +32,7 @@ export default function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-gray-600 hover:text-primary-600 font-medium transition-colors"
+                className="text-gray-600 hover:text-accent-gold font-medium transition-colors"
               >
                 {item.name}
               </Link>
@@ -79,7 +79,7 @@ export default function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="block py-2 text-gray-600 hover:text-primary-600 font-medium"
+                className="block py-2 text-gray-600 hover:text-accent-gold font-medium"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.name}

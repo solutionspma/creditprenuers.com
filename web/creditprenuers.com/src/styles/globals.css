@@ -5,8 +5,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap');
 
 :root {
-  --primary-color: #2563EB;
-  --secondary-color: #1E40AF;
+  --primary-color: #F59E0B;
+  --secondary-color: #CA8A04;
   --accent-gold: #F59E0B;
   --accent-green: #10B981;
 }
@@ -25,11 +25,11 @@ h1, h2, h3, h4, h5, h6 {
 
 @layer components {
   .btn-primary {
-    @apply bg-primary-600 hover:bg-primary-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl;
+    @apply bg-accent-gold hover:bg-yellow-600 text-black font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl;
   }
 
   .btn-secondary {
-    @apply bg-accent-gold hover:bg-yellow-600 text-black font-semibold py-3 px-6 rounded-lg transition-all duration-300;
+    @apply bg-gray-900 hover:bg-gray-800 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300;
   }
 
   .section-title {
@@ -45,13 +45,13 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .input-field {
-    @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition-all;
+    @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-gold focus:border-transparent outline-none transition-all;
   }
 }
 
 /* Hero gradient animation */
 .hero-gradient {
-  background: linear-gradient(135deg, #1E40AF 0%, #2563EB 50%, #3B82F6 100%);
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
   background-size: 200% 200%;
   animation: gradient-shift 8s ease infinite;
 }

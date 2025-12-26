@@ -55,15 +55,15 @@ export default function MembershipSection() {
 
             <Link
               href="/ebook"
-              className="block w-full text-center py-3 px-6 border-2 border-primary-600 text-primary-600 font-semibold rounded-lg hover:bg-primary-50 transition-colors"
+              className="block w-full text-center py-3 px-6 border-2 border-accent-gold text-gray-900 font-semibold rounded-lg hover:bg-yellow-50 transition-colors"
             >
               Get the eBook
             </Link>
           </div>
 
           {/* Membership Tier */}
-          <div className="card border-2 border-primary-500 relative">
-            <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary-600 text-white px-4 py-1 rounded-full text-sm font-bold">
+          <div className="card border-2 border-accent-gold relative">
+            <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-accent-gold text-black px-4 py-1 rounded-full text-sm font-bold">
               MOST VALUE
             </div>
 

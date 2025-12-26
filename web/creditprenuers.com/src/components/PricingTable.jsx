@@ -45,12 +45,12 @@ export default function PricingTable({ showFull = false }) {
           key={product.id}
           className={`card relative ${
             product.popular 
-              ? 'border-2 border-primary-500 shadow-xl' 
+              ? 'border-2 border-accent-gold shadow-xl' 
               : 'border border-gray-200'
           }`}
         >
           {product.popular && (
-            <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary-600 text-white px-4 py-1 rounded-full text-sm font-bold">
+            <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-accent-gold text-black px-4 py-1 rounded-full text-sm font-bold">
               MOST POPULAR
             </div>
           )}
@@ -83,8 +83,8 @@ export default function PricingTable({ showFull = false }) {
             href={product.href}
             className={`block w-full text-center py-3 px-6 rounded-lg font-semibold transition-colors ${
               product.popular
-                ? 'bg-primary-600 text-white hover:bg-primary-700'
-                : 'border-2 border-primary-600 text-primary-600 hover:bg-primary-50'
+                ? 'bg-accent-gold text-black hover:bg-yellow-600'
+                : 'border-2 border-gray-900 text-gray-900 hover:bg-gray-100'
             }`}
           >
             {product.cta}

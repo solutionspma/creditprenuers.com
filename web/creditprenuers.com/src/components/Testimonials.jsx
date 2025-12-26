@@ -62,7 +62,7 @@ export default function Testimonials() {
             >
               {/* Header */}
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-14 h-14 bg-primary-100 rounded-full flex items-center justify-center text-2xl">
+                <div className="w-14 h-14 bg-yellow-100 rounded-full flex items-center justify-center text-2xl">
                   {testimonial.image}
                 </div>
                 <div>

@@ -19,7 +19,7 @@ export default function Contact() {
           <section className="hero-gradient text-white py-16">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
               <h1 className="text-4xl md:text-5xl font-bold mb-4">Get In Touch</h1>
-              <p className="text-xl text-blue-100 max-w-2xl mx-auto">
+              <p className="text-xl text-gray-300 max-w-2xl mx-auto">
                 Have questions? Want to learn more? We're here to help you on your journey.
               </p>
             </div>
@@ -38,7 +38,7 @@ export default function Contact() {
 
                   <div className="space-y-6">
                     <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0">
+                      <div className="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center flex-shrink-0">
                         <span className="text-2xl">📧</span>
                       </div>
                       <div>
@@ -66,9 +66,9 @@ export default function Contact() {
                       <div>
                         <h3 className="font-bold">Social Media</h3>
                         <div className="flex gap-4 mt-2">
-                          <a href="#" className="text-gray-600 hover:text-primary-600 transition-colors">Instagram</a>
-                          <a href="#" className="text-gray-600 hover:text-primary-600 transition-colors">Facebook</a>
-                          <a href="#" className="text-gray-600 hover:text-primary-600 transition-colors">YouTube</a>
+                          <a href="#" className="text-gray-600 hover:text-accent-gold transition-colors">Instagram</a>
+                          <a href="#" className="text-gray-600 hover:text-accent-gold transition-colors">Facebook</a>
+                          <a href="#" className="text-gray-600 hover:text-accent-gold transition-colors">YouTube</a>
                         </div>
                       </div>
                     </div>
@@ -78,13 +78,13 @@ export default function Contact() {
                     <h3 className="font-bold mb-2">🎯 Quick Links</h3>
                     <ul className="space-y-2">
                       <li>
-                        <a href="/ebook" className="text-primary-600 hover:underline">→ Get the $27 eBook</a>
+                        <a href="/ebook" className="text-accent-gold hover:underline">→ Get the $27 eBook</a>
                       </li>
                       <li>
-                        <a href="/mentorship" className="text-primary-600 hover:underline">→ Join the $47/mo Mentorship</a>
+                        <a href="/mentorship" className="text-accent-gold hover:underline">→ Join the $47/mo Mentorship</a>
                       </li>
                       <li>
-                        <a href="/about" className="text-primary-600 hover:underline">→ Learn about Coy Mac</a>
+                        <a href="/about" className="text-accent-gold hover:underline">→ Learn about Coy Mac</a>
                       </li>
                     </ul>
                   </div>

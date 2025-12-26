@@ -24,7 +24,7 @@ export default function Mentorship() {
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
                 CreditPreneurs<br />Inner Circle
               </h1>
-              <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
+              <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
                 Stop trying to figure it out alone. Get direct mentorship from Shakur Coy Mac and a community of action-takers building wealth together.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -48,7 +48,7 @@ export default function Mentorship() {
 
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div className="card text-center">
-                  <div className="w-16 h-16 mx-auto bg-primary-100 rounded-full flex items-center justify-center mb-4">
+                  <div className="w-16 h-16 mx-auto bg-yellow-100 rounded-full flex items-center justify-center mb-4">
                     <span className="text-3xl">📞</span>
                   </div>
                   <h3 className="text-xl font-bold mb-2">Weekly Group Calls</h3>
@@ -98,7 +98,7 @@ export default function Mentorship() {
                 </div>
 
                 <div className="card text-center">
-                  <div className="w-16 h-16 mx-auto bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                  <div className="w-16 h-16 mx-auto bg-yellow-100 rounded-full flex items-center justify-center mb-4">
                     <span className="text-3xl">🎁</span>
                   </div>
                   <h3 className="text-xl font-bold mb-2">Member Perks</h3>
@@ -142,7 +142,7 @@ export default function Mentorship() {
                   </ul>
                 </div>
 
-                <div className="bg-primary-900 text-white rounded-2xl p-8 relative overflow-hidden">
+                <div className="bg-gray-900 text-white rounded-2xl p-8 relative overflow-hidden">
                   <div className="absolute top-0 right-0 bg-accent-gold text-black font-bold px-4 py-1 rounded-bl-lg text-sm">
                     RECOMMENDED
                   </div>
@@ -182,8 +182,8 @@ export default function Mentorship() {
                 Less than $1.60 per day to transform your financial future
               </p>
 
-              <div className="bg-white rounded-2xl shadow-xl border-2 border-primary-500 overflow-hidden">
-                <div className="bg-primary-600 text-white py-4 text-center">
+              <div className="bg-white rounded-2xl shadow-xl border-2 border-accent-gold overflow-hidden">
+                <div className="bg-accent-gold text-black py-4 text-center">
                   <span className="font-bold">MOST POPULAR</span>
                 </div>
                 <div className="p-8">

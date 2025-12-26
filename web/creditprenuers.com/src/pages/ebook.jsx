@@ -27,7 +27,7 @@ export default function Ebook() {
                   <h1 className="text-4xl md:text-5xl font-bold mb-6">
                     The CreditPreneurs Blueprint
                   </h1>
-                  <p className="text-xl text-blue-100 mb-6">
+                  <p className="text-xl text-gray-300 mb-6">
                     The complete guide to credit repair, funding strategies, and building wealth from scratch.
                   </p>
                   <ul className="space-y-3 mb-8">
@@ -50,7 +50,7 @@ export default function Ebook() {
                   </ul>
                   <div className="flex items-center gap-4">
                     <span className="text-5xl font-bold">$27</span>
-                    <span className="text-blue-200 line-through text-2xl">$97</span>
+                    <span className="text-gray-400 line-through text-2xl">$97</span>
                     <span className="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-bold">72% OFF</span>
                   </div>
                 </div>
@@ -171,18 +171,18 @@ export default function Ebook() {
           </section>
 
           {/* Final CTA */}
-          <section className="py-20 bg-primary-900 text-white">
+          <section className="py-20 bg-gray-900 text-white">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
                 Start Your Transformation Today
               </h2>
-              <p className="text-xl text-blue-200 mb-8">
+              <p className="text-xl text-gray-300 mb-8">
                 For less than the cost of dinner, you can have the roadmap to financial freedom.
               </p>
               <a href="#top" className="btn-secondary text-lg inline-block">
                 Get the eBook - Only $27
               </a>
-              <p className="mt-6 text-blue-300 text-sm">
+              <p className="mt-6 text-gray-400 text-sm">
                 ✅ Instant download • ✅ Lifetime access • ✅ 30-day money back guarantee
               </p>
             </div>

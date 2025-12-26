@@ -28,8 +28,8 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 bg-primary-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">CP</span>
+              <div className="w-10 h-10 bg-accent-gold rounded-lg flex items-center justify-center">
+                <span className="text-black font-bold text-xl">CP</span>
               </div>
               <span className="font-display font-bold text-xl text-white">
                 CreditPreneurs
@@ -112,7 +112,7 @@ export default function Footer() {
           </p>
           <p className="text-sm text-gray-500">
             A{' '}
-            <a href="https://pitchmarketing.agency" className="text-primary-400 hover:underline">
+            <a href="https://pitchmarketing.agency" className="text-accent-gold hover:underline">
               Pitch Marketing Agency
             </a>{' '}
             Brand

@@ -2,11 +2,11 @@ import Link from 'next/link'
 
 export default function EbookCTA() {
   return (
-    <section className="py-20 bg-primary-900 text-white relative overflow-hidden">
+    <section className="py-20 bg-gray-900 text-white relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary-800 rounded-full blur-3xl opacity-50"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-primary-700 rounded-full blur-3xl opacity-50"></div>
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-gray-800 rounded-full blur-3xl opacity-50"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-gray-700 rounded-full blur-3xl opacity-50"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -19,7 +19,7 @@ export default function EbookCTA() {
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
               Get the CreditPreneurs eBook
             </h2>
-            <p className="text-xl text-blue-200 mb-8">
+            <p className="text-xl text-gray-300 mb-8">
               Over 100 pages of actionable strategies, templates, and insider knowledge to transform your credit and secure funding.
             </p>
 
@@ -46,9 +46,9 @@ export default function EbookCTA() {
               <div>
                 <div className="flex items-center gap-2">
                   <span className="text-4xl font-bold">$27</span>
-                  <span className="text-blue-300 line-through text-xl">$97</span>
+                  <span className="text-gray-400 line-through text-xl">$97</span>
                 </div>
-                <p className="text-blue-300 text-sm">Limited time offer</p>
+                <p className="text-gray-400 text-sm">Limited time offer</p>
               </div>
               <Link href="/ebook" className="btn-secondary text-lg">
                 Get Instant Access →
@@ -60,15 +60,15 @@ export default function EbookCTA() {
           <div className="relative">
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
               {/* Book representation */}
-              <div className="bg-gradient-to-br from-primary-600 to-primary-800 rounded-lg p-8 shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500">
+              <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg p-8 shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500">
                 <div className="border-2 border-white/30 rounded-lg p-6">
                   <div className="text-accent-gold font-bold text-sm mb-2">CREDITPRENEURS</div>
                   <h3 className="text-2xl font-bold mb-4">The Credit Blueprint</h3>
-                  <p className="text-blue-200 text-sm mb-6">
+                  <p className="text-gray-300 text-sm mb-6">
                     Master Your Credit. Secure Your Funding. Build Your Empire.
                   </p>
                   <div className="border-t border-white/20 pt-4">
-                    <p className="text-sm text-blue-200">By Shakur "Coy Mac"</p>
+                    <p className="text-sm text-gray-300">By Shakur "Coy Mac"</p>
                   </div>
                 </div>
               </div>

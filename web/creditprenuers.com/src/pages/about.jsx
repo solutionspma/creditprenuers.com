@@ -22,7 +22,7 @@ export default function About() {
                   <h1 className="text-4xl md:text-5xl font-bold mb-6">
                     Meet Shakur "Coy Mac"
                   </h1>
-                  <p className="text-xl text-blue-100 mb-8">
+                  <p className="text-xl text-gray-300 mb-8">
                     Entrepreneur. Credit Expert. Community Leader. Movement Builder.
                   </p>
                   <div className="flex gap-4">
@@ -40,7 +40,7 @@ export default function About() {
                       <div className="w-48 h-48 mx-auto bg-white/20 rounded-full flex items-center justify-center mb-4">
                         <span className="text-6xl">👨🏾‍💼</span>
                       </div>
-                      <p className="text-blue-100">Photo placeholder</p>
+                      <p className="text-gray-300">Photo placeholder</p>
                     </div>
                   </div>
                 </div>
@@ -94,7 +94,7 @@ export default function About() {
               
               <div className="grid md:grid-cols-3 gap-8">
                 <div className="text-center">
-                  <div className="w-20 h-20 mx-auto bg-primary-100 rounded-full flex items-center justify-center mb-4">
+                  <div className="w-20 h-20 mx-auto bg-yellow-100 rounded-full flex items-center justify-center mb-4">
                     <span className="text-4xl">💪🏾</span>
                   </div>
                   <h3 className="text-xl font-bold mb-2">Empowerment</h3>
@@ -127,19 +127,19 @@ export default function About() {
           </section>
 
           {/* CTA Section */}
-          <section className="py-20 bg-primary-900 text-white">
+          <section className="py-20 bg-gray-900 text-white">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
                 Ready to Start Your Journey?
               </h2>
-              <p className="text-xl text-blue-200 mb-8">
+              <p className="text-xl text-gray-300 mb-8">
                 Join thousands who have transformed their financial futures with CreditPreneurs.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="/ebook" className="btn-secondary text-lg">
                   Get the $27 eBook
                 </a>
-                <a href="/mentorship" className="bg-white text-primary-900 font-semibold py-3 px-6 rounded-lg hover:bg-gray-100 transition-all text-lg">
+                <a href="/mentorship" className="bg-white text-gray-900 font-semibold py-3 px-6 rounded-lg hover:bg-gray-100 transition-all text-lg">
                   Join $47/mo Mentorship
                 </a>
               </div>
