@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -18,12 +19,11 @@ export default function Header() {
         <div className="flex justify-between h-16 items-center">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-accent-gold rounded-lg flex items-center justify-center">
-              <span className="text-black font-bold text-xl">CP</span>
-            </div>
-            <span className="font-display font-bold text-xl text-gray-900">
-              CreditPreneurs
-            </span>
+            <img 
+              src="/images/logo.png" 
+              alt="CreditPreneurs" 
+              className="h-10 w-auto"
+            />
           </Link>
 
           {/* Desktop Navigation */}

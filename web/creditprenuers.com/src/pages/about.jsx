@@ -35,13 +35,12 @@ export default function About() {
                   </div>
                 </div>
                 <div className="relative">
-                  <div className="aspect-square bg-white/10 rounded-2xl flex items-center justify-center">
-                    <div className="text-center p-8">
-                      <div className="w-48 h-48 mx-auto bg-white/20 rounded-full flex items-center justify-center mb-4">
-                        <span className="text-6xl">👨🏾‍💼</span>
-                      </div>
-                      <p className="text-gray-300">Photo placeholder</p>
-                    </div>
+                  <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl">
+                    <img 
+                      src="/images/coy-mac.jpg" 
+                      alt="Shakur Coy Mac" 
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                 </div>
               </div>

@@ -5,15 +5,14 @@ export default function AboutCoy() {
     <section className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Image placeholder */}
+          {/* Coy Mac Photo */}
           <div className="relative">
-            <div className="aspect-square bg-gradient-to-br from-yellow-100 to-yellow-200 rounded-2xl flex items-center justify-center">
-              <div className="text-center p-8">
-                <div className="w-48 h-48 mx-auto bg-yellow-300 rounded-full flex items-center justify-center mb-4">
-                  <span className="text-8xl">👨🏾‍💼</span>
-                </div>
-                <p className="text-gray-700 font-medium">Shakur "Coy Mac"</p>
-              </div>
+            <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl">
+              <img 
+                src="/images/coy-mac.jpg" 
+                alt="Shakur Coy Mac - CreditPreneurs Founder" 
+                className="w-full h-full object-cover"
+              />
             </div>
             {/* Floating stats */}
             <div className="absolute -bottom-6 -right-6 bg-white rounded-xl shadow-xl p-4">
