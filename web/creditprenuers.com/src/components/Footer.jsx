@@ -111,13 +111,19 @@ export default function Footer() {
           <p className="text-sm text-gray-500">
             © {currentYear} CreditPreneurs. All rights reserved.
           </p>
-          <p className="text-sm text-gray-500">
-            A{' '}
-            <a href="https://pitchmarketing.agency" className="text-accent-gold hover:underline">
-              Pitch Marketing Agency
-            </a>{' '}
-            Brand
-          </p>
+          <div className="flex items-center gap-4">
+            <Link href="/signin" className="text-sm text-accent-gold hover:underline font-medium">
+              🔐 Back Office Login
+            </Link>
+            <span className="text-gray-700">|</span>
+            <p className="text-sm text-gray-500">
+              A{' '}
+              <a href="https://pitchmarketing.agency" className="text-accent-gold hover:underline">
+                Pitch Marketing Agency
+              </a>{' '}
+              Brand
+            </p>
+          </div>
         </div>
       </div>
     </footer>
