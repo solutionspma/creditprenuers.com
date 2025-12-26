@@ -1,0 +1,139 @@
+{
+  "businessId": "creditprenuers",
+  "businessName": "CreditPreneurs",
+  "owner": "Shakur Mac",
+  "industry": "Credit Repair & Financial Education",
+  "timezone": "America/New_York",
+  "currency": "USD",
+  
+  "branding": {
+    "primaryColor": "#D4AF37",
+    "secondaryColor": "#1a1a1a",
+    "logo": "/images/logo.png",
+    "favicon": "/favicon.svg"
+  },
+  
+  "features": {
+    "contacts": true,
+    "pipelines": true,
+    "documents": true,
+    "automation": true,
+    "communication": true,
+    "billing": true,
+    "cms": true,
+    "analytics": true,
+    "fundingTracker": true,
+    "creditDisputes": true,
+    "mentorship": true,
+    "courses": true
+  },
+  
+  "products": {
+    "ebook": {
+      "id": "ebook_trucking_27",
+      "name": "How To Start a Trucking Business eBook",
+      "price": 2700,
+      "type": "one_time"
+    },
+    "mentorship": {
+      "id": "mentorship_47",
+      "name": "CreditPreneurs Mentorship",
+      "price": 4700,
+      "type": "recurring",
+      "interval": "month"
+    },
+    "consultation": {
+      "id": "consultation_150",
+      "name": "1-on-1 Credit Consultation",
+      "price": 15000,
+      "type": "one_time"
+    }
+  },
+  
+  "pipelines": {
+    "default": [
+      { "id": "new_lead", "name": "New Lead", "order": 1, "color": "#6B7280" },
+      { "id": "contacted", "name": "Contacted", "order": 2, "color": "#3B82F6" },
+      { "id": "qualified", "name": "Qualified", "order": 3, "color": "#8B5CF6" },
+      { "id": "ebook_purchased", "name": "eBook Purchased", "order": 4, "color": "#10B981" },
+      { "id": "mentorship_active", "name": "Mentorship Active", "order": 5, "color": "#D4AF37" },
+      { "id": "funding_ready", "name": "Funding Ready", "order": 6, "color": "#F59E0B" },
+      { "id": "funded", "name": "Funded", "order": 7, "color": "#22C55E" }
+    ],
+    "funding": [
+      { "id": "assessment", "name": "Credit Assessment", "order": 1, "color": "#6B7280" },
+      { "id": "dispute_phase", "name": "Dispute Phase", "order": 2, "color": "#EF4444" },
+      { "id": "building", "name": "Credit Building", "order": 3, "color": "#F59E0B" },
+      { "id": "funding_0_50k", "name": "$0 - $50K Goal", "order": 4, "color": "#3B82F6" },
+      { "id": "funding_50k_150k", "name": "$50K - $150K Goal", "order": 5, "color": "#8B5CF6" },
+      { "id": "funding_150k_plus", "name": "$150K+ Goal", "order": 6, "color": "#D4AF37" },
+      { "id": "funded_complete", "name": "Funded - Complete", "order": 7, "color": "#22C55E" }
+    ]
+  },
+  
+  "documentTypes": [
+    "credit_report",
+    "bank_statement",
+    "ein_letter",
+    "business_license",
+    "dispute_letter",
+    "funding_agreement",
+    "mentorship_contract",
+    "shelf_corp_docs"
+  ],
+  
+  "automations": {
+    "ebook_purchase": {
+      "trigger": "stripe.payment.success",
+      "conditions": { "product_id": "ebook_trucking_27" },
+      "actions": [
+        { "type": "create_contact", "data": { "source": "ebook_purchase" } },
+        { "type": "move_pipeline", "data": { "stage": "ebook_purchased" } },
+        { "type": "send_email", "data": { "template": "ebook_delivery" } },
+        { "type": "send_sms", "data": { "template": "ebook_welcome" } }
+      ]
+    },
+    "mentorship_signup": {
+      "trigger": "stripe.subscription.created",
+      "conditions": { "product_id": "mentorship_47" },
+      "actions": [
+        { "type": "move_pipeline", "data": { "stage": "mentorship_active" } },
+        { "type": "send_email", "data": { "template": "mentorship_welcome" } },
+        { "type": "assign_mentor", "data": { "auto": true } },
+        { "type": "create_task", "data": { "title": "Intro call with {{contact.name}}", "due": "+2d" } }
+      ]
+    },
+    "credit_dispute_reminder": {
+      "trigger": "schedule.daily",
+      "conditions": { "pipeline_stage": "dispute_phase", "days_in_stage": 30 },
+      "actions": [
+        { "type": "send_sms", "data": { "template": "dispute_followup" } },
+        { "type": "create_task", "data": { "title": "Follow up on dispute results" } }
+      ]
+    }
+  },
+  
+  "compliance": {
+    "ftc": true,
+    "fcra": true,
+    "croa": true,
+    "requiredDisclosures": [
+      "credit_repair_disclosure",
+      "ftc_consumer_rights",
+      "cancellation_policy"
+    ]
+  },
+  
+  "integrations": {
+    "stripe": { "enabled": true },
+    "telnyx": { "enabled": true },
+    "gmail": { "enabled": true },
+    "pitchMarketing": { "enabled": true }
+  },
+  
+  "urls": {
+    "frontend": "https://creditprenuers.netlify.app",
+    "api": "https://api.creditprenuers.com",
+    "webhooks": "https://api.creditprenuers.com/webhooks"
+  }
+}

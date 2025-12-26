@@ -1,0 +1,811 @@
+// MBOCC Command Center - Prisma Schema
+// Multi-Business Owner Command Center Database Schema
+// Supports: CreditPreneurs (Credit Repair) & Coys Logistics (Trucking)
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ==========================================
+// CORE MODELS (Shared Across All Businesses)
+// ==========================================
+
+model Business {
+  id          String   @id @default(uuid())
+  slug        String   @unique // 'creditprenuers' or 'coyslogistics'
+  name        String
+  type        String   // 'credit_repair' or 'logistics'
+  config      Json     // Business-specific configuration
+  stripeId    String?  // Stripe Connect Account ID
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  users       User[]
+  contacts    Contact[]
+  pipelines   Pipeline[]
+  documents   Document[]
+  automations Automation[]
+  pages       Page[]
+  invoices    Invoice[]
+  
+  // CreditPreneurs specific
+  fundingApplications FundingApplication[]
+  
+  // Coys Logistics specific
+  trucks      Truck[]
+  drivers     Driver[]
+  loads       Load[]
+
+  @@map("businesses")
+}
+
+model User {
+  id            String    @id @default(uuid())
+  businessId    String
+  email         String
+  passwordHash  String
+  firstName     String
+  lastName      String
+  role          String    @default("staff") // 'owner', 'admin', 'staff'
+  permissions   Json      @default("[]")
+  phone         String?
+  avatar        String?
+  isActive      Boolean   @default(true)
+  lastLoginAt   DateTime?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  // Relations
+  business      Business  @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  activities    Activity[]
+  assignedContacts Contact[] @relation("AssignedUser")
+
+  @@unique([businessId, email])
+  @@map("users")
+}
+
+model Contact {
+  id            String    @id @default(uuid())
+  businessId    String
+  assignedToId  String?
+  
+  // Basic Info
+  firstName     String
+  lastName      String
+  email         String?
+  phone         String?
+  company       String?
+  
+  // Pipeline Status
+  pipelineId    String?
+  stageId       String?
+  
+  // Classification
+  type          String    @default("lead") // 'lead', 'client', 'partner', 'shipper', 'broker', 'carrier'
+  source        String?   // 'website', 'referral', 'social', 'cold_call'
+  tags          Json      @default("[]")
+  
+  // Additional Data
+  customFields  Json      @default("{}")
+  notes         String?
+  
+  // Timestamps
+  lastContactAt DateTime?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  // Relations
+  business      Business  @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  assignedTo    User?     @relation("AssignedUser", fields: [assignedToId], references: [id])
+  pipeline      Pipeline? @relation(fields: [pipelineId], references: [id])
+  stage         PipelineStage? @relation(fields: [stageId], references: [id])
+  
+  documents     Document[]
+  communications Communication[]
+  activities    Activity[]
+  invoices      Invoice[]
+  
+  // CreditPreneurs specific
+  fundingApplications FundingApplication[]
+  
+  // Coys Logistics specific
+  loads         Load[]    @relation("ShipperContact")
+  rateHistory   RateHistory[]
+
+  @@map("contacts")
+}
+
+// ==========================================
+// PIPELINE & WORKFLOW MODELS
+// ==========================================
+
+model Pipeline {
+  id          String   @id @default(uuid())
+  businessId  String
+  name        String
+  description String?
+  type        String   // 'sales', 'onboarding', 'load_tracking'
+  isDefault   Boolean  @default(false)
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  business    Business  @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  stages      PipelineStage[]
+  contacts    Contact[]
+
+  @@map("pipelines")
+}
+
+model PipelineStage {
+  id          String   @id @default(uuid())
+  pipelineId  String
+  name        String
+  color       String   @default("#000000")
+  position    Int
+  probability Int?     // Win probability percentage
+  isWon       Boolean  @default(false)
+  isLost      Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  pipeline    Pipeline @relation(fields: [pipelineId], references: [id], onDelete: Cascade)
+  contacts    Contact[]
+
+  @@map("pipeline_stages")
+}
+
+model Automation {
+  id          String   @id @default(uuid())
+  businessId  String
+  name        String
+  description String?
+  
+  // Trigger Configuration
+  trigger     String   // 'contact_created', 'stage_changed', 'load_delivered', etc.
+  conditions  Json     @default("[]")
+  
+  // Action Configuration
+  actions     Json     @default("[]") // [{type: 'send_sms', config: {...}}, ...]
+  
+  // Status
+  isActive    Boolean  @default(true)
+  runCount    Int      @default(0)
+  lastRunAt   DateTime?
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  business    Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  logs        AutomationLog[]
+
+  @@map("automations")
+}
+
+model AutomationLog {
+  id           String   @id @default(uuid())
+  automationId String
+  status       String   // 'success', 'failed', 'skipped'
+  triggerData  Json
+  actionsRun   Json
+  error        String?
+  executedAt   DateTime @default(now())
+
+  // Relations
+  automation   Automation @relation(fields: [automationId], references: [id], onDelete: Cascade)
+
+  @@map("automation_logs")
+}
+
+// ==========================================
+// DOCUMENT MANAGEMENT
+// ==========================================
+
+model Document {
+  id          String   @id @default(uuid())
+  businessId  String
+  contactId   String?
+  
+  // File Info
+  name        String
+  type        String   // 'contract', 'id', 'credit_report', 'bol', 'pod', 'invoice'
+  category    String?
+  mimeType    String
+  size        Int
+  
+  // Storage
+  storageKey  String   // S3 key or path
+  storageUrl  String?  // Presigned URL (generated on demand)
+  
+  // DocuSign Integration
+  docusignEnvelopeId String?
+  docusignStatus     String? // 'sent', 'delivered', 'signed', 'completed'
+  
+  // Metadata
+  metadata    Json     @default("{}")
+  uploadedBy  String?
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  business    Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  contact     Contact? @relation(fields: [contactId], references: [id])
+
+  @@map("documents")
+}
+
+// ==========================================
+// COMMUNICATION
+// ==========================================
+
+model Communication {
+  id          String   @id @default(uuid())
+  businessId  String
+  contactId   String?
+  
+  // Message Details
+  type        String   // 'sms', 'email', 'call', 'voicemail'
+  direction   String   // 'inbound', 'outbound'
+  status      String   // 'sent', 'delivered', 'failed', 'received'
+  
+  // Content
+  subject     String?
+  body        String
+  
+  // Phone (TELNYX)
+  fromNumber  String?
+  toNumber    String?
+  telnyxId    String?
+  duration    Int?     // Call duration in seconds
+  recordingUrl String?
+  
+  // Email
+  fromEmail   String?
+  toEmail     String?
+  
+  // Metadata
+  metadata    Json     @default("{}")
+  
+  createdAt   DateTime @default(now())
+
+  // Relations
+  contact     Contact? @relation(fields: [contactId], references: [id])
+
+  @@map("communications")
+}
+
+// ==========================================
+// BILLING & INVOICING
+// ==========================================
+
+model Invoice {
+  id            String   @id @default(uuid())
+  businessId    String
+  contactId     String?
+  
+  // Invoice Details
+  invoiceNumber String
+  status        String   @default("draft") // 'draft', 'sent', 'paid', 'overdue', 'cancelled'
+  
+  // Amounts
+  subtotal      Decimal  @db.Decimal(10, 2)
+  taxRate       Decimal  @default(0) @db.Decimal(5, 2)
+  taxAmount     Decimal  @default(0) @db.Decimal(10, 2)
+  total         Decimal  @db.Decimal(10, 2)
+  amountPaid    Decimal  @default(0) @db.Decimal(10, 2)
+  
+  // Dates
+  issueDate     DateTime @default(now())
+  dueDate       DateTime
+  paidAt        DateTime?
+  
+  // Line Items
+  items         Json     @default("[]") // [{description, quantity, unitPrice, total}]
+  
+  // Payment
+  stripeInvoiceId   String?
+  stripePaymentId   String?
+  paymentMethod     String?
+  
+  // Notes
+  notes         String?
+  terms         String?
+  
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  // Relations
+  business      Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  contact       Contact? @relation(fields: [contactId], references: [id])
+  
+  // Coys Logistics
+  load          Load?
+
+  @@map("invoices")
+}
+
+model Subscription {
+  id              String   @id @default(uuid())
+  businessId      String
+  contactId       String?
+  
+  // Stripe
+  stripeCustomerId     String
+  stripeSubscriptionId String
+  stripePriceId        String
+  
+  // Status
+  status          String   // 'active', 'canceled', 'past_due', 'trialing'
+  
+  // Billing
+  currentPeriodStart DateTime
+  currentPeriodEnd   DateTime
+  cancelAtPeriodEnd  Boolean @default(false)
+  
+  // Product Info
+  productName     String
+  amount          Decimal  @db.Decimal(10, 2)
+  interval        String   // 'month', 'year'
+  
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@map("subscriptions")
+}
+
+// ==========================================
+// CMS / PAGES
+// ==========================================
+
+model Page {
+  id          String   @id @default(uuid())
+  businessId  String
+  
+  // Page Info
+  slug        String
+  title       String
+  description String?
+  
+  // Content
+  content     Json     @default("{}") // Flexible content blocks
+  seo         Json     @default("{}") // {title, description, keywords}
+  
+  // Status
+  status      String   @default("draft") // 'draft', 'published'
+  publishedAt DateTime?
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  business    Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+
+  @@unique([businessId, slug])
+  @@map("pages")
+}
+
+// ==========================================
+// ACTIVITY LOG
+// ==========================================
+
+model Activity {
+  id          String   @id @default(uuid())
+  businessId  String
+  userId      String?
+  contactId   String?
+  
+  // Activity Details
+  type        String   // 'contact_created', 'stage_changed', 'note_added', 'call_made', etc.
+  description String
+  metadata    Json     @default("{}")
+  
+  createdAt   DateTime @default(now())
+
+  // Relations
+  user        User?    @relation(fields: [userId], references: [id])
+  contact     Contact? @relation(fields: [contactId], references: [id])
+
+  @@map("activities")
+}
+
+// ==========================================
+// CREDITPRENUERS SPECIFIC MODELS
+// ==========================================
+
+model FundingApplication {
+  id          String   @id @default(uuid())
+  businessId  String
+  contactId   String
+  
+  // Application Details
+  status      String   @default("pending") // 'pending', 'in_review', 'approved', 'funded', 'declined'
+  
+  // Credit Info
+  currentScore     Int?
+  targetScore      Int?
+  scoreImprovement Int?
+  
+  // Funding Details
+  fundingType      String?  // 'credit_card', 'business_loan', 'line_of_credit'
+  requestedAmount  Decimal? @db.Decimal(12, 2)
+  approvedAmount   Decimal? @db.Decimal(12, 2)
+  fundedAmount     Decimal? @db.Decimal(12, 2)
+  
+  // Vault Items
+  vaultItems       Json     @default("[]") // [{type: 'credit_card', name: 'Chase Freedom', limit: 5000, apr: 19.99}]
+  
+  // Timeline
+  submittedAt      DateTime @default(now())
+  reviewedAt       DateTime?
+  approvedAt       DateTime?
+  fundedAt         DateTime?
+  
+  // Notes
+  notes            String?
+  declineReason    String?
+  
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  // Relations
+  business    Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  contact     Contact  @relation(fields: [contactId], references: [id])
+
+  @@map("funding_applications")
+}
+
+// ==========================================
+// COYS LOGISTICS SPECIFIC MODELS
+// ==========================================
+
+model Truck {
+  id              String   @id @default(uuid())
+  businessId      String
+  
+  // Vehicle Info
+  unitNumber      String
+  vin             String?
+  make            String
+  model           String
+  year            Int
+  type            String   // 'semi', 'box_truck', 'flatbed', 'reefer'
+  
+  // Capacity
+  gvwr            Int?     // Gross Vehicle Weight Rating
+  payloadCapacity Int?
+  
+  // Status
+  status          String   @default("active") // 'active', 'maintenance', 'out_of_service'
+  
+  // GPS/Tracking (ModuRoute Integration)
+  moduRouteId     String?
+  lastLocation    Json?    // {lat, lng, timestamp, speed, heading}
+  
+  // Maintenance
+  lastServiceDate DateTime?
+  nextServiceDate DateTime?
+  mileage         Int?
+  
+  // Documents
+  insuranceExpiry DateTime?
+  registrationExpiry DateTime?
+  inspectionExpiry DateTime?
+  
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  // Relations
+  business        Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  loads           Load[]
+  maintenanceLogs MaintenanceLog[]
+
+  @@unique([businessId, unitNumber])
+  @@map("trucks")
+}
+
+model Driver {
+  id              String   @id @default(uuid())
+  businessId      String
+  
+  // Personal Info
+  firstName       String
+  lastName        String
+  email           String?
+  phone           String
+  
+  // License Info
+  cdlNumber       String
+  cdlState        String
+  cdlClass        String   // 'A', 'B', 'C'
+  cdlExpiry       DateTime
+  
+  // Employment
+  employeeId      String?
+  hireDate        DateTime?
+  status          String   @default("active") // 'active', 'inactive', 'on_leave', 'terminated'
+  
+  // Pay
+  payType         String?  // 'per_mile', 'percentage', 'hourly', 'salary'
+  payRate         Decimal? @db.Decimal(10, 2)
+  
+  // Compliance
+  medicalCardExpiry  DateTime?
+  drugTestDate       DateTime?
+  backgroundCheckDate DateTime?
+  
+  // Emergency Contact
+  emergencyName   String?
+  emergencyPhone  String?
+  
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  // Relations
+  business        Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  loads           Load[]
+  driverPayments  DriverPayment[]
+
+  @@unique([businessId, cdlNumber])
+  @@map("drivers")
+}
+
+model Load {
+  id              String   @id @default(uuid())
+  businessId      String
+  
+  // Assignment
+  truckId         String?
+  driverId        String?
+  shipperId       String?  // Contact ID
+  
+  // Load Details
+  loadNumber      String
+  referenceNumber String?
+  status          String   @default("quote") // 'quote', 'booked', 'dispatched', 'in_transit', 'delivered', 'invoiced', 'paid'
+  
+  // Cargo
+  commodity       String?
+  weight          Int?
+  pieces          Int?
+  dims            Json?    // {length, width, height}
+  hazmat          Boolean  @default(false)
+  temperature     Json?    // {min, max} for reefer
+  
+  // Route
+  pickupAddress   String
+  pickupCity      String
+  pickupState     String
+  pickupZip       String
+  pickupDate      DateTime
+  pickupTime      String?
+  pickupNotes     String?
+  
+  deliveryAddress String
+  deliveryCity    String
+  deliveryState   String
+  deliveryZip     String
+  deliveryDate    DateTime
+  deliveryTime    String?
+  deliveryNotes   String?
+  
+  // Additional Stops
+  stops           Json     @default("[]") // [{address, city, state, zip, type, date, time, notes}]
+  
+  // Financials
+  rate            Decimal  @db.Decimal(10, 2)
+  rateType        String   @default("flat") // 'flat', 'per_mile'
+  miles           Int?
+  fuelSurcharge   Decimal  @default(0) @db.Decimal(10, 2)
+  accessorials    Json     @default("[]") // [{type, amount, description}]
+  totalAmount     Decimal  @db.Decimal(10, 2)
+  
+  // Tracking
+  currentLocation Json?    // {lat, lng, timestamp}
+  eta             DateTime?
+  
+  // Timestamps
+  dispatchedAt    DateTime?
+  pickedUpAt      DateTime?
+  deliveredAt     DateTime?
+  
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  // Relations
+  business        Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
+  truck           Truck?   @relation(fields: [truckId], references: [id])
+  driver          Driver?  @relation(fields: [driverId], references: [id])
+  shipper         Contact? @relation("ShipperContact", fields: [shipperId], references: [id])
+  billOfLading    BillOfLading?
+  invoice         Invoice? @relation(fields: [invoiceId], references: [id])
+  invoiceId       String?  @unique
+  checkCalls      CheckCall[]
+
+  @@unique([businessId, loadNumber])
+  @@map("loads")
+}
+
+model BillOfLading {
+  id              String   @id @default(uuid())
+  loadId          String   @unique
+  
+  // BoL Details
+  bolNumber       String
+  proNumber       String?
+  
+  // Parties
+  shipperName     String
+  shipperAddress  String
+  consigneeName   String
+  consigneeAddress String
+  
+  // Cargo Details
+  description     String
+  weight          Int
+  pieces          Int
+  freightClass    String?
+  nmfcCode        String?
+  
+  // Signatures
+  shipperSignature   String?
+  shipperSignedAt    DateTime?
+  driverSignature    String?
+  driverSignedAt     DateTime?
+  consigneeSignature String?
+  consigneeSignedAt  DateTime?
+  
+  // PDF
+  pdfUrl          String?
+  
+  // Special Instructions
+  specialInstructions String?
+  
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  // Relations
+  load            Load     @relation(fields: [loadId], references: [id], onDelete: Cascade)
+
+  @@map("bills_of_lading")
+}
+
+model CheckCall {
+  id              String   @id @default(uuid())
+  loadId          String
+  
+  // Location
+  location        String
+  city            String?
+  state           String?
+  lat             Float?
+  lng             Float?
+  
+  // Status
+  status          String   // 'in_transit', 'stopped', 'at_pickup', 'at_delivery', 'delayed'
+  notes           String?
+  
+  // Reporter
+  reportedBy      String?  // Driver name or 'GPS'
+  
+  createdAt       DateTime @default(now())
+
+  // Relations
+  load            Load     @relation(fields: [loadId], references: [id], onDelete: Cascade)
+
+  @@map("check_calls")
+}
+
+model RateHistory {
+  id              String   @id @default(uuid())
+  contactId       String
+  
+  // Lane Info
+  originCity      String
+  originState     String
+  destCity        String
+  destState       String
+  
+  // Rate
+  rate            Decimal  @db.Decimal(10, 2)
+  rateType        String   // 'flat', 'per_mile'
+  miles           Int?
+  
+  // Equipment
+  equipmentType   String?
+  
+  // Date
+  effectiveDate   DateTime
+  expiryDate      DateTime?
+  
+  notes           String?
+  
+  createdAt       DateTime @default(now())
+
+  // Relations
+  contact         Contact  @relation(fields: [contactId], references: [id], onDelete: Cascade)
+
+  @@map("rate_history")
+}
+
+model MaintenanceLog {
+  id              String   @id @default(uuid())
+  truckId         String
+  
+  // Service Details
+  serviceType     String   // 'oil_change', 'tire_rotation', 'brake_service', 'inspection', 'repair', 'other'
+  description     String
+  
+  // Costs
+  laborCost       Decimal  @default(0) @db.Decimal(10, 2)
+  partsCost       Decimal  @default(0) @db.Decimal(10, 2)
+  totalCost       Decimal  @db.Decimal(10, 2)
+  
+  // Mileage
+  mileage         Int?
+  
+  // Vendor
+  vendor          String?
+  invoiceNumber   String?
+  
+  // Date
+  serviceDate     DateTime
+  nextServiceDate DateTime?
+  
+  notes           String?
+  
+  createdAt       DateTime @default(now())
+
+  // Relations
+  truck           Truck    @relation(fields: [truckId], references: [id], onDelete: Cascade)
+
+  @@map("maintenance_logs")
+}
+
+model DriverPayment {
+  id              String   @id @default(uuid())
+  driverId        String
+  
+  // Payment Details
+  payPeriodStart  DateTime
+  payPeriodEnd    DateTime
+  
+  // Earnings
+  loads           Json     @default("[]") // [{loadId, loadNumber, amount}]
+  totalMiles      Int?
+  totalLoads      Int?
+  grossPay        Decimal  @db.Decimal(10, 2)
+  
+  // Deductions
+  deductions      Json     @default("[]") // [{type, description, amount}]
+  totalDeductions Decimal  @default(0) @db.Decimal(10, 2)
+  
+  // Net
+  netPay          Decimal  @db.Decimal(10, 2)
+  
+  // Status
+  status          String   @default("pending") // 'pending', 'approved', 'paid'
+  paidAt          DateTime?
+  paymentMethod   String?
+  referenceNumber String?
+  
+  notes           String?
+  
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  // Relations
+  driver          Driver   @relation(fields: [driverId], references: [id], onDelete: Cascade)
+
+  @@map("driver_payments")
+}

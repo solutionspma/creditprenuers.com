@@ -1,0 +1,168 @@
+{
+  "businessId": "coyslogistics",
+  "businessName": "Coys Logistics",
+  "owner": "Shakur Mac",
+  "industry": "Trucking & Freight Logistics",
+  "timezone": "America/New_York",
+  "currency": "USD",
+  
+  "branding": {
+    "primaryColor": "#D4AF37",
+    "secondaryColor": "#1a1a1a",
+    "logo": "/images/logo.png",
+    "favicon": "/favicon.svg"
+  },
+  
+  "features": {
+    "contacts": true,
+    "pipelines": true,
+    "documents": true,
+    "automation": true,
+    "communication": true,
+    "billing": true,
+    "cms": true,
+    "analytics": true,
+    "fleetManagement": true,
+    "loadTracking": true,
+    "driverManagement": true,
+    "bolGenerator": true,
+    "gpsTracking": true,
+    "compliance": true
+  },
+  
+  "products": {
+    "dispatch_service": {
+      "id": "dispatch_monthly",
+      "name": "Dispatch Service",
+      "price": 50000,
+      "type": "recurring",
+      "interval": "month"
+    },
+    "driver_onboarding": {
+      "id": "driver_onboard",
+      "name": "Driver Onboarding Fee",
+      "price": 15000,
+      "type": "one_time"
+    },
+    "trucking_ebook": {
+      "id": "ebook_trucking",
+      "name": "Trucking Business eBook",
+      "price": 2700,
+      "type": "one_time"
+    }
+  },
+  
+  "pipelines": {
+    "loads": [
+      { "id": "new_load", "name": "New Load", "order": 1, "color": "#6B7280" },
+      { "id": "assigned", "name": "Driver Assigned", "order": 2, "color": "#3B82F6" },
+      { "id": "en_route_pickup", "name": "En Route to Pickup", "order": 3, "color": "#8B5CF6" },
+      { "id": "at_pickup", "name": "At Pickup", "order": 4, "color": "#F59E0B" },
+      { "id": "loaded", "name": "Loaded", "order": 5, "color": "#10B981" },
+      { "id": "in_transit", "name": "In Transit", "order": 6, "color": "#D4AF37" },
+      { "id": "at_delivery", "name": "At Delivery", "order": 7, "color": "#6366F1" },
+      { "id": "delivered", "name": "Delivered", "order": 8, "color": "#22C55E" },
+      { "id": "invoiced", "name": "Invoiced", "order": 9, "color": "#14B8A6" },
+      { "id": "paid", "name": "Paid", "order": 10, "color": "#059669" }
+    ],
+    "drivers": [
+      { "id": "applicant", "name": "Applicant", "order": 1, "color": "#6B7280" },
+      { "id": "documents_pending", "name": "Documents Pending", "order": 2, "color": "#F59E0B" },
+      { "id": "background_check", "name": "Background Check", "order": 3, "color": "#8B5CF6" },
+      { "id": "training", "name": "Training", "order": 4, "color": "#3B82F6" },
+      { "id": "active", "name": "Active Driver", "order": 5, "color": "#22C55E" },
+      { "id": "inactive", "name": "Inactive", "order": 6, "color": "#EF4444" }
+    ]
+  },
+  
+  "documentTypes": [
+    "cdl_license",
+    "medical_certificate",
+    "insurance_certificate",
+    "vehicle_registration",
+    "dot_authority",
+    "mc_number",
+    "ifta_permit",
+    "bill_of_lading",
+    "rate_confirmation",
+    "proof_of_delivery",
+    "fuel_receipt",
+    "maintenance_record",
+    "eld_log",
+    "driver_contract"
+  ],
+  
+  "fleetStatus": [
+    "available",
+    "on_load",
+    "maintenance",
+    "out_of_service",
+    "reserved"
+  ],
+  
+  "automations": {
+    "load_assigned": {
+      "trigger": "load.status_changed",
+      "conditions": { "new_status": "assigned" },
+      "actions": [
+        { "type": "send_sms", "data": { "to": "{{driver.phone}}", "template": "load_assignment" } },
+        { "type": "send_email", "data": { "to": "{{driver.email}}", "template": "load_details" } }
+      ]
+    },
+    "load_delivered": {
+      "trigger": "load.status_changed",
+      "conditions": { "new_status": "delivered" },
+      "actions": [
+        { "type": "generate_invoice", "data": { "auto": true } },
+        { "type": "send_email", "data": { "to": "{{shipper.email}}", "template": "delivery_confirmation" } },
+        { "type": "update_driver_stats", "data": {} }
+      ]
+    },
+    "document_expiry_alert": {
+      "trigger": "schedule.daily",
+      "conditions": { "document_expires_in_days": 30 },
+      "actions": [
+        { "type": "send_sms", "data": { "template": "document_expiry_warning" } },
+        { "type": "create_task", "data": { "title": "Renew {{document_type}} for {{entity_name}}" } }
+      ]
+    },
+    "driver_onboarding": {
+      "trigger": "driver.status_changed",
+      "conditions": { "new_status": "active" },
+      "actions": [
+        { "type": "send_email", "data": { "template": "driver_welcome" } },
+        { "type": "create_task", "data": { "title": "First load training with {{driver.name}}" } }
+      ]
+    }
+  },
+  
+  "compliance": {
+    "fmcsa": true,
+    "dot": true,
+    "ifta": true,
+    "requiredDocuments": [
+      "cdl_verification",
+      "medical_card",
+      "mvr_check",
+      "drug_test",
+      "background_check",
+      "insurance_verification"
+    ],
+    "eldCompliance": true,
+    "hosRules": "property_short_haul"
+  },
+  
+  "integrations": {
+    "stripe": { "enabled": true },
+    "telnyx": { "enabled": true },
+    "docusign": { "enabled": true },
+    "moduroute": { "enabled": true, "description": "GPS tracking via MAJ Cellular" },
+    "loadBoards": { "enabled": true, "sources": ["dat", "truckstop", "direct"] }
+  },
+  
+  "urls": {
+    "frontend": "https://coyslogistics.netlify.app",
+    "api": "https://api.coyslogistics.com",
+    "webhooks": "https://api.coyslogistics.com/webhooks"
+  }
+}
