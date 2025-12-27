@@ -6,7 +6,7 @@ export default function About() {
   return (
     <>
       <Head>
-        <title>About Shakur Mac | CreditPreneurs</title>
+        <title>About Shakur Mac | Credtegy</title>
         <meta name="description" content="Learn about Shakur Mac's journey from struggle to success, and how he's helping others achieve financial freedom through credit mastery and mentorship." />
       </Head>
 
@@ -66,7 +66,7 @@ export default function About() {
                 <div className="card mb-8">
                   <h3 className="text-2xl font-bold text-gray-900 mb-4">Building the Movement</h3>
                   <p className="text-gray-600 mb-4">
-                    Success alone wasn't enough. Shakur saw too many people in his community struggling with the same issues he'd overcome. That's when CreditPreneurs was born.
+                    Success alone wasn't enough. Shakur saw too many people in his community struggling with the same issues he'd overcome. That's when Credtegy was born.
                   </p>
                   <p className="text-gray-600">
                     This isn't just a business—it's a movement. A commitment to lifting others up, sharing the knowledge, and creating generational wealth in communities that have been left behind.
@@ -76,7 +76,7 @@ export default function About() {
                 <div className="card">
                   <h3 className="text-2xl font-bold text-gray-900 mb-4">The Vision</h3>
                   <p className="text-gray-600 mb-4">
-                    Today, CreditPreneurs has helped hundreds of people repair their credit, secure funding, and start building the lives they deserve. But we're just getting started.
+                    Today, Credtegy has helped hundreds of people repair their credit, secure funding, and start building the lives they deserve. But we're just getting started.
                   </p>
                   <p className="text-gray-600">
                     Through the eBook, mentorship programs, and community support, Shakur is creating a network of financially empowered individuals who will change their families' trajectories forever.
@@ -132,7 +132,7 @@ export default function About() {
                 Ready to Start Your Journey?
               </h2>
               <p className="text-xl text-gray-300 mb-8">
-                Join thousands who have transformed their financial futures with CreditPreneurs.
+                Join thousands who have transformed their financial futures with Credtegy.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="/ebook" className="btn-secondary text-lg">

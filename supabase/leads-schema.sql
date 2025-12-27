@@ -1,5 +1,5 @@
 -- ==============================================
--- LEADS SCHEMA FOR CREDITPRENUERS & COYS LOGISTICS
+-- LEADS SCHEMA FOR CREDTEGY & LOGADEMY
 -- ==============================================
 -- Run this in Supabase SQL Editor
 -- Project: uksjnwnvarhldlxyymef (Pitch Marketing Agency)
@@ -143,8 +143,8 @@ CREATE POLICY "crm_leads_insert_anon" ON crm_leads
 
 -- ==============================================
 -- DONE! Tables ready for:
--- - CreditPreneurs leads (source = 'creditprenuers')
--- - Coys Logistics leads (source = 'coyslogistics')
+-- - Credtegy leads (source = 'credtegy')
+-- - Logademy leads (source = 'logademy')
 -- - Pitch Marketing leads (source = 'pitchmarketing')
 -- - Calendar bookings
 -- ==============================================

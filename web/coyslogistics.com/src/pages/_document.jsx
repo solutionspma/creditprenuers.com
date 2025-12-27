@@ -13,7 +13,7 @@ export default function Document() {
         
         {/* Open Graph / Social Media */}
         <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="Coys Logistics" />
+        <meta property="og:site_name" content="Logademy" />
         <meta property="og:image" content="/images/og-image.jpg" />
         
         {/* Twitter */}

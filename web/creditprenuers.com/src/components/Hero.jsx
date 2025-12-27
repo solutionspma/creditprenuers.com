@@ -28,7 +28,7 @@ export default function Hero() {
           className="w-full h-full object-cover"
           style={{ objectFit: 'cover' }}
         >
-          <source src="/images/creditPrenuersHero.mp4" type="video/mp4" />
+          <source src="/images/credtegyHero.mp4" type="video/mp4" />
         </video>
         {/* Dark overlay for text readability */}
         <div className="absolute inset-0 bg-black/60"></div>
@@ -49,7 +49,7 @@ export default function Hero() {
             
             <p className="text-xl text-gray-300 mb-8 max-w-lg">
               Economic empowerment through credit repair, funding strategies, and mentorship. 
-              Join thousands transforming their financial futures with CreditPreneurs.
+              Join thousands transforming their financial futures with Credtegy.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">

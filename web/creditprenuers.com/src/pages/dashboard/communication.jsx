@@ -8,12 +8,12 @@ export default function CommunicationPage() {
   const [selectedConversation, setSelectedConversation] = useState(null)
 
   const conversations = [
-    { id: 1, name: 'Marcus Johnson', avatar: 'MJ', lastMessage: 'Thanks for the update on my credit score!', time: '5 min', unread: 2, type: 'client', business: 'creditprenuers' },
-    { id: 2, name: 'Keisha Williams', avatar: 'KW', lastMessage: 'When will my next dispute letter go out?', time: '15 min', unread: 1, type: 'client', business: 'creditprenuers' },
-    { id: 3, name: 'Amazon FBA Logistics', avatar: 'AF', lastMessage: 'Load LD-2024-001 has been confirmed', time: '30 min', unread: 0, type: 'broker', business: 'coyslogistics' },
-    { id: 4, name: 'Darnell Brown', avatar: 'DB', lastMessage: 'Just completed delivery in Chicago', time: '1 hr', unread: 0, type: 'driver', business: 'coyslogistics' },
-    { id: 5, name: 'FedEx Ground', avatar: 'FG', lastMessage: 'New load available: Memphis to Nashville', time: '2 hrs', unread: 3, type: 'broker', business: 'coyslogistics' },
-    { id: 6, name: 'Jerome Smith', avatar: 'JS', lastMessage: 'Ready for funding consultation', time: '3 hrs', unread: 0, type: 'client', business: 'creditprenuers' },
+    { id: 1, name: 'Marcus Johnson', avatar: 'MJ', lastMessage: 'Thanks for the update on my credit score!', time: '5 min', unread: 2, type: 'client', business: 'credtegy' },
+    { id: 2, name: 'Keisha Williams', avatar: 'KW', lastMessage: 'When will my next dispute letter go out?', time: '15 min', unread: 1, type: 'client', business: 'credtegy' },
+    { id: 3, name: 'Amazon FBA Logistics', avatar: 'AF', lastMessage: 'Load LD-2024-001 has been confirmed', time: '30 min', unread: 0, type: 'broker', business: 'logademy' },
+    { id: 4, name: 'Darnell Brown', avatar: 'DB', lastMessage: 'Just completed delivery in Chicago', time: '1 hr', unread: 0, type: 'driver', business: 'logademy' },
+    { id: 5, name: 'FedEx Ground', avatar: 'FG', lastMessage: 'New load available: Memphis to Nashville', time: '2 hrs', unread: 3, type: 'broker', business: 'logademy' },
+    { id: 6, name: 'Jerome Smith', avatar: 'JS', lastMessage: 'Ready for funding consultation', time: '3 hrs', unread: 0, type: 'client', business: 'credtegy' },
   ]
 
   const messages = [
@@ -87,7 +87,7 @@ export default function CommunicationPage() {
             >
               <div className="flex items-start gap-3">
                 <div className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold ${
-                  conv.business === 'creditprenuers' ? 'bg-accent-gold/20 text-accent-gold' : 'bg-blue-500/20 text-blue-400'
+                  conv.business === 'credtegy' ? 'bg-accent-gold/20 text-accent-gold' : 'bg-blue-500/20 text-blue-400'
                 }`}>
                   {conv.avatar}
                 </div>
@@ -125,7 +125,7 @@ export default function CommunicationPage() {
               <div className="p-4 border-b border-gray-700 flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <div className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold ${
-                    selectedConversation.business === 'creditprenuers' ? 'bg-accent-gold/20 text-accent-gold' : 'bg-blue-500/20 text-blue-400'
+                    selectedConversation.business === 'credtegy' ? 'bg-accent-gold/20 text-accent-gold' : 'bg-blue-500/20 text-blue-400'
                   }`}>
                     {selectedConversation.avatar}
                   </div>

@@ -7,20 +7,20 @@ export default function DocumentsPage() {
   const [category, setCategory] = useState('all')
 
   const documents = [
-    // CreditPreneurs Documents
-    { id: 1, name: 'Credit Dispute Letter Template', category: 'templates', business: 'creditprenuers', type: 'DOCX', size: '24 KB', updated: '2024-12-20' },
-    { id: 2, name: 'Debt Validation Letter', category: 'templates', business: 'creditprenuers', type: 'DOCX', size: '18 KB', updated: '2024-12-18' },
-    { id: 3, name: 'Funding Application Checklist', category: 'checklists', business: 'creditprenuers', type: 'PDF', size: '156 KB', updated: '2024-12-15' },
-    { id: 4, name: 'Client Intake Form', category: 'forms', business: 'creditprenuers', type: 'PDF', size: '89 KB', updated: '2024-12-22' },
-    { id: 5, name: 'Business Credit Building Guide', category: 'guides', business: 'creditprenuers', type: 'PDF', size: '2.4 MB', updated: '2024-12-10' },
-    // Coys Logistics Documents
-    { id: 6, name: 'Bill of Lading Template', category: 'templates', business: 'coyslogistics', type: 'PDF', size: '45 KB', updated: '2024-12-24' },
-    { id: 7, name: 'Rate Confirmation Sheet', category: 'forms', business: 'coyslogistics', type: 'PDF', size: '32 KB', updated: '2024-12-23' },
-    { id: 8, name: 'Driver Compliance Checklist', category: 'checklists', business: 'coyslogistics', type: 'PDF', size: '78 KB', updated: '2024-12-21' },
-    { id: 9, name: 'DOT Inspection Prep Guide', category: 'guides', business: 'coyslogistics', type: 'PDF', size: '1.2 MB', updated: '2024-12-19' },
-    { id: 10, name: 'Carrier Packet Template', category: 'templates', business: 'coyslogistics', type: 'ZIP', size: '3.5 MB', updated: '2024-12-17' },
-    { id: 11, name: 'Proof of Delivery Form', category: 'forms', business: 'coyslogistics', type: 'PDF', size: '28 KB', updated: '2024-12-25' },
-    { id: 12, name: 'IFTA Quarterly Report Template', category: 'templates', business: 'coyslogistics', type: 'XLSX', size: '156 KB', updated: '2024-12-16' },
+    // Credtegy Documents
+    { id: 1, name: 'Credit Dispute Letter Template', category: 'templates', business: 'credtegy', type: 'DOCX', size: '24 KB', updated: '2024-12-20' },
+    { id: 2, name: 'Debt Validation Letter', category: 'templates', business: 'credtegy', type: 'DOCX', size: '18 KB', updated: '2024-12-18' },
+    { id: 3, name: 'Funding Application Checklist', category: 'checklists', business: 'credtegy', type: 'PDF', size: '156 KB', updated: '2024-12-15' },
+    { id: 4, name: 'Client Intake Form', category: 'forms', business: 'credtegy', type: 'PDF', size: '89 KB', updated: '2024-12-22' },
+    { id: 5, name: 'Business Credit Building Guide', category: 'guides', business: 'credtegy', type: 'PDF', size: '2.4 MB', updated: '2024-12-10' },
+    // Logademy Documents
+    { id: 6, name: 'Bill of Lading Template', category: 'templates', business: 'logademy', type: 'PDF', size: '45 KB', updated: '2024-12-24' },
+    { id: 7, name: 'Rate Confirmation Sheet', category: 'forms', business: 'logademy', type: 'PDF', size: '32 KB', updated: '2024-12-23' },
+    { id: 8, name: 'Driver Compliance Checklist', category: 'checklists', business: 'logademy', type: 'PDF', size: '78 KB', updated: '2024-12-21' },
+    { id: 9, name: 'DOT Inspection Prep Guide', category: 'guides', business: 'logademy', type: 'PDF', size: '1.2 MB', updated: '2024-12-19' },
+    { id: 10, name: 'Carrier Packet Template', category: 'templates', business: 'logademy', type: 'ZIP', size: '3.5 MB', updated: '2024-12-17' },
+    { id: 11, name: 'Proof of Delivery Form', category: 'forms', business: 'logademy', type: 'PDF', size: '28 KB', updated: '2024-12-25' },
+    { id: 12, name: 'IFTA Quarterly Report Template', category: 'templates', business: 'logademy', type: 'XLSX', size: '156 KB', updated: '2024-12-16' },
   ]
 
   const filteredDocs = category === 'all' ? documents : documents.filter(d => d.category === category)
@@ -104,9 +104,9 @@ export default function DocumentsPage() {
                     {doc.type === 'PDF' ? '📕' : doc.type === 'DOCX' ? '📘' : doc.type === 'XLSX' ? '📗' : '📦'}
                   </div>
                   <span className={`text-xs px-2 py-1 rounded ${
-                    doc.business === 'creditprenuers' ? 'bg-accent-gold/20 text-accent-gold' : 'bg-blue-500/20 text-blue-400'
+                    doc.business === 'credtegy' ? 'bg-accent-gold/20 text-accent-gold' : 'bg-blue-500/20 text-blue-400'
                   }`}>
-                    {doc.business === 'creditprenuers' ? 'Credit' : 'Logistics'}
+                    {doc.business === 'credtegy' ? 'Credit' : 'Logistics'}
                   </span>
                 </div>
                 <h4 className="text-white font-medium mb-2 group-hover:text-accent-gold transition-colors">{doc.name}</h4>

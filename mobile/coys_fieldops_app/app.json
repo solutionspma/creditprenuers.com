@@ -16,7 +16,7 @@
     ],
     "ios": {
       "supportsTablet": false,
-      "bundleIdentifier": "com.coyslogistics.fieldops",
+      "bundleIdentifier": "com.logademy.fieldops",
       "infoPlist": {
         "NSLocationWhenInUseUsageDescription": "We need your location to track delivery routes and provide accurate ETAs.",
         "NSLocationAlwaysUsageDescription": "Background location is used to track deliveries even when the app is closed.",
@@ -28,7 +28,7 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#16A34A"
       },
-      "package": "com.coyslogistics.fieldops",
+      "package": "com.logademy.fieldops",
       "permissions": [
         "ACCESS_FINE_LOCATION",
         "ACCESS_COARSE_LOCATION",

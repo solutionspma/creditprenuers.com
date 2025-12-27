@@ -43,7 +43,7 @@ async function runSchema() {
   }
   
   console.log('✅ After running the SQL, the following tables will be created:');
-  console.log('   - leads (stores all leads from CreditPreneurs, CoysLogistics, and PitchMarketing)');
+  console.log('   - leads (stores all leads from Credtegy, Logademy, and PitchMarketing)');
   console.log('   - lead_activities (tracks all lead interactions)');
   console.log('\n');
   console.log('🔗 All leads will be visible in your Pitch Marketing Agency dashboard!');

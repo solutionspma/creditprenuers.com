@@ -1,5 +1,5 @@
 /**
- * COYS LOGISTICS - CMS ROUTES
+ * LOGADEMY - CMS ROUTES
  */
 const express = require('express');
 const router = express.Router();
@@ -7,7 +7,7 @@ const { PrismaClient } = require('@prisma/client');
 const { authenticate, authorize } = require('../../../shared/middleware/auth');
 
 const prisma = new PrismaClient();
-const BUSINESS_ID = 'coyslogistics';
+const BUSINESS_ID = 'logademy';
 
 router.get('/pages', authenticate, async (req, res) => {
   try {

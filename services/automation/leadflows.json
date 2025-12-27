@@ -3,7 +3,7 @@
     {
       "id": "lf_creditpren_ebook",
       "name": "eBook Download Lead Flow",
-      "business": "creditprenuers",
+      "business": "credtegy",
       "businessId": "BC_CREDITPREN_STAGING",
       "trigger": {
         "type": "form_submit",
@@ -48,7 +48,7 @@
     {
       "id": "lf_creditpren_membership",
       "name": "Membership Signup Lead Flow",
-      "business": "creditprenuers",
+      "business": "credtegy",
       "businessId": "BC_CREDITPREN_STAGING",
       "trigger": {
         "type": "payment_complete",
@@ -103,7 +103,7 @@
     {
       "id": "lf_creditpren_whitelabel",
       "name": "White Label Partner Lead Flow",
-      "business": "creditprenuers",
+      "business": "credtegy",
       "businessId": "BC_CREDITPREN_STAGING",
       "trigger": {
         "type": "form_submit",
@@ -148,7 +148,7 @@
     {
       "id": "lf_coyslog_dispatch",
       "name": "Dispatch Academy Lead Flow",
-      "business": "coyslogistics",
+      "business": "logademy",
       "businessId": "BC_COYSLOG_STAGING",
       "trigger": {
         "type": "form_submit",
@@ -193,7 +193,7 @@
     {
       "id": "lf_coyslog_fleet",
       "name": "Fleet Owner Lead Flow",
-      "business": "coyslogistics",
+      "business": "logademy",
       "businessId": "BC_COYSLOG_STAGING",
       "trigger": {
         "type": "form_submit",
@@ -238,7 +238,7 @@
     {
       "id": "lf_coyslog_driver_app",
       "name": "Driver App Download Lead Flow",
-      "business": "coyslogistics",
+      "business": "logademy",
       "businessId": "BC_COYSLOG_STAGING",
       "trigger": {
         "type": "app_install",
@@ -279,7 +279,7 @@
       "enabled": true,
       "apiEndpoint": "https://api.pitchmarketingagency.com/leads",
       "minimumScore": 40,
-      "businesses": ["creditprenuers", "coyslogistics"],
+      "businesses": ["credtegy", "logademy"],
       "excludeTags": ["do-not-route", "internal-only"],
       "retryPolicy": {
         "maxRetries": 3,
@@ -288,7 +288,7 @@
     }
   },
   "scoring": {
-    "creditprenuers": {
+    "credtegy": {
       "ebook_download": 15,
       "form_submit": 20,
       "email_open": 5,
@@ -298,7 +298,7 @@
       "whitelabel_inquiry": 35,
       "call_booked": 30
     },
-    "coyslogistics": {
+    "logademy": {
       "form_submit": 20,
       "video_watched": 10,
       "course_interest": 25,

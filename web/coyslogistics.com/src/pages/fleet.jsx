@@ -122,8 +122,8 @@ export default function Fleet() {
   return (
     <>
       <Head>
-        <title>Fleet Management | Coys Logistics - Professional Fleet Solutions</title>
-        <meta name="description" content="Comprehensive fleet management services from Coys Logistics. Dispatch, compliance, revenue optimization, and 24/7 support for trucking companies of all sizes." />
+        <title>Fleet Management | Logademy - Professional Fleet Solutions</title>
+        <meta name="description" content="Comprehensive fleet management services from Logademy. Dispatch, compliance, revenue optimization, and 24/7 support for trucking companies of all sizes." />
       </Head>
 
       {/* Navigation */}
@@ -135,7 +135,7 @@ export default function Fleet() {
               <div className="relative w-16 h-10 rounded-lg overflow-hidden border-2 border-green-500">
                 <Image
                   src="/images/coyslogo.jpg"
-                  alt="Coys Logistics Logo"
+                  alt="Logademy Logo"
                   fill
                   className="object-contain bg-slate-800"
                 />
@@ -537,7 +537,7 @@ export default function Fleet() {
               Ready to Optimize Your Fleet?
             </h2>
             <p className="text-xl text-gray-200 mb-8">
-              Let Coys Logistics handle the details so you can focus on growing your business
+              Let Logademy handle the details so you can focus on growing your business
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
@@ -568,7 +568,7 @@ export default function Fleet() {
                 <div className="relative w-16 h-10 rounded-lg overflow-hidden border-2 border-green-500">
                   <Image
                     src="/images/coyslogo.jpg"
-                    alt="Coys Logistics Logo"
+                    alt="Logademy Logo"
                     fill
                     className="object-contain bg-slate-800"
                   />
@@ -607,7 +607,7 @@ export default function Fleet() {
                   <span>(XXX) XXX-XXXX</span>
                 </li>
                 <li>
-                  <span>info@coyslogistics.com</span>
+                  <span>info@logademy.com</span>
                 </li>
               </ul>
             </div>
@@ -617,7 +617,7 @@ export default function Fleet() {
           <div className="border-t border-slate-800 mt-12 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               <p className="text-gray-500 text-sm">
-                © {new Date().getFullYear()} Coys Logistics. All rights reserved.
+                © {new Date().getFullYear()} Logademy. All rights reserved.
               </p>
               <div className="flex flex-col items-center space-y-1">
                 <p className="text-gray-500 text-sm">Powered by</p>

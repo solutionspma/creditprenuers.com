@@ -28,8 +28,8 @@ export default function Contact() {
   return (
     <>
       <Head>
-        <title>Contact Us | Coys Logistics</title>
-        <meta name="description" content="Get in touch with Coys Logistics. Questions about dispatch training, fleet management, or trucking mentorship? We're here to help." />
+        <title>Contact Us | Logademy</title>
+        <meta name="description" content="Get in touch with Logademy. Questions about dispatch training, fleet management, or trucking mentorship? We're here to help." />
       </Head>
 
       <div className="bg-slate-900 text-white min-h-screen">
@@ -39,10 +39,10 @@ export default function Contact() {
             <Link href="/" className="flex items-center gap-3">
               <img 
                 src="/images/coyslogo.jpg" 
-                alt="Coys Logistics" 
+                alt="Logademy" 
                 className="w-16 h-10 rounded-lg object-contain bg-slate-800 border-2 border-green-500"
               />
-              <span className="font-bold text-xl hidden sm:block">Coys Logistics</span>
+              <span className="font-bold text-xl hidden sm:block">Logademy</span>
             </Link>
             <div className="hidden md:flex items-center gap-8">
               <Link href="/" className="text-gray-300 hover:text-green-400 transition-colors">Home</Link>
@@ -86,7 +86,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <h3 className="font-bold text-lg">Email</h3>
-                      <p className="text-gray-400">info@coyslogistics.com</p>
+                      <p className="text-gray-400">info@logademy.com</p>
                       <p className="text-sm text-gray-500">We respond within 24 hours</p>
                     </div>
                   </div>
@@ -127,8 +127,8 @@ export default function Contact() {
                     <Link href="/fleet" className="flex items-center gap-2 text-green-400 hover:text-green-300">
                       → Fleet Management
                     </Link>
-                    <a href="https://creditprenuers.netlify.app" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-amber-400 hover:text-amber-300">
-                      → CreditPreneurs (Credit & Funding)
+                    <a href="https://credtegy.netlify.app" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-amber-400 hover:text-amber-300">
+                      → Credtegy (Credit & Funding)
                     </a>
                   </div>
                 </div>
@@ -236,10 +236,10 @@ export default function Contact() {
               <div className="flex items-center gap-3">
                 <img 
                   src="/images/coyslogo.jpg" 
-                  alt="Coys Logistics" 
+                  alt="Logademy" 
                   className="w-12 h-12 rounded-lg object-cover"
                 />
-                <span className="font-bold text-xl">Coys Logistics</span>
+                <span className="font-bold text-xl">Logademy</span>
               </div>
               <div className="flex gap-8 text-gray-400 text-sm">
                 <Link href="/" className="hover:text-green-400">Home</Link>
@@ -249,7 +249,7 @@ export default function Contact() {
               </div>
             </div>
             <div className="border-t border-white/10 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-              <p className="text-gray-500 text-sm">© 2024 Coys Logistics. All rights reserved.</p>
+              <p className="text-gray-500 text-sm">© 2024 Logademy. All rights reserved.</p>
               <div className="text-center md:text-right">
                 <p className="text-gray-500 text-sm">
                   Powered by{' '}

@@ -1,10 +1,10 @@
 {
   "container_id": "BC_CREDITPREN_STAGING",
-  "business_name": "CreditPreneurs",
+  "business_name": "Credtegy",
   "owner": "Shakur Coy Mac",
-  "email": "admin@creditprenuers.com",
+  "email": "admin@credtegy.com",
   "industry": "General",
-  "domains": ["https://creditprenuers.com"],
+  "domains": ["https://credtegy.com"],
   "modules": [
     "contacts",
     "pipelines",
@@ -33,7 +33,7 @@
   "branding": {
     "primary_color": "#2563EB",
     "secondary_color": "#1E40AF",
-    "logo_url": "/assets/creditprenuers-logo.png"
+    "logo_url": "/assets/credtegy-logo.png"
   },
   "status": "staging",
   "created_at": "2025-12-25T00:00:00Z"

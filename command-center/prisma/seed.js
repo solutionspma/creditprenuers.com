@@ -1,5 +1,5 @@
 // MBOCC Command Center - Database Seed
-// Initial seed data for CreditPreneurs & Coys Logistics
+// Initial seed data for Credtegy & Logademy
 
 const { PrismaClient } = require('@prisma/client');
 const bcrypt = require('bcryptjs');
@@ -15,12 +15,12 @@ async function main() {
 
   console.log('📦 Creating businesses...');
 
-  const creditprenuers = await prisma.business.upsert({
-    where: { slug: 'creditprenuers' },
+  const credtegy = await prisma.business.upsert({
+    where: { slug: 'credtegy' },
     update: {},
     create: {
-      slug: 'creditprenuers',
-      name: 'CreditPreneurs',
+      slug: 'credtegy',
+      name: 'Credtegy',
       type: 'credit_repair',
       config: {
         apiKey: 'cpk_' + require('crypto').randomBytes(16).toString('hex'),
@@ -30,7 +30,7 @@ async function main() {
           secondaryColor: '#000000',
           logo: '/images/logo.png'
         },
-        telnyxPhoneNumber: process.env.TELNYX_CREDITPRENUERS_PHONE || '+18001234567',
+        telnyxPhoneNumber: process.env.TELNYX_CREDTEGY_PHONE || '+18001234567',
         products: [
           { name: 'Trucking Business eBook', price: 27, type: 'one_time' },
           { name: 'Monthly Mentorship', price: 47, type: 'subscription', interval: 'month' },
@@ -41,12 +41,12 @@ async function main() {
     }
   });
 
-  const coyslogistics = await prisma.business.upsert({
-    where: { slug: 'coyslogistics' },
+  const logademy = await prisma.business.upsert({
+    where: { slug: 'logademy' },
     update: {},
     create: {
-      slug: 'coyslogistics',
-      name: 'Coys Logistics',
+      slug: 'logademy',
+      name: 'Logademy',
       type: 'logistics',
       config: {
         apiKey: 'clk_' + require('crypto').randomBytes(16).toString('hex'),
@@ -56,7 +56,7 @@ async function main() {
           secondaryColor: '#000000',
           logo: '/images/coys-logo.png'
         },
-        telnyxPhoneNumber: process.env.TELNYX_COYSLOGISTICS_PHONE || '+18009876543',
+        telnyxPhoneNumber: process.env.TELNYX_LOGADEMY_PHONE || '+18009876543',
         accessorials: [
           { code: 'TARP', name: 'Tarping', defaultRate: 75 },
           { code: 'LGATE', name: 'Liftgate', defaultRate: 50 },
@@ -69,8 +69,8 @@ async function main() {
     }
   });
 
-  console.log(`  ✅ Created business: ${creditprenuers.name}`);
-  console.log(`  ✅ Created business: ${coyslogistics.name}`);
+  console.log(`  ✅ Created business: ${credtegy.name}`);
+  console.log(`  ✅ Created business: ${logademy.name}`);
 
   // ==========================================
   // CREATE USERS
@@ -80,13 +80,13 @@ async function main() {
 
   const passwordHash = await bcrypt.hash('Admin123!', 12);
 
-  // CreditPreneurs Admin
+  // Credtegy Admin
   const cpAdmin = await prisma.user.upsert({
-    where: { businessId_email: { businessId: creditprenuers.id, email: 'admin@creditprenuers.com' } },
+    where: { businessId_email: { businessId: credtegy.id, email: 'admin@credtegy.com' } },
     update: {},
     create: {
-      businessId: creditprenuers.id,
-      email: 'admin@creditprenuers.com',
+      businessId: credtegy.id,
+      email: 'admin@credtegy.com',
       passwordHash,
       firstName: 'Shakur',
       lastName: 'Mac',
@@ -97,13 +97,13 @@ async function main() {
     }
   });
 
-  // Coys Logistics Admin
+  // Logademy Admin
   const clAdmin = await prisma.user.upsert({
-    where: { businessId_email: { businessId: coyslogistics.id, email: 'admin@coyslogistics.com' } },
+    where: { businessId_email: { businessId: logademy.id, email: 'admin@logademy.com' } },
     update: {},
     create: {
-      businessId: coyslogistics.id,
-      email: 'admin@coyslogistics.com',
+      businessId: logademy.id,
+      email: 'admin@logademy.com',
       passwordHash,
       firstName: 'Dispatch',
       lastName: 'Admin',
@@ -118,14 +118,14 @@ async function main() {
   console.log(`  ✅ Created user: ${clAdmin.email}`);
 
   // ==========================================
-  // CREATE PIPELINES - CREDITPRENUERS
+  // CREATE PIPELINES - CREDTEGY
   // ==========================================
 
-  console.log('📊 Creating CreditPreneurs pipelines...');
+  console.log('📊 Creating Credtegy pipelines...');
 
   const cpPipeline = await prisma.pipeline.create({
     data: {
-      businessId: creditprenuers.id,
+      businessId: credtegy.id,
       name: 'Credit Repair Journey',
       description: 'Track clients through credit repair process',
       type: 'onboarding',
@@ -148,14 +148,14 @@ async function main() {
   console.log(`  ✅ Created pipeline: ${cpPipeline.name}`);
 
   // ==========================================
-  // CREATE PIPELINES - COYS LOGISTICS
+  // CREATE PIPELINES - LOGADEMY
   // ==========================================
 
-  console.log('📊 Creating Coys Logistics pipelines...');
+  console.log('📊 Creating Logademy pipelines...');
 
   const clPipeline = await prisma.pipeline.create({
     data: {
-      businessId: coyslogistics.id,
+      businessId: logademy.id,
       name: 'Load Tracking',
       description: 'Track loads from quote to delivery',
       type: 'load_tracking',
@@ -180,7 +180,7 @@ async function main() {
   console.log(`  ✅ Created pipeline: ${clPipeline.name}`);
 
   // ==========================================
-  // CREATE SAMPLE CONTACTS - CREDITPRENUERS
+  // CREATE SAMPLE CONTACTS - CREDTEGY
   // ==========================================
 
   console.log('👥 Creating sample contacts...');
@@ -193,7 +193,7 @@ async function main() {
   await prisma.contact.createMany({
     data: [
       {
-        businessId: creditprenuers.id,
+        businessId: credtegy.id,
         pipelineId: cpPipeline.id,
         stageId: cpStages[0].id,
         firstName: 'Marcus',
@@ -205,7 +205,7 @@ async function main() {
         tags: ['trucking', 'new-driver']
       },
       {
-        businessId: creditprenuers.id,
+        businessId: credtegy.id,
         pipelineId: cpPipeline.id,
         stageId: cpStages[2].id,
         firstName: 'Keisha',
@@ -217,7 +217,7 @@ async function main() {
         tags: ['business-credit', 'owner-operator']
       },
       {
-        businessId: creditprenuers.id,
+        businessId: credtegy.id,
         pipelineId: cpPipeline.id,
         stageId: cpStages[5].id,
         firstName: 'Darnell',
@@ -231,10 +231,10 @@ async function main() {
     ]
   });
 
-  console.log('  ✅ Created 3 CreditPreneurs contacts');
+  console.log('  ✅ Created 3 Credtegy contacts');
 
   // ==========================================
-  // CREATE SAMPLE CONTACTS - COYS LOGISTICS
+  // CREATE SAMPLE CONTACTS - LOGADEMY
   // ==========================================
 
   const clStages = await prisma.pipelineStage.findMany({
@@ -245,7 +245,7 @@ async function main() {
   await prisma.contact.createMany({
     data: [
       {
-        businessId: coyslogistics.id,
+        businessId: logademy.id,
         firstName: 'ABC',
         lastName: 'Freight',
         email: 'dispatch@abcfreight.com',
@@ -256,7 +256,7 @@ async function main() {
         tags: ['high-volume', 'good-payer']
       },
       {
-        businessId: coyslogistics.id,
+        businessId: logademy.id,
         firstName: 'Global',
         lastName: 'Shipper',
         email: 'logistics@globalship.com',
@@ -267,7 +267,7 @@ async function main() {
         tags: ['direct-shipper', 'produce']
       },
       {
-        businessId: coyslogistics.id,
+        businessId: logademy.id,
         firstName: 'Regional',
         lastName: 'Carrier',
         email: 'ops@regionalcarrier.com',
@@ -280,10 +280,10 @@ async function main() {
     ]
   });
 
-  console.log('  ✅ Created 3 Coys Logistics contacts');
+  console.log('  ✅ Created 3 Logademy contacts');
 
   // ==========================================
-  // CREATE SAMPLE TRUCKS - COYS LOGISTICS
+  // CREATE SAMPLE TRUCKS - LOGADEMY
   // ==========================================
 
   console.log('🚛 Creating sample trucks...');
@@ -291,7 +291,7 @@ async function main() {
   await prisma.truck.createMany({
     data: [
       {
-        businessId: coyslogistics.id,
+        businessId: logademy.id,
         unitNumber: 'TRUCK-001',
         vin: '1HGBH41JXMN109186',
         make: 'Freightliner',
@@ -307,7 +307,7 @@ async function main() {
         inspectionExpiry: new Date('2025-01-15')
       },
       {
-        businessId: coyslogistics.id,
+        businessId: logademy.id,
         unitNumber: 'TRUCK-002',
         vin: '2HGBH41JXMN209287',
         make: 'Peterbilt',
@@ -323,7 +323,7 @@ async function main() {
         inspectionExpiry: new Date('2025-02-28')
       },
       {
-        businessId: coyslogistics.id,
+        businessId: logademy.id,
         unitNumber: 'TRUCK-003',
         vin: '3HGBH41JXMN309388',
         make: 'Kenworth',
@@ -344,7 +344,7 @@ async function main() {
   console.log('  ✅ Created 3 trucks');
 
   // ==========================================
-  // CREATE SAMPLE DRIVERS - COYS LOGISTICS
+  // CREATE SAMPLE DRIVERS - LOGADEMY
   // ==========================================
 
   console.log('👨‍✈️ Creating sample drivers...');
@@ -352,10 +352,10 @@ async function main() {
   await prisma.driver.createMany({
     data: [
       {
-        businessId: coyslogistics.id,
+        businessId: logademy.id,
         firstName: 'James',
         lastName: 'Washington',
-        email: 'james.w@coyslogistics.com',
+        email: 'james.w@logademy.com',
         phone: '+15553001001',
         cdlNumber: 'D1234567',
         cdlState: 'TX',
@@ -371,10 +371,10 @@ async function main() {
         emergencyPhone: '+15553001010'
       },
       {
-        businessId: coyslogistics.id,
+        businessId: logademy.id,
         firstName: 'Robert',
         lastName: 'Davis',
-        email: 'robert.d@coyslogistics.com',
+        email: 'robert.d@logademy.com',
         phone: '+15553001002',
         cdlNumber: 'D2345678',
         cdlState: 'GA',
@@ -400,10 +400,10 @@ async function main() {
 
   console.log('⚡ Creating sample automations...');
 
-  // CreditPreneurs automation
+  // Credtegy automation
   await prisma.automation.create({
     data: {
-      businessId: creditprenuers.id,
+      businessId: credtegy.id,
       name: 'Welcome New Lead',
       description: 'Send welcome SMS when new lead is created',
       trigger: 'contact_created',
@@ -414,7 +414,7 @@ async function main() {
         {
           type: 'send_sms',
           config: {
-            template: 'Hey {{firstName}}! 👋 Thanks for reaching out to CreditPreneurs. Ready to start your journey to financial freedom? Reply YES to schedule your free consultation with Shakur Mac!'
+            template: 'Hey {{firstName}}! 👋 Thanks for reaching out to Credtegy. Ready to start your journey to financial freedom? Reply YES to schedule your free consultation with Shakur Mac!'
           }
         },
         {
@@ -433,10 +433,10 @@ async function main() {
     }
   });
 
-  // Coys Logistics automation
+  // Logademy automation
   await prisma.automation.create({
     data: {
-      businessId: coyslogistics.id,
+      businessId: logademy.id,
       name: 'Load Delivered Notification',
       description: 'Notify shipper when load is delivered',
       trigger: 'load_status_changed',
@@ -448,7 +448,7 @@ async function main() {
           type: 'send_sms',
           config: {
             to: '{{shipper.phone}}',
-            template: '✅ Load #{{loadNumber}} has been delivered! POD will be sent shortly. Thank you for shipping with Coys Logistics!'
+            template: '✅ Load #{{loadNumber}} has been delivered! POD will be sent shortly. Thank you for shipping with Logademy!'
           }
         },
         {
@@ -483,8 +483,8 @@ async function main() {
   console.log('   - 2 Automations');
   console.log('');
   console.log('🔐 Default login credentials:');
-  console.log('   CreditPreneurs: admin@creditprenuers.com / Admin123!');
-  console.log('   Coys Logistics: admin@coyslogistics.com / Admin123!');
+  console.log('   Credtegy: admin@credtegy.com / Admin123!');
+  console.log('   Logademy: admin@logademy.com / Admin123!');
 }
 
 main()

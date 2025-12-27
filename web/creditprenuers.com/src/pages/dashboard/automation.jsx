@@ -7,23 +7,23 @@ export default function AutomationPage() {
   const [activeTab, setActiveTab] = useState('workflows')
 
   const workflows = [
-    { id: 1, name: 'New Lead Welcome Sequence', business: 'creditprenuers', status: 'Active', triggers: 'New Contact', actions: 5, runs: 234, lastRun: '2 min ago' },
-    { id: 2, name: 'Credit Score Milestone Alert', business: 'creditprenuers', status: 'Active', triggers: 'Score Change', actions: 3, runs: 89, lastRun: '1 hr ago' },
-    { id: 3, name: 'Funding Application Follow-up', business: 'creditprenuers', status: 'Active', triggers: 'App Submitted', actions: 4, runs: 156, lastRun: '30 min ago' },
-    { id: 4, name: 'Load Delivery Confirmation', business: 'coyslogistics', status: 'Active', triggers: 'Load Delivered', actions: 3, runs: 412, lastRun: '5 min ago' },
-    { id: 5, name: 'Driver HOS Warning', business: 'coyslogistics', status: 'Active', triggers: 'HOS < 2hrs', actions: 2, runs: 67, lastRun: '45 min ago' },
+    { id: 1, name: 'New Lead Welcome Sequence', business: 'credtegy', status: 'Active', triggers: 'New Contact', actions: 5, runs: 234, lastRun: '2 min ago' },
+    { id: 2, name: 'Credit Score Milestone Alert', business: 'credtegy', status: 'Active', triggers: 'Score Change', actions: 3, runs: 89, lastRun: '1 hr ago' },
+    { id: 3, name: 'Funding Application Follow-up', business: 'credtegy', status: 'Active', triggers: 'App Submitted', actions: 4, runs: 156, lastRun: '30 min ago' },
+    { id: 4, name: 'Load Delivery Confirmation', business: 'logademy', status: 'Active', triggers: 'Load Delivered', actions: 3, runs: 412, lastRun: '5 min ago' },
+    { id: 5, name: 'Driver HOS Warning', business: 'logademy', status: 'Active', triggers: 'HOS < 2hrs', actions: 2, runs: 67, lastRun: '45 min ago' },
     { id: 6, name: 'Invoice Payment Reminder', business: 'both', status: 'Active', triggers: 'Invoice Overdue', actions: 4, runs: 78, lastRun: '3 hrs ago' },
-    { id: 7, name: 'Document Expiration Alert', business: 'coyslogistics', status: 'Paused', triggers: '30 days before', actions: 2, runs: 23, lastRun: '2 days ago' },
+    { id: 7, name: 'Document Expiration Alert', business: 'logademy', status: 'Paused', triggers: '30 days before', actions: 2, runs: 23, lastRun: '2 days ago' },
     { id: 8, name: 'Client Birthday Message', business: 'both', status: 'Active', triggers: 'Birthday', actions: 1, runs: 45, lastRun: '1 day ago' },
   ]
 
   const templates = [
-    { id: 1, name: 'Welcome Email', type: 'Email', business: 'creditprenuers', uses: 234 },
-    { id: 2, name: 'Credit Score Update', type: 'Email', business: 'creditprenuers', uses: 189 },
-    { id: 3, name: 'Rate Confirmation', type: 'Email', business: 'coyslogistics', uses: 312 },
-    { id: 4, name: 'Load Pickup Reminder', type: 'SMS', business: 'coyslogistics', uses: 256 },
+    { id: 1, name: 'Welcome Email', type: 'Email', business: 'credtegy', uses: 234 },
+    { id: 2, name: 'Credit Score Update', type: 'Email', business: 'credtegy', uses: 189 },
+    { id: 3, name: 'Rate Confirmation', type: 'Email', business: 'logademy', uses: 312 },
+    { id: 4, name: 'Load Pickup Reminder', type: 'SMS', business: 'logademy', uses: 256 },
     { id: 5, name: 'Invoice', type: 'PDF', business: 'both', uses: 445 },
-    { id: 6, name: 'Bill of Lading', type: 'PDF', business: 'coyslogistics', uses: 398 },
+    { id: 6, name: 'Bill of Lading', type: 'PDF', business: 'logademy', uses: 398 },
   ]
 
   return (
@@ -107,11 +107,11 @@ export default function AutomationPage() {
                   </td>
                   <td className="px-6 py-4">
                     <span className={`px-2 py-1 rounded text-xs font-medium ${
-                      workflow.business === 'creditprenuers' ? 'bg-accent-gold/20 text-accent-gold' :
-                      workflow.business === 'coyslogistics' ? 'bg-blue-500/20 text-blue-400' :
+                      workflow.business === 'credtegy' ? 'bg-accent-gold/20 text-accent-gold' :
+                      workflow.business === 'logademy' ? 'bg-blue-500/20 text-blue-400' :
                       'bg-purple-500/20 text-purple-400'
                     }`}>
-                      {workflow.business === 'both' ? 'Both' : workflow.business === 'creditprenuers' ? 'Credit' : 'Logistics'}
+                      {workflow.business === 'both' ? 'Both' : workflow.business === 'credtegy' ? 'Credit' : 'Logistics'}
                     </span>
                   </td>
                   <td className="px-6 py-4 text-gray-300">{workflow.triggers}</td>
@@ -145,11 +145,11 @@ export default function AutomationPage() {
                   {template.type === 'Email' ? '📧' : template.type === 'SMS' ? '💬' : '📄'}
                 </div>
                 <span className={`text-xs px-2 py-1 rounded ${
-                  template.business === 'creditprenuers' ? 'bg-accent-gold/20 text-accent-gold' :
-                  template.business === 'coyslogistics' ? 'bg-blue-500/20 text-blue-400' :
+                  template.business === 'credtegy' ? 'bg-accent-gold/20 text-accent-gold' :
+                  template.business === 'logademy' ? 'bg-blue-500/20 text-blue-400' :
                   'bg-purple-500/20 text-purple-400'
                 }`}>
-                  {template.business === 'both' ? 'Both' : template.business === 'creditprenuers' ? 'Credit' : 'Logistics'}
+                  {template.business === 'both' ? 'Both' : template.business === 'credtegy' ? 'Credit' : 'Logistics'}
                 </span>
               </div>
               <h4 className="text-white font-medium">{template.name}</h4>

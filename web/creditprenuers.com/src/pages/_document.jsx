@@ -13,7 +13,7 @@ export default function Document() {
         
         {/* Open Graph / Social Media */}
         <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="CreditPreneurs" />
+        <meta property="og:site_name" content="Credtegy" />
         <meta property="og:image" content="/images/og-image.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="1200" />

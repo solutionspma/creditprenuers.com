@@ -26,7 +26,7 @@ export default function Features() {
     <section className="py-20 bg-trucking-dark text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">Why Choose Coys Logistics?</h2>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">Why Choose Logademy?</h2>
           <p className="text-xl text-gray-400 mt-4 max-w-2xl mx-auto">
             Industry-leading technology combined with real-world experience.
           </p>

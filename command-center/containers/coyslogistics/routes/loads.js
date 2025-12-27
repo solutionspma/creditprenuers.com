@@ -1,6 +1,6 @@
 /**
  * ══════════════════════════════════════════════════════════════
- * COYS LOGISTICS - LOADS MANAGEMENT ROUTES
+ * LOGADEMY - LOADS MANAGEMENT ROUTES
  * Load/Shipment Tracking System
  * ══════════════════════════════════════════════════════════════
  */
@@ -13,10 +13,10 @@ const logger = require('../../../shared/utils/logger');
 const TelnyxService = require('../../../shared/services/TelnyxService');
 
 const prisma = new PrismaClient();
-const BUSINESS_ID = 'coyslogistics';
+const BUSINESS_ID = 'logademy';
 
 // ─────────────────────────────────────────────────────────────
-// GET /api/coyslogistics/loads - List all loads
+// GET /api/logademy/loads - List all loads
 // ─────────────────────────────────────────────────────────────
 router.get('/', authenticate, async (req, res) => {
   try {
@@ -57,7 +57,7 @@ router.get('/', authenticate, async (req, res) => {
 });
 
 // ─────────────────────────────────────────────────────────────
-// GET /api/coyslogistics/loads/:id - Get single load
+// GET /api/logademy/loads/:id - Get single load
 // ─────────────────────────────────────────────────────────────
 router.get('/:id', authenticate, async (req, res) => {
   try {
@@ -83,7 +83,7 @@ router.get('/:id', authenticate, async (req, res) => {
 });
 
 // ─────────────────────────────────────────────────────────────
-// POST /api/coyslogistics/loads - Create new load
+// POST /api/logademy/loads - Create new load
 // ─────────────────────────────────────────────────────────────
 router.post('/', authenticate, async (req, res) => {
   try {
@@ -147,7 +147,7 @@ router.post('/', authenticate, async (req, res) => {
 });
 
 // ─────────────────────────────────────────────────────────────
-// PUT /api/coyslogistics/loads/:id/assign - Assign driver/truck
+// PUT /api/logademy/loads/:id/assign - Assign driver/truck
 // ─────────────────────────────────────────────────────────────
 router.put('/:id/assign', authenticate, async (req, res) => {
   try {
@@ -197,7 +197,7 @@ router.put('/:id/assign', authenticate, async (req, res) => {
 });
 
 // ─────────────────────────────────────────────────────────────
-// PUT /api/coyslogistics/loads/:id/status - Update load status
+// PUT /api/logademy/loads/:id/status - Update load status
 // ─────────────────────────────────────────────────────────────
 router.put('/:id/status', authenticate, async (req, res) => {
   try {
@@ -253,7 +253,7 @@ router.put('/:id/status', authenticate, async (req, res) => {
 });
 
 // ─────────────────────────────────────────────────────────────
-// POST /api/coyslogistics/loads/:id/bol - Generate Bill of Lading
+// POST /api/logademy/loads/:id/bol - Generate Bill of Lading
 // ─────────────────────────────────────────────────────────────
 router.post('/:id/bol', authenticate, async (req, res) => {
   try {
@@ -292,7 +292,7 @@ router.post('/:id/bol', authenticate, async (req, res) => {
 });
 
 // ─────────────────────────────────────────────────────────────
-// GET /api/coyslogistics/loads/dashboard - Loads dashboard
+// GET /api/logademy/loads/dashboard - Loads dashboard
 // ─────────────────────────────────────────────────────────────
 router.get('/stats/dashboard', authenticate, async (req, res) => {
   try {

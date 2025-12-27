@@ -42,7 +42,7 @@
         },
         {
           "type": "deliver_document",
-          "document_id": "creditprenuers_ebook"
+          "document_id": "credtegy_ebook"
         },
         {
           "type": "move_to_pipeline_stage",
@@ -143,7 +143,7 @@
             "name": "{{first_name}} {{last_name}}",
             "email": "{{email}}",
             "phone": "{{phone}}",
-            "source": "creditprenuers.com",
+            "source": "credtegy.com",
             "campaign": "{{utm_campaign}}",
             "timestamp": "{{submitted_at}}"
           }

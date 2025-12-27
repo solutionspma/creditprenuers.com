@@ -69,7 +69,7 @@ CREATE INDEX IF NOT EXISTS idx_bookings_status ON bookings(status);
 
 -- ==============================================
 -- DONE! Tables ready for:
--- - CreditPreneurs leads (source = 'creditprenuers')
--- - Coys Logistics leads (source = 'coyslogistics')  
+-- - Credtegy leads (source = 'credtegy')
+-- - Logademy leads (source = 'logademy')  
 -- - Pitch Marketing bookings
 -- ==============================================

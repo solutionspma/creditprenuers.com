@@ -1,30 +1,30 @@
-# CreditPreneurs x Koiz Logistics Platform
+# Credtegy x Koiz Logistics Platform
 
 A dual-industry CRM-powered platform built on ModCRM, featuring:
-- **CreditPreneurs** - Credit repair and funding mentorship (creditprenuers.com)
-- **Coys Logistics** - Trucking/dispatch training and fleet management (coyslogistics.com)
+- **Credtegy** - Credit repair and funding mentorship (credtegy.com)
+- **Logademy** - Trucking/dispatch training and fleet management (logademy.com)
 
 ## 🏗️ Project Structure
 
 ```
 ├── containers/                 # ModCRM Business Container Configurations
-│   ├── creditprenuers/        # CreditPreneurs CRM config
+│   ├── credtegy/        # Credtegy CRM config
 │   │   ├── config.json        # Business settings
 │   │   ├── modules.json       # Enabled modules
 │   │   ├── pipelines.json     # Sales/funding pipelines
 │   │   └── automation.json    # Automation workflows
-│   └── coyslogistics/         # Coys Logistics CRM config
+│   └── logademy/         # Logademy CRM config
 │       ├── config.json        # Business settings
 │       ├── modules.json       # Enabled modules
 │       ├── pipelines.json     # Training/freight pipelines
 │       └── automation.json    # Automation workflows
 │
 ├── web/                        # Next.js Web Applications
-│   ├── creditprenuers.com/    # CreditPreneurs website
+│   ├── credtegy.com/    # Credtegy website
 │   │   ├── src/pages/         # Page components
 │   │   ├── src/components/    # React components
 │   │   └── public/            # Static assets
-│   └── coyslogistics.com/     # Coys Logistics website
+│   └── logademy.com/     # Logademy website
 │       ├── src/pages/         # Page components
 │       ├── src/components/    # React components
 │       └── public/            # Static assets
@@ -60,22 +60,22 @@ A dual-industry CRM-powered platform built on ModCRM, featuring:
 
 1. **Clone and install:**
 ```bash
-cd creditprenuers.com
+cd credtegy.com
 cp .env.example .env
 # Edit .env with your API keys
 ```
 
-2. **CreditPreneurs Website:**
+2. **Credtegy Website:**
 ```bash
-cd web/creditprenuers.com
+cd web/credtegy.com
 npm install
 npm run dev    # Development
 npm run build  # Production build
 ```
 
-3. **Coys Logistics Website:**
+3. **Logademy Website:**
 ```bash
-cd web/coyslogistics.com
+cd web/logademy.com
 npm install
 npm run dev    # Development (port 3001)
 npm run build  # Production build
@@ -90,7 +90,7 @@ npx expo start  # Development
 
 ## 💳 Pricing Structure
 
-### CreditPreneurs
+### Credtegy
 | Product | Price |
 |---------|-------|
 | eBook: "Build Your Credit Empire" | $27 |
@@ -98,7 +98,7 @@ npx expo start  # Development
 | White Label Course (Basic) | $197 |
 | White Label Course (Pro) | $497 |
 
-### Coys Logistics
+### Logademy
 | Product | Price |
 |---------|-------|
 | Dispatch Academy - Starter | $197 |
@@ -115,7 +115,7 @@ Copy `.env.example` to `.env` and configure:
 
 ### Demo Credentials
 Mobile app test login:
-- Email: `driver@coyslogistics.com`
+- Email: `driver@logademy.com`
 - Password: `test123`
 
 ## 📦 Deployment
@@ -126,7 +126,7 @@ Mobile app test login:
 ./scripts/deploy-web.sh --all
 
 # Deploy specific site
-./scripts/deploy-web.sh creditprenuers
+./scripts/deploy-web.sh credtegy
 
 # Build only (no deploy)
 ./scripts/deploy-web.sh -b --all
@@ -177,8 +177,8 @@ See `services/automation/leadflows.json` for configuration.
 
 ## 📝 Business Container IDs
 
-- CreditPreneurs: `BC_CREDITPREN_STAGING`
-- Coys Logistics: `BC_COYSLOG_STAGING`
+- Credtegy: `BC_CREDITPREN_STAGING`
+- Logademy: `BC_COYSLOG_STAGING`
 
 ## 👤 Owner
 

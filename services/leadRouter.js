@@ -1,7 +1,7 @@
 /**
  * Lead Router Service
  * Routes qualified leads to Pitch Marketing Agency CRM
- * Handles both CreditPreneurs and Coys Logistics lead flows
+ * Handles both Credtegy and Logademy lead flows
  */
 
 // Pitch Marketing Configuration
@@ -11,42 +11,42 @@ const PITCH_MARKETING_CONFIG = {
   webhookSecret: 'WEBHOOK_SECRET_REPLACE',
   
   leadTypes: {
-    creditprenuers: {
+    credtegy: {
       highValue: {
         // Leads with high engagement or purchase intent
         minScore: 70,
-        tags: ['high-value', 'creditprenuers', 'qualified'],
+        tags: ['high-value', 'credtegy', 'qualified'],
         assignTo: 'credit-team',
       },
       membership: {
         // Membership subscription leads
-        tags: ['membership-interest', 'creditprenuers'],
+        tags: ['membership-interest', 'credtegy'],
         assignTo: 'membership-team',
       },
       whiteLabelPartner: {
         // B2B white label partners
         minScore: 80,
-        tags: ['white-label', 'b2b-partner', 'creditprenuers'],
+        tags: ['white-label', 'b2b-partner', 'credtegy'],
         assignTo: 'partnerships-team',
         priority: 'high',
       },
     },
-    coyslogistics: {
+    logademy: {
       dispatchTraining: {
         // Dispatch academy prospects
-        tags: ['dispatch-training', 'coyslogistics'],
+        tags: ['dispatch-training', 'logademy'],
         assignTo: 'dispatch-team',
       },
       fleetOwner: {
         // Fleet owner/trucking business leads
         minScore: 75,
-        tags: ['fleet-owner', 'coyslogistics', 'b2b'],
+        tags: ['fleet-owner', 'logademy', 'b2b'],
         assignTo: 'fleet-team',
         priority: 'high',
       },
       driverRecruit: {
         // Individual driver leads
-        tags: ['driver', 'coyslogistics'],
+        tags: ['driver', 'logademy'],
         assignTo: 'driver-team',
       },
     },
@@ -55,7 +55,7 @@ const PITCH_MARKETING_CONFIG = {
 
 // Lead scoring criteria
 const SCORING_CRITERIA = {
-  creditprenuers: {
+  credtegy: {
     // Engagement scoring
     ebookDownload: 15,
     videoWatched: 10,
@@ -73,7 +73,7 @@ const SCORING_CRITERIA = {
     callBooked: 30,
     chatInitiated: 10,
   },
-  coyslogistics: {
+  logademy: {
     // Engagement scoring
     academyPageVisit: 10,
     videoWatched: 10,
@@ -182,7 +182,7 @@ class LeadRouterService {
       metadata: {
         routedAt: new Date().toISOString(),
         routedBy: 'modcrm-lead-router',
-        businessId: business === 'creditprenuers' ? 'BC_CREDITPREN_STAGING' : 'BC_COYSLOG_STAGING',
+        businessId: business === 'credtegy' ? 'BC_CREDITPREN_STAGING' : 'BC_COYSLOG_STAGING',
       },
     };
 

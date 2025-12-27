@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 // Sidebar component shared across all dashboard pages
-export function DashboardLayout({ children, activePage, business = 'creditprenuers' }) {
+export function DashboardLayout({ children, activePage, business = 'credtegy' }) {
   const [user, setUser] = useState(null)
   const [currentBusiness, setCurrentBusiness] = useState(business)
   const router = useRouter()
@@ -20,7 +20,7 @@ export function DashboardLayout({ children, activePage, business = 'creditprenue
     setUser(JSON.parse(userData))
     
     // Get saved business preference
-    const savedBusiness = localStorage.getItem('currentBusiness') || 'creditprenuers'
+    const savedBusiness = localStorage.getItem('currentBusiness') || 'credtegy'
     setCurrentBusiness(savedBusiness)
   }, [router])
 
@@ -38,14 +38,14 @@ export function DashboardLayout({ children, activePage, business = 'creditprenue
   }
 
   const businesses = [
-    { id: 'creditprenuers', name: 'CreditPreneurs', icon: '💳', color: 'bg-accent-gold' },
-    { id: 'coyslogistics', name: 'Coys Logistics', icon: '🚛', color: 'bg-blue-500' },
+    { id: 'credtegy', name: 'Credtegy', icon: '💳', color: 'bg-accent-gold' },
+    { id: 'logademy', name: 'Logademy', icon: '🚛', color: 'bg-blue-500' },
   ]
 
   const currentBiz = businesses.find(b => b.id === currentBusiness)
 
   // Different menu items based on business
-  const creditprenuersMenu = [
+  const credtegyMenu = [
     { name: 'Dashboard', href: '/dashboard', icon: '📊', id: 'dashboard' },
     { name: 'Contacts', href: '/dashboard/contacts', icon: '👥', id: 'contacts' },
     { name: 'Pipeline', href: '/dashboard/pipeline', icon: '📈', id: 'pipeline' },
@@ -59,7 +59,7 @@ export function DashboardLayout({ children, activePage, business = 'creditprenue
     { name: 'Analytics', href: '/dashboard/analytics', icon: '📊', id: 'analytics' },
   ]
 
-  const coysLogisticsMenu = [
+  const logademyMenu = [
     { name: 'Dashboard', href: '/dashboard', icon: '📊', id: 'dashboard' },
     { name: 'Contacts', href: '/dashboard/contacts', icon: '👥', id: 'contacts' },
     { name: 'Pipeline', href: '/dashboard/pipeline', icon: '📈', id: 'pipeline' },
@@ -73,7 +73,7 @@ export function DashboardLayout({ children, activePage, business = 'creditprenue
     { name: 'Analytics', href: '/dashboard/analytics', icon: '📊', id: 'analytics' },
   ]
 
-  const menuItems = currentBusiness === 'coyslogistics' ? coysLogisticsMenu : creditprenuersMenu
+  const menuItems = currentBusiness === 'logademy' ? logademyMenu : credtegyMenu
 
   if (!user) {
     return (
@@ -140,12 +140,12 @@ export function DashboardLayout({ children, activePage, business = 'creditprenue
         {/* Sidebar */}
         <aside className="w-64 bg-gray-800 min-h-[calc(100vh-64px)] border-r border-gray-700 flex-shrink-0">
           {/* Business Badge */}
-          <div className={`m-4 p-3 rounded-lg ${currentBusiness === 'coyslogistics' ? 'bg-blue-500/20 border-blue-500' : 'bg-accent-gold/20 border-accent-gold'} border`}>
+          <div className={`m-4 p-3 rounded-lg ${currentBusiness === 'logademy' ? 'bg-blue-500/20 border-blue-500' : 'bg-accent-gold/20 border-accent-gold'} border`}>
             <div className="flex items-center gap-2">
               <span className="text-2xl">{currentBiz?.icon}</span>
               <div>
                 <p className="text-white font-bold text-sm">{currentBiz?.name}</p>
-                <p className="text-gray-400 text-xs">{currentBusiness === 'coyslogistics' ? 'Trucking & Logistics' : 'Credit Repair & Funding'}</p>
+                <p className="text-gray-400 text-xs">{currentBusiness === 'logademy' ? 'Trucking & Logistics' : 'Credit Repair & Funding'}</p>
               </div>
             </div>
           </div>
@@ -157,7 +157,7 @@ export function DashboardLayout({ children, activePage, business = 'creditprenue
                 href={item.href}
                 className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${
                   activePage === item.id
-                    ? currentBusiness === 'coyslogistics' 
+                    ? currentBusiness === 'logademy' 
                       ? 'bg-blue-500 text-white' 
                       : 'bg-accent-gold text-black'
                     : 'text-gray-300 hover:bg-gray-700'

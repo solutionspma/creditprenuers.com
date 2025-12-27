@@ -2,7 +2,7 @@
 
 ## ✅ COMPLETED TASKS
 
-### 1. CreditPreneurs & Coys Logistics Lead Capture
+### 1. Credtegy & Logademy Lead Capture
 - **Added Supabase client** to both websites (`@supabase/supabase-js`)
 - **Updated LeadForm components** to save leads to Pitch Marketing Agency's Supabase
 - **Created SQL schema** to extend `crm_leads` table for multi-site tracking
@@ -91,8 +91,8 @@ CREATE INDEX IF NOT EXISTS idx_bookings_status ON bookings(status);
 ## 📊 LEAD TRACKING
 
 After running the SQL, leads will be tagged by source:
-- **CreditPreneurs leads**: `source = 'creditprenuers'`
-- **Coys Logistics leads**: `source = 'coyslogistics'`
+- **Credtegy leads**: `source = 'credtegy'`
+- **Logademy leads**: `source = 'logademy'`
 - **Pitch Marketing leads**: `source = 'pitchmarketing'`
 
 You can filter leads in your CRM by source to see which site they came from.
@@ -111,11 +111,11 @@ When someone books on pitchmarketing.agency:
 
 ## 🔧 FILES MODIFIED
 
-### CreditPreneurs/Coys Logistics Repo (pushed to GitHub):
-- `web/creditprenuers.com/src/lib/supabase.js` - New Supabase client
-- `web/creditprenuers.com/src/components/LeadForm.jsx` - Updated to save leads
-- `web/coyslogistics.com/src/lib/supabase.js` - New Supabase client
-- `web/coyslogistics.com/src/components/LeadForm.jsx` - Updated to save leads
+### Credtegy/Logademy Repo (pushed to GitHub):
+- `web/credtegy.com/src/lib/supabase.js` - New Supabase client
+- `web/credtegy.com/src/components/LeadForm.jsx` - Updated to save leads
+- `web/logademy.com/src/lib/supabase.js` - New Supabase client
+- `web/logademy.com/src/components/LeadForm.jsx` - Updated to save leads
 - `supabase/quick-fix.sql` - SQL to run in Supabase
 
 ### Pitch Marketing Agency (committed locally):
@@ -137,7 +137,7 @@ Already set up in `.env.local`:
 
 After running the SQL, test the lead capture:
 ```bash
-cd /path/to/creditprenuers.com
+cd /path/to/credtegy.com
 node scripts/test-lead-capture.js
 ```
 

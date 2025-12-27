@@ -68,7 +68,7 @@ app.use((req, res, next) => {
 
 // Inject business context into request
 app.use('/api/:businessId/*', (req, res, next) => {
-  const validBusinessIds = ['creditprenuers', 'coyslogistics'];
+  const validBusinessIds = ['credtegy', 'logademy'];
   const businessId = req.params.businessId?.toLowerCase();
   
   if (!validBusinessIds.includes(businessId)) {
@@ -97,29 +97,29 @@ app.get('/health', (req, res) => {
 app.use('/api/auth', require('./shared/routes/auth'));
 app.use('/api/webhooks', require('./shared/routes/webhooks'));
 
-// CreditPreneurs container routes
-app.use('/api/creditprenuers/contacts', require('./containers/creditprenuers/routes/contacts'));
-app.use('/api/creditprenuers/pipelines', require('./containers/creditprenuers/routes/pipelines'));
-app.use('/api/creditprenuers/documents', require('./containers/creditprenuers/routes/documents'));
-app.use('/api/creditprenuers/automation', require('./containers/creditprenuers/routes/automation'));
-app.use('/api/creditprenuers/communication', require('./containers/creditprenuers/routes/communication'));
-app.use('/api/creditprenuers/billing', require('./containers/creditprenuers/routes/billing'));
-app.use('/api/creditprenuers/funding', require('./containers/creditprenuers/routes/funding'));
-app.use('/api/creditprenuers/cms', require('./containers/creditprenuers/routes/cms'));
-app.use('/api/creditprenuers/analytics', require('./containers/creditprenuers/routes/analytics'));
+// Credtegy container routes
+app.use('/api/credtegy/contacts', require('./containers/credtegy/routes/contacts'));
+app.use('/api/credtegy/pipelines', require('./containers/credtegy/routes/pipelines'));
+app.use('/api/credtegy/documents', require('./containers/credtegy/routes/documents'));
+app.use('/api/credtegy/automation', require('./containers/credtegy/routes/automation'));
+app.use('/api/credtegy/communication', require('./containers/credtegy/routes/communication'));
+app.use('/api/credtegy/billing', require('./containers/credtegy/routes/billing'));
+app.use('/api/credtegy/funding', require('./containers/credtegy/routes/funding'));
+app.use('/api/credtegy/cms', require('./containers/credtegy/routes/cms'));
+app.use('/api/credtegy/analytics', require('./containers/credtegy/routes/analytics'));
 
-// Coys Logistics container routes
-app.use('/api/coyslogistics/contacts', require('./containers/coyslogistics/routes/contacts'));
-app.use('/api/coyslogistics/pipelines', require('./containers/coyslogistics/routes/pipelines'));
-app.use('/api/coyslogistics/documents', require('./containers/coyslogistics/routes/documents'));
-app.use('/api/coyslogistics/automation', require('./containers/coyslogistics/routes/automation'));
-app.use('/api/coyslogistics/communication', require('./containers/coyslogistics/routes/communication'));
-app.use('/api/coyslogistics/billing', require('./containers/coyslogistics/routes/billing'));
-app.use('/api/coyslogistics/fleet', require('./containers/coyslogistics/routes/fleet'));
-app.use('/api/coyslogistics/loads', require('./containers/coyslogistics/routes/loads'));
-app.use('/api/coyslogistics/drivers', require('./containers/coyslogistics/routes/drivers'));
-app.use('/api/coyslogistics/cms', require('./containers/coyslogistics/routes/cms'));
-app.use('/api/coyslogistics/analytics', require('./containers/coyslogistics/routes/analytics'));
+// Logademy container routes
+app.use('/api/logademy/contacts', require('./containers/logademy/routes/contacts'));
+app.use('/api/logademy/pipelines', require('./containers/logademy/routes/pipelines'));
+app.use('/api/logademy/documents', require('./containers/logademy/routes/documents'));
+app.use('/api/logademy/automation', require('./containers/logademy/routes/automation'));
+app.use('/api/logademy/communication', require('./containers/logademy/routes/communication'));
+app.use('/api/logademy/billing', require('./containers/logademy/routes/billing'));
+app.use('/api/logademy/fleet', require('./containers/logademy/routes/fleet'));
+app.use('/api/logademy/loads', require('./containers/logademy/routes/loads'));
+app.use('/api/logademy/drivers', require('./containers/logademy/routes/drivers'));
+app.use('/api/logademy/cms', require('./containers/logademy/routes/cms'));
+app.use('/api/logademy/analytics', require('./containers/logademy/routes/analytics'));
 
 // ─────────────────────────────────────────────────────────────
 // ERROR HANDLING
@@ -152,7 +152,7 @@ const startServer = async () => {
 
     app.listen(PORT, () => {
       logger.info(`🚀 MBOCC Command Center running on port ${PORT}`);
-      logger.info(`📦 Containers: CreditPreneurs, CoysLogistics`);
+      logger.info(`📦 Containers: Credtegy, Logademy`);
       logger.info(`🔗 API Base: http://localhost:${PORT}/api`);
     });
   } catch (error) {

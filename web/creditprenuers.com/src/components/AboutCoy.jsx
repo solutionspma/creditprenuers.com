@@ -10,7 +10,7 @@ export default function AboutCoy() {
             <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl">
               <img 
                 src="/images/coy-mac.jpg" 
-                alt="Shakur Mac - CreditPreneurs Founder" 
+                alt="Shakur Mac - Credtegy Founder" 
                 className="w-full h-full object-cover"
               />
             </div>
@@ -30,7 +30,7 @@ export default function AboutCoy() {
               his journey is proof that transformation is possible.
             </p>
             <p className="text-gray-600 text-lg mb-6">
-              Now, he's dedicated to bringing others along for the ride. Through CreditPreneurs, 
+              Now, he's dedicated to bringing others along for the ride. Through Credtegy, 
               he's created a movement focused on economic empowerment in communities that have been 
               systematically left behind.
             </p>

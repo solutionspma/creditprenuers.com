@@ -6,7 +6,7 @@ import DashboardLayout from '@/components/DashboardLayout'
 export default function AnalyticsPage() {
   const [period, setPeriod] = useState('30d')
 
-  // CreditPreneurs Stats
+  // Credtegy Stats
   const creditStats = {
     revenue: { current: 48500, previous: 42000, change: 15.5 },
     clients: { current: 156, previous: 142, change: 9.9 },
@@ -14,7 +14,7 @@ export default function AnalyticsPage() {
     funded: { current: 1250000, previous: 980000, change: 27.6 }
   }
 
-  // Coys Logistics Stats
+  // Logademy Stats
   const logisticsStats = {
     revenue: { current: 125000, previous: 112000, change: 11.6 },
     loads: { current: 89, previous: 76, change: 17.1 },
@@ -68,15 +68,15 @@ export default function AnalyticsPage() {
             <p className="text-green-400 text-sm mt-2">↑ 13.2% vs last period</p>
           </div>
           <div className="text-right">
-            <p className="text-gray-400 text-sm">CreditPreneurs: <span className="text-accent-gold">${creditStats.revenue.current.toLocaleString()}</span></p>
-            <p className="text-gray-400 text-sm">Coys Logistics: <span className="text-blue-400">${logisticsStats.revenue.current.toLocaleString()}</span></p>
+            <p className="text-gray-400 text-sm">Credtegy: <span className="text-accent-gold">${creditStats.revenue.current.toLocaleString()}</span></p>
+            <p className="text-gray-400 text-sm">Logademy: <span className="text-blue-400">${logisticsStats.revenue.current.toLocaleString()}</span></p>
           </div>
         </div>
       </div>
 
-      {/* CreditPreneurs Section */}
+      {/* Credtegy Section */}
       <div className="mb-8">
-        <h2 className="text-xl font-bold text-accent-gold mb-4">💳 CreditPreneurs Metrics</h2>
+        <h2 className="text-xl font-bold text-accent-gold mb-4">💳 Credtegy Metrics</h2>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           <div className="bg-gray-800 rounded-xl p-5 border border-gray-700">
             <p className="text-gray-400 text-sm">Monthly Revenue</p>
@@ -109,9 +109,9 @@ export default function AnalyticsPage() {
         </div>
       </div>
 
-      {/* Coys Logistics Section */}
+      {/* Logademy Section */}
       <div className="mb-8">
-        <h2 className="text-xl font-bold text-blue-400 mb-4">🚛 Coys Logistics Metrics</h2>
+        <h2 className="text-xl font-bold text-blue-400 mb-4">🚛 Logademy Metrics</h2>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           <div className="bg-gray-800 rounded-xl p-5 border border-gray-700">
             <p className="text-gray-400 text-sm">Monthly Revenue</p>
@@ -167,11 +167,11 @@ export default function AnalyticsPage() {
         <div className="flex justify-center gap-6 mt-4">
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 bg-accent-gold rounded"></div>
-            <span className="text-gray-400 text-sm">CreditPreneurs</span>
+            <span className="text-gray-400 text-sm">Credtegy</span>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 bg-blue-500 rounded"></div>
-            <span className="text-gray-400 text-sm">Coys Logistics</span>
+            <span className="text-gray-400 text-sm">Logademy</span>
           </div>
         </div>
       </div>

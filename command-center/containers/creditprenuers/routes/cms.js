@@ -1,6 +1,6 @@
 /**
  * ══════════════════════════════════════════════════════════════
- * CREDITPRENUERS - CMS ROUTES
+ * CREDTEGY - CMS ROUTES
  * Content Management System for Page Editing
  * ══════════════════════════════════════════════════════════════
  */
@@ -11,7 +11,7 @@ const { PrismaClient } = require('@prisma/client');
 const { authenticate, authorize } = require('../../../shared/middleware/auth');
 
 const prisma = new PrismaClient();
-const BUSINESS_ID = 'creditprenuers';
+const BUSINESS_ID = 'credtegy';
 
 router.get('/pages', authenticate, async (req, res) => {
   try {

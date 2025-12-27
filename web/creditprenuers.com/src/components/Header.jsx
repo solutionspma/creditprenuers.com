@@ -22,7 +22,7 @@ export default function Header() {
             <div className="bg-gray-900 rounded-lg p-2">
               <img 
                 src="/images/logo.png" 
-                alt="CreditPreneurs" 
+                alt="Credtegy" 
                 className="h-8 w-auto"
               />
             </div>

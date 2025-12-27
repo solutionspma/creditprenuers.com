@@ -50,9 +50,9 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>CreditPreneurs | Transform Your Credit. Transform Your Life.</title>
+        <title>Credtegy | Transform Your Credit. Transform Your Life.</title>
         <meta name="description" content="Join the #1 Credit Repair & Business Funding Movement. Led by Shakur Mac. 2,847+ lives transformed. Get funded today." />
-        <meta property="og:title" content="CreditPreneurs | Transform Your Credit. Transform Your Life." />
+        <meta property="og:title" content="Credtegy | Transform Your Credit. Transform Your Life." />
         <meta property="og:description" content="Join the #1 Credit Repair & Business Funding Movement. Led by Shakur Mac. 2,847+ lives transformed." />
       </Head>
 
@@ -70,7 +70,7 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <Link href="/" className="flex items-center gap-3">
               <div className="rounded-lg p-1">
-                <img src="/images/logo.png" alt="CreditPreneurs" className="h-10 w-auto" />
+                <img src="/images/logo.png" alt="Credtegy" className="h-10 w-auto" />
               </div>
             </Link>
             <div className="hidden md:flex items-center gap-8">
@@ -101,7 +101,7 @@ export default function Home() {
               className="w-full h-full object-cover scale-105"
               style={{ filter: 'brightness(0.3)' }}
             >
-              <source src="/images/creditPrenuersHero.mp4" type="video/mp4" />
+              <source src="/images/credtegyHero.mp4" type="video/mp4" />
             </video>
             {/* Animated gradient overlay */}
             <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black" />
@@ -132,7 +132,7 @@ export default function Home() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-gold opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-accent-gold"></span>
               </span>
-              <span className="text-sm font-medium">🔥 Join 2,847+ CreditPreneurs Worldwide</span>
+              <span className="text-sm font-medium">🔥 Join 2,847+ Credtegy Worldwide</span>
             </div>
 
             {/* Main Headline */}
@@ -565,7 +565,7 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid md:grid-cols-4 gap-10 mb-12">
               <div className="md:col-span-2">
-                <img src="/images/logo.png" alt="CreditPreneurs" className="h-12 mb-4 rounded-lg p-2" />
+                <img src="/images/logo.png" alt="Credtegy" className="h-12 mb-4 rounded-lg p-2" />
                 <p className="text-gray-400 max-w-md">
                   Empowering entrepreneurs with credit repair strategies, funding access, and mentorship to build generational wealth.
                 </p>
@@ -596,7 +596,7 @@ export default function Home() {
               <div>
                 <h4 className="font-bold mb-4">Contact</h4>
                 <div className="space-y-2 text-gray-400">
-                  <p>📧 info@creditprenuers.com</p>
+                  <p>📧 info@credtegy.com</p>
                   <p>📱 (404) 555-0123</p>
                   <p>📍 Atlanta, GA</p>
                 </div>
@@ -606,7 +606,7 @@ export default function Home() {
               </div>
             </div>
             <div className="border-t border-white/10 pt-8 text-center">
-              <p className="text-gray-500 text-sm mb-4">© 2024 CreditPreneurs. All rights reserved. | <a href="#" className="hover:text-accent-gold">Privacy Policy</a> | <a href="#" className="hover:text-accent-gold">Terms of Service</a></p>
+              <p className="text-gray-500 text-sm mb-4">© 2024 Credtegy. All rights reserved. | <a href="#" className="hover:text-accent-gold">Privacy Policy</a> | <a href="#" className="hover:text-accent-gold">Terms of Service</a></p>
               <p className="text-gray-500 text-sm">
                 Powered by{' '}
                 <a href="https://pitchmodularspaces.com" target="_blank" rel="noopener noreferrer" className="text-yellow-500 hover:text-yellow-400 hover:underline">

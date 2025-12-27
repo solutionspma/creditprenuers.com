@@ -66,7 +66,7 @@ export default function SettingsScreen() {
         </View>
         <View style={styles.profileInfo}>
           <Text style={styles.profileName}>{user?.name || 'Driver Name'}</Text>
-          <Text style={styles.profileEmail}>{user?.email || 'driver@coyslogistics.com'}</Text>
+          <Text style={styles.profileEmail}>{user?.email || 'driver@logademy.com'}</Text>
           <View style={styles.driverIdBadge}>
             <Text style={styles.driverIdText}>ID: DRV-2024-001</Text>
           </View>
@@ -159,7 +159,7 @@ export default function SettingsScreen() {
           icon="❓"
           label="Help Center"
           hasArrow
-          onPress={() => Alert.alert('Help', 'Contact dispatch at support@coyslogistics.com')}
+          onPress={() => Alert.alert('Help', 'Contact dispatch at support@logademy.com')}
         />
         <SettingRow
           icon="📞"
@@ -190,7 +190,7 @@ export default function SettingsScreen() {
         <SettingRow
           icon="🏢"
           label="Company"
-          value="Coys Logistics"
+          value="Logademy"
         />
       </View>
 

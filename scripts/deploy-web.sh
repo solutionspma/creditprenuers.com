@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # =====================================================
-# CreditPreneurs x Koiz Platform - Deployment Script
+# Credtegy x Koiz Platform - Deployment Script
 # Deploys web applications to GoDaddy/Ionos hosting
 # =====================================================
 
@@ -22,20 +22,20 @@ TIMESTAMP=$(date +%Y%m%d_%H%M%S)
 
 # Site configurations
 SITES=(
-  "creditprenuers.com"
-  "coyslogistics.com"
+  "credtegy.com"
+  "logademy.com"
 )
 
 # FTP Configuration (set these via environment variables or .env file)
-# CREDITPRENUERS_FTP_HOST
-# CREDITPRENUERS_FTP_USER
-# CREDITPRENUERS_FTP_PASS
-# COYSLOGISTICS_FTP_HOST
-# COYSLOGISTICS_FTP_USER
-# COYSLOGISTICS_FTP_PASS
+# CREDTEGY_FTP_HOST
+# CREDTEGY_FTP_USER
+# CREDTEGY_FTP_PASS
+# LOGADEMY_FTP_HOST
+# LOGADEMY_FTP_USER
+# LOGADEMY_FTP_PASS
 
 echo -e "${BLUE}==============================================${NC}"
-echo -e "${BLUE}   CreditPreneurs x Koiz Platform Deploy    ${NC}"
+echo -e "${BLUE}   Credtegy x Koiz Platform Deploy    ${NC}"
 echo -e "${BLUE}==============================================${NC}"
 echo ""
 
@@ -56,13 +56,13 @@ usage() {
     echo "  --all             Deploy all sites"
     echo ""
     echo "Sites:"
-    echo "  creditprenuers    Deploy creditprenuers.com"
-    echo "  coyslogistics     Deploy coyslogistics.com"
+    echo "  credtegy    Deploy credtegy.com"
+    echo "  logademy     Deploy logademy.com"
     echo ""
     echo "Examples:"
     echo "  $0 --all                    # Build and deploy all sites"
-    echo "  $0 creditprenuers           # Build and deploy creditprenuers.com"
-    echo "  $0 -b coyslogistics         # Only build coyslogistics.com"
+    echo "  $0 credtegy           # Build and deploy credtegy.com"
+    echo "  $0 -b logademy         # Only build logademy.com"
 }
 
 # Function to build a site
@@ -115,15 +115,15 @@ deploy_ftp() {
     
     # Get FTP credentials based on site
     case $site in
-        "creditprenuers.com")
-            ftp_host="${CREDITPRENUERS_FTP_HOST:-}"
-            ftp_user="${CREDITPRENUERS_FTP_USER:-}"
-            ftp_pass="${CREDITPRENUERS_FTP_PASS:-}"
+        "credtegy.com")
+            ftp_host="${CREDTEGY_FTP_HOST:-}"
+            ftp_user="${CREDTEGY_FTP_USER:-}"
+            ftp_pass="${CREDTEGY_FTP_PASS:-}"
             ;;
-        "coyslogistics.com")
-            ftp_host="${COYSLOGISTICS_FTP_HOST:-}"
-            ftp_user="${COYSLOGISTICS_FTP_USER:-}"
-            ftp_pass="${COYSLOGISTICS_FTP_PASS:-}"
+        "logademy.com")
+            ftp_host="${LOGADEMY_FTP_HOST:-}"
+            ftp_user="${LOGADEMY_FTP_USER:-}"
+            ftp_pass="${LOGADEMY_FTP_PASS:-}"
             ;;
     esac
     
@@ -169,15 +169,15 @@ deploy_sftp() {
     
     # Get SSH credentials based on site
     case $site in
-        "creditprenuers.com")
-            ssh_host="${CREDITPRENUERS_SSH_HOST:-}"
-            ssh_user="${CREDITPRENUERS_SSH_USER:-}"
-            remote_dir="${CREDITPRENUERS_REMOTE_DIR:-/var/www/creditprenuers.com/public_html}"
+        "credtegy.com")
+            ssh_host="${CREDTEGY_SSH_HOST:-}"
+            ssh_user="${CREDTEGY_SSH_USER:-}"
+            remote_dir="${CREDTEGY_REMOTE_DIR:-/var/www/credtegy.com/public_html}"
             ;;
-        "coyslogistics.com")
-            ssh_host="${COYSLOGISTICS_SSH_HOST:-}"
-            ssh_user="${COYSLOGISTICS_SSH_USER:-}"
-            remote_dir="${COYSLOGISTICS_REMOTE_DIR:-/var/www/coyslogistics.com/public_html}"
+        "logademy.com")
+            ssh_host="${LOGADEMY_SSH_HOST:-}"
+            ssh_user="${LOGADEMY_SSH_USER:-}"
+            remote_dir="${LOGADEMY_REMOTE_DIR:-/var/www/logademy.com/public_html}"
             ;;
     esac
     
@@ -242,12 +242,12 @@ while [[ $# -gt 0 ]]; do
             DEPLOY_ALL=true
             shift
             ;;
-        creditprenuers|creditprenuers.com)
-            TARGET_SITES+=("creditprenuers.com")
+        credtegy|credtegy.com)
+            TARGET_SITES+=("credtegy.com")
             shift
             ;;
-        coyslogistics|coyslogistics.com)
-            TARGET_SITES+=("coyslogistics.com")
+        logademy|logademy.com)
+            TARGET_SITES+=("logademy.com")
             shift
             ;;
         *)

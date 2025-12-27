@@ -1,6 +1,6 @@
 /**
  * ══════════════════════════════════════════════════════════════
- * CREDITPRENUERS - COMMUNICATION ROUTES
+ * CREDTEGY - COMMUNICATION ROUTES
  * SMS/Voice via TELNYX, Email via SMTP
  * ══════════════════════════════════════════════════════════════
  */
@@ -13,7 +13,7 @@ const TelnyxService = require('../../../shared/services/TelnyxService');
 const EmailService = require('../../../shared/services/EmailService');
 
 const prisma = new PrismaClient();
-const BUSINESS_ID = 'creditprenuers';
+const BUSINESS_ID = 'credtegy';
 
 // ─────────────────────────────────────────────────────────────
 // SMS
@@ -84,7 +84,7 @@ router.post('/email/send', authenticate, async (req, res) => {
       to,
       subject,
       html: finalBody,
-      from: 'CreditPreneurs <support@creditprenuers.com>',
+      from: 'Credtegy <support@credtegy.com>',
     });
     
     await prisma.communication_log.create({

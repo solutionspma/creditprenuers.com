@@ -1,6 +1,6 @@
 /**
  * ══════════════════════════════════════════════════════════════
- * CREDITPRENUERS - AUTOMATION ROUTES
+ * CREDTEGY - AUTOMATION ROUTES
  * ══════════════════════════════════════════════════════════════
  */
 
@@ -11,7 +11,7 @@ const { authenticate, authorize } = require('../../../shared/middleware/auth');
 const AutomationEngine = require('../../../shared/services/AutomationEngine');
 
 const prisma = new PrismaClient();
-const BUSINESS_ID = 'creditprenuers';
+const BUSINESS_ID = 'credtegy';
 
 router.get('/', authenticate, async (req, res) => {
   try {

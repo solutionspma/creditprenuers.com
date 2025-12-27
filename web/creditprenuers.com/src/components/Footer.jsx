@@ -31,7 +31,7 @@ export default function Footer() {
               <div className="bg-gray-800 rounded-lg p-2">
                 <img 
                   src="/images/logo.png" 
-                  alt="CreditPreneurs" 
+                  alt="Credtegy" 
                   className="h-10 w-auto"
                 />
               </div>
@@ -109,7 +109,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-gray-500">
-            © {currentYear} CreditPreneurs. All rights reserved.
+            © {currentYear} Credtegy. All rights reserved.
           </p>
           <div className="flex flex-col md:flex-row items-center gap-4">
             <Link href="/signin" className="text-sm text-accent-gold hover:underline font-medium">

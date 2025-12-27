@@ -1,5 +1,5 @@
 /**
- * COYS LOGISTICS - COMMUNICATION ROUTES
+ * LOGADEMY - COMMUNICATION ROUTES
  */
 const express = require('express');
 const router = express.Router();
@@ -9,7 +9,7 @@ const TelnyxService = require('../../../shared/services/TelnyxService');
 const EmailService = require('../../../shared/services/EmailService');
 
 const prisma = new PrismaClient();
-const BUSINESS_ID = 'coyslogistics';
+const BUSINESS_ID = 'logademy';
 
 router.post('/sms/send', authenticate, async (req, res) => {
   try {
@@ -67,7 +67,7 @@ router.post('/email/send', authenticate, async (req, res) => {
       to,
       subject,
       html: body,
-      from: 'Coys Logistics <dispatch@coyslogistics.com>',
+      from: 'Logademy <dispatch@logademy.com>',
     });
     res.json(result);
   } catch (error) {

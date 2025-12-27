@@ -30,11 +30,11 @@ export default function Footer() {
             <div className="flex items-center gap-2 mb-4">
               <img 
                 src="/images/coyslogo.jpg" 
-                alt="Coys Logistics" 
+                alt="Logademy" 
                 className="w-10 h-10 rounded-lg object-cover"
               />
               <span className="font-display font-bold text-xl text-white">
-                Coys Logistics
+                Logademy
               </span>
             </div>
             <p className="text-gray-400 text-sm mb-4">
@@ -105,7 +105,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-gray-700 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-gray-500">
-            © {currentYear} Coys Logistics. All rights reserved.
+            © {currentYear} Logademy. All rights reserved.
           </p>
           <div className="text-center md:text-right">
             <p className="text-sm text-gray-500">

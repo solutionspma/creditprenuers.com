@@ -7,8 +7,8 @@ export default function Contact() {
   return (
     <>
       <Head>
-        <title>Contact Us | CreditPreneurs</title>
-        <meta name="description" content="Get in touch with the CreditPreneurs team. We're here to help you on your journey to financial freedom." />
+        <title>Contact Us | Credtegy</title>
+        <meta name="description" content="Get in touch with the Credtegy team. We're here to help you on your journey to financial freedom." />
       </Head>
 
       <div className="min-h-screen bg-white">
@@ -43,7 +43,7 @@ export default function Contact() {
                       </div>
                       <div>
                         <h3 className="font-bold">Email</h3>
-                        <p className="text-gray-600">admin@creditprenuers.com</p>
+                        <p className="text-gray-600">admin@credtegy.com</p>
                         <p className="text-sm text-gray-400">We respond within 24 hours</p>
                       </div>
                     </div>
@@ -109,7 +109,7 @@ export default function Contact() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
               <h2 className="text-2xl font-bold mb-4">Serving Clients Nationwide</h2>
               <p className="text-gray-600 mb-8">
-                CreditPreneurs operates 100% online, serving clients across all 50 states.
+                Credtegy operates 100% online, serving clients across all 50 states.
               </p>
               <div className="bg-gray-200 rounded-xl h-64 flex items-center justify-center">
                 <p className="text-gray-500">Map placeholder - Nationwide coverage</p>

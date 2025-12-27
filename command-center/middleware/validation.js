@@ -211,7 +211,7 @@ const schemas = {
   }),
 
   // ==========================================
-  // CREDITPRENUERS SPECIFIC
+  // CREDTEGY SPECIFIC
   // ==========================================
 
   fundingApplicationCreate: Joi.object({
@@ -233,7 +233,7 @@ const schemas = {
   }),
 
   // ==========================================
-  // COYS LOGISTICS SPECIFIC
+  // LOGADEMY SPECIFIC
   // ==========================================
 
   truckCreate: Joi.object({

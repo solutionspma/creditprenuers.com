@@ -46,9 +46,9 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Coys Logistics | Not Just Moving Freight — Moving People Forward</title>
+        <title>Logademy | Not Just Moving Freight — Moving People Forward</title>
         <meta name="description" content="Start your trucking business the right way. Mentorship, dispatch training, and backend support from Shakur Mac. 247+ drivers trained. 48 states covered." />
-        <meta property="og:title" content="Coys Logistics | Trucking Mentorship & Business Support" />
+        <meta property="og:title" content="Logademy | Trucking Mentorship & Business Support" />
         <meta property="og:description" content="Not just moving freight — moving people forward. Start and scale your box truck business with Shakur Mac's proven system." />
       </Head>
 
@@ -67,10 +67,10 @@ export default function Home() {
             <Link href="/" className="flex items-center gap-3">
               <img 
                 src="/images/coyslogo.jpg" 
-                alt="Coys Logistics" 
+                alt="Logademy" 
                 className="w-16 h-10 rounded-lg object-contain bg-slate-800 border-2 border-green-500"
               />
-              <span className="font-bold text-xl hidden sm:block">Coys Logistics</span>
+              <span className="font-bold text-xl hidden sm:block">Logademy</span>
             </Link>
             <div className="hidden md:flex items-center gap-8">
               <Link href="/academy" className="text-gray-300 hover:text-green-400 transition-colors">Academy</Link>
@@ -282,7 +282,7 @@ export default function Home() {
                 { 
                   icon: '💰', 
                   title: 'Funding Access', 
-                  desc: 'Get connected to business funding, truck financing, and credit building resources through CreditPreneurs.',
+                  desc: 'Get connected to business funding, truck financing, and credit building resources through Credtegy.',
                   color: 'from-yellow-500/20 to-orange-500/20',
                   price: 'Partner Program'
                 },
@@ -345,7 +345,7 @@ export default function Home() {
                   <span className="text-green-400 font-bold"> 247 drivers</span> start and scale their trucking businesses.
                 </p>
                 <p className="text-xl text-gray-400 mb-8 leading-relaxed">
-                  Through Coys Logistics, I don&apos;t just teach — I support. When you join my program, 
+                  Through Logademy, I don&apos;t just teach — I support. When you join my program, 
                   you get access to my dispatch team, my network, and my proven systems.
                   <span className="text-white font-semibold"> Your success is my success.</span>
                 </p>
@@ -356,7 +356,7 @@ export default function Home() {
                     { icon: '🚛', text: 'Multi-Fleet Owner' },
                     { icon: '📋', text: 'Licensed Dispatcher' },
                     { icon: '📚', text: 'Box Truck eBook Author' },
-                    { icon: '💰', text: 'CreditPreneurs Founder' },
+                    { icon: '💰', text: 'Credtegy Founder' },
                   ].map((item, idx) => (
                     <div key={idx} className="flex items-center gap-3 bg-white/5 rounded-lg px-4 py-3">
                       <span className="text-xl">{item.icon}</span>
@@ -397,7 +397,7 @@ export default function Home() {
               </h2>
               <p className="text-xl text-gray-400 max-w-2xl mx-auto mb-8">
                 The complete blueprint Shakur Mac used to build his trucking empire. 
-                Now available as part of the CreditPreneurs eBook bundle.
+                Now available as part of the Credtegy eBook bundle.
               </p>
 
               <div className="bg-white/5 rounded-2xl p-8 mb-10 text-left max-w-2xl mx-auto">
@@ -421,13 +421,13 @@ export default function Home() {
               </div>
 
               <Link 
-                href="https://creditprenuers.netlify.app/ebook" 
+                href="https://credtegy.netlify.app/ebook" 
                 target="_blank"
                 className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-400 text-white font-bold px-12 py-5 rounded-full text-xl transition-all hover:scale-105 hover:shadow-[0_0_50px_rgba(249,115,22,0.6)]"
               >
                 Get the Full eBook Bundle →
               </Link>
-              <p className="text-gray-500 text-sm mt-4">Available on CreditPreneurs.com</p>
+              <p className="text-gray-500 text-sm mt-4">Available on Credtegy.com</p>
             </div>
           </div>
         </section>
@@ -625,7 +625,7 @@ export default function Home() {
               <span className="block">Your Trucking Journey?</span>
             </h2>
             <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto">
-              Whether you&apos;re just starting out or looking to scale, Coys Logistics has the training, mentorship, and support you need to succeed.
+              Whether you&apos;re just starting out or looking to scale, Logademy has the training, mentorship, and support you need to succeed.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link 
@@ -652,10 +652,10 @@ export default function Home() {
                 <div className="flex items-center gap-3 mb-4">
                   <img 
                     src="/images/coyslogo.jpg" 
-                    alt="Coys Logistics" 
+                    alt="Logademy" 
                     className="w-14 h-14 rounded-lg object-cover"
                   />
-                  <span className="font-bold text-xl">Coys Logistics</span>
+                  <span className="font-bold text-xl">Logademy</span>
                 </div>
                 <p className="text-gray-400 max-w-md">
                   Not just moving freight — moving people forward. Trucking mentorship, dispatch training, and backend support from Shakur Mac.
@@ -687,14 +687,14 @@ export default function Home() {
               <div>
                 <h4 className="font-bold mb-4">Sister Company</h4>
                 <div className="space-y-2 text-gray-400">
-                  <a href="https://creditprenuers.netlify.app" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-green-400 transition-colors">
-                    💳 CreditPreneurs
+                  <a href="https://credtegy.netlify.app" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-green-400 transition-colors">
+                    💳 Credtegy
                   </a>
                   <p className="text-sm">Credit repair & business funding</p>
                 </div>
                 <h4 className="font-bold mb-2 mt-6">Contact</h4>
                 <div className="space-y-1 text-gray-400 text-sm">
-                  <p>📧 info@coyslogistics.com</p>
+                  <p>📧 info@logademy.com</p>
                   <p>📱 (404) 555-0124</p>
                   <p>📍 Atlanta, GA</p>
                 </div>
@@ -702,7 +702,7 @@ export default function Home() {
             </div>
             <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
               <p className="text-gray-500 text-sm">
-                © 2024 Coys Logistics. All rights reserved.
+                © 2024 Logademy. All rights reserved.
               </p>
               <div className="text-center md:text-right">
                 <p className="text-gray-500 text-sm">

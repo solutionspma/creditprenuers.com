@@ -7,7 +7,7 @@
 const TELNYX_CONFIG = {
   apiKey: 'KEY01234567890_DUMMY',
   messagingProfileId: 'MSG_PROFILE_DUMMY',
-  fromNumber: '+10000000001', // Coys Logistics dispatch number
+  fromNumber: '+10000000001', // Logademy dispatch number
   dispatchNumber: '+10000000000', // Main dispatch line
   webhookUrl: 'https://api.modcrm.local/webhooks/telnyx',
 };

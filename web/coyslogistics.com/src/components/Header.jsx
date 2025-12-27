@@ -19,11 +19,11 @@ export default function Header() {
           <Link href="/" className="flex items-center gap-2">
             <img 
               src="/images/coyslogo.jpg" 
-              alt="Coys Logistics" 
+              alt="Logademy" 
               className="w-10 h-10 rounded-lg object-cover"
             />
             <span className="font-display font-bold text-xl text-gray-900">
-              Coys Logistics
+              Logademy
             </span>
           </Link>
 

@@ -37,7 +37,7 @@ async function testLeadCapture() {
     name: 'Test Lead - DELETE ME',
     email: 'test@example.com',
     phone: '+15551234567',
-    source: 'creditprenuers',
+    source: 'credtegy',
     form_id: 'test_script',
     status: 'new',
     message: 'This is a test lead from the verification script',

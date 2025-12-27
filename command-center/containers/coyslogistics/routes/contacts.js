@@ -1,5 +1,5 @@
 /**
- * COYS LOGISTICS - CONTACTS ROUTES
+ * LOGADEMY - CONTACTS ROUTES
  * Shared contacts module with logistics-specific extensions
  */
 
@@ -9,7 +9,7 @@ const { PrismaClient } = require('@prisma/client');
 const { authenticate, authorize } = require('../../../shared/middleware/auth');
 
 const prisma = new PrismaClient();
-const BUSINESS_ID = 'coyslogistics';
+const BUSINESS_ID = 'logademy';
 
 router.get('/', authenticate, async (req, res) => {
   try {

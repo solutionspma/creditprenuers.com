@@ -2,11 +2,11 @@ import { createClient } from '@supabase/supabase-js'
 
 /**
  * ==============================================
- * CREDITPRENUERS MULTI-DATABASE SUPABASE CLIENT
+ * CREDTEGY MULTI-DATABASE SUPABASE CLIENT
  * ==============================================
  * 
  * Architecture:
- * 1. LOCAL: CreditPreneurs own Supabase (cxbgwvlimlcljttvkdjn)
+ * 1. LOCAL: Credtegy own Supabase (cxbgwvlimlcljttvkdjn)
  * 2. SYNC → Pitch Marketing Agency (bwycunbaajaemhcgufiz) 
  * 3. SYNC → Pitch Modular Spaces MASTER (uksjnwnvarhldlxyymef)
  */
@@ -15,7 +15,7 @@ import { createClient } from '@supabase/supabase-js'
 // DATABASE CONFIGURATION
 // ==============================================
 
-// LOCAL: CreditPreneurs own database (PRIMARY)
+// LOCAL: Credtegy own database (PRIMARY)
 const LOCAL_URL = 'https://cxbgwvlimlcljttvkdjn.supabase.co'
 const LOCAL_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN4Ymd3dmxpbWxjbGp0dHZrZGpuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjY3MTg3MTYsImV4cCI6MjA4MjI5NDcxNn0.a20a1yT0jlEtF4Ofl-u8mOFlSHuS5qM3iHsUNCqw_wc'
 
@@ -31,7 +31,7 @@ const MASTER_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYm
 // SUPABASE CLIENTS
 // ==============================================
 
-// Local database (CreditPreneurs own DB - PRIMARY)
+// Local database (Credtegy own DB - PRIMARY)
 export const localSupabase = createClient(LOCAL_URL, LOCAL_ANON_KEY)
 
 // Pitch Marketing Agency (sync target)
@@ -53,7 +53,7 @@ export const supabase = localSupabase
  * Capture a lead and sync to all upstream databases
  * 
  * Flow:
- * 1. Save to CreditPreneurs DB (local - always)
+ * 1. Save to Credtegy DB (local - always)
  * 2. Sync to Pitch Marketing Agency (if configured)  
  * 3. Sync to Pitch Modular Spaces (master - always)
  */
@@ -72,7 +72,7 @@ export async function captureLead(leadData) {
     phone: leadData.phone || null,
     company: leadData.company || null,
     message: leadData.message || null,
-    source: 'creditprenuers',
+    source: 'credtegy',
     form_id: leadData.form_id || 'website-lead-form',
     product_id: leadData.product_id || null,
     
@@ -95,7 +95,7 @@ export async function captureLead(leadData) {
   }
   
   // ==============================================
-  // 1. SAVE TO LOCAL DATABASE (CreditPreneurs)
+  // 1. SAVE TO LOCAL DATABASE (Credtegy)
   // ==============================================
   try {
     const { data, error } = await localSupabase
@@ -106,10 +106,10 @@ export async function captureLead(leadData) {
     
     if (error) throw error
     results.local = data
-    console.log('✓ Lead saved to CreditPreneurs DB')
+    console.log('✓ Lead saved to Credtegy DB')
   } catch (err) {
     results.errors.push({ db: 'local', error: err.message })
-    console.error('✗ Failed to save to CreditPreneurs DB:', err.message)
+    console.error('✗ Failed to save to Credtegy DB:', err.message)
   }
   
   // ==============================================
@@ -119,7 +119,7 @@ export async function captureLead(leadData) {
     try {
       const agencyLead = {
         ...lead,
-        synced_from: 'creditprenuers',
+        synced_from: 'credtegy',
         original_id: results.local?.id || null
       }
       
@@ -144,7 +144,7 @@ export async function captureLead(leadData) {
   try {
     const masterLead = {
       ...lead,
-      synced_from: 'creditprenuers',
+      synced_from: 'credtegy',
       original_id: results.local?.id || null
     }
     
@@ -233,7 +233,7 @@ export async function captureBooking(bookingData) {
     .from('bookings')
     .insert({
       ...booking,
-      synced_from: 'creditprenuers',
+      synced_from: 'credtegy',
       original_id: localBooking?.id
     })
     .select()

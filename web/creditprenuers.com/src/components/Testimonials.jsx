@@ -4,7 +4,7 @@ export default function Testimonials() {
       name: 'Marcus T.',
       location: 'Atlanta, GA',
       image: '👨🏾',
-      quote: "I went from a 520 credit score to 720 in just 6 months following Coy's system. Just got approved for my first business line of credit!",
+      quote: "I went from a 520 credit score to 720 in just 6 months following Credtegy's system. Just got approved for my first business line of credit!",
       result: '520 → 720 Score',
     },
     {
@@ -39,7 +39,7 @@ export default function Testimonials() {
       name: 'Tanya C.',
       location: 'Miami, FL',
       image: '👩🏿',
-      quote: "From no credit history to an 800+ score and multiple credit cards. Coy's strategies are the real deal. Thank you!",
+      quote: "From no credit history to an 800+ score and multiple credit cards. Credtegy's strategies are the real deal. Thank you!",
       result: '800+ Score',
     },
   ]

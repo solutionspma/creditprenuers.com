@@ -1,6 +1,6 @@
 /**
  * ══════════════════════════════════════════════════════════════
- * COYS LOGISTICS - DRIVERS MANAGEMENT ROUTES
+ * LOGADEMY - DRIVERS MANAGEMENT ROUTES
  * Driver Profiles, Compliance & Onboarding
  * ══════════════════════════════════════════════════════════════
  */
@@ -12,10 +12,10 @@ const { authenticate, authorize } = require('../../../shared/middleware/auth');
 const logger = require('../../../shared/utils/logger');
 
 const prisma = new PrismaClient();
-const BUSINESS_ID = 'coyslogistics';
+const BUSINESS_ID = 'logademy';
 
 // ─────────────────────────────────────────────────────────────
-// GET /api/coyslogistics/drivers - List all drivers
+// GET /api/logademy/drivers - List all drivers
 // ─────────────────────────────────────────────────────────────
 router.get('/', authenticate, async (req, res) => {
   try {
@@ -49,7 +49,7 @@ router.get('/', authenticate, async (req, res) => {
 });
 
 // ─────────────────────────────────────────────────────────────
-// GET /api/coyslogistics/drivers/:id - Get single driver
+// GET /api/logademy/drivers/:id - Get single driver
 // ─────────────────────────────────────────────────────────────
 router.get('/:id', authenticate, async (req, res) => {
   try {
@@ -72,7 +72,7 @@ router.get('/:id', authenticate, async (req, res) => {
 });
 
 // ─────────────────────────────────────────────────────────────
-// POST /api/coyslogistics/drivers - Add new driver
+// POST /api/logademy/drivers - Add new driver
 // ─────────────────────────────────────────────────────────────
 router.post('/', authenticate, authorize(['owner', 'admin']), async (req, res) => {
   try {
@@ -126,7 +126,7 @@ router.post('/', authenticate, authorize(['owner', 'admin']), async (req, res) =
 });
 
 // ─────────────────────────────────────────────────────────────
-// PUT /api/coyslogistics/drivers/:id - Update driver
+// PUT /api/logademy/drivers/:id - Update driver
 // ─────────────────────────────────────────────────────────────
 router.put('/:id', authenticate, async (req, res) => {
   try {
@@ -149,7 +149,7 @@ router.put('/:id', authenticate, async (req, res) => {
 });
 
 // ─────────────────────────────────────────────────────────────
-// PUT /api/coyslogistics/drivers/:id/status - Update driver status
+// PUT /api/logademy/drivers/:id/status - Update driver status
 // ─────────────────────────────────────────────────────────────
 router.put('/:id/status', authenticate, authorize(['owner', 'admin']), async (req, res) => {
   try {
@@ -185,7 +185,7 @@ router.put('/:id/status', authenticate, authorize(['owner', 'admin']), async (re
 });
 
 // ─────────────────────────────────────────────────────────────
-// GET /api/coyslogistics/drivers/:id/compliance - Compliance status
+// GET /api/logademy/drivers/:id/compliance - Compliance status
 // ─────────────────────────────────────────────────────────────
 router.get('/:id/compliance', authenticate, async (req, res) => {
   try {
@@ -229,7 +229,7 @@ router.get('/:id/compliance', authenticate, async (req, res) => {
 });
 
 // ─────────────────────────────────────────────────────────────
-// GET /api/coyslogistics/drivers/:id/stats - Driver performance
+// GET /api/logademy/drivers/:id/stats - Driver performance
 // ─────────────────────────────────────────────────────────────
 router.get('/:id/stats', authenticate, async (req, res) => {
   try {

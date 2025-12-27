@@ -14,7 +14,7 @@ export default function About() {
   return (
     <>
       <Head>
-        <title>About Shakur Mac | Coys Logistics</title>
+        <title>About Shakur Mac | Logademy</title>
         <meta name="description" content="Meet Shakur Mac - trucking entrepreneur, credit expert, and mentor. Learn his story and how he's helping others build wealth through trucking and credit." />
       </Head>
 
@@ -25,10 +25,10 @@ export default function About() {
             <Link href="/" className="flex items-center gap-3">
               <img 
                 src="/images/coyslogo.jpg" 
-                alt="Coys Logistics" 
+                alt="Logademy" 
                 className="w-16 h-10 rounded-lg object-contain bg-slate-800 border-2 border-green-500"
               />
-              <span className="font-bold text-xl hidden sm:block">Coys Logistics</span>
+              <span className="font-bold text-xl hidden sm:block">Logademy</span>
             </Link>
             <div className="hidden md:flex items-center gap-8">
               <Link href="/" className="text-gray-300 hover:text-green-400 transition-colors">Home</Link>
@@ -124,10 +124,10 @@ export default function About() {
                 <p className="text-green-400">— Shakur Mac</p>
               </div>
               <p>
-                That&apos;s why I created <span className="text-green-400 font-bold">Coys Logistics</span> and 
-                <span className="text-amber-400 font-bold"> CreditPreneurs</span>. Two sides of the same coin. 
-                Coys Logistics teaches you the trucking game — from dispatching to fleet management. 
-                CreditPreneurs helps you fix your credit and access funding to make it all possible.
+                That&apos;s why I created <span className="text-green-400 font-bold">Logademy</span> and 
+                <span className="text-amber-400 font-bold"> Credtegy</span>. Two sides of the same coin. 
+                Logademy teaches you the trucking game — from dispatching to fleet management. 
+                Credtegy helps you fix your credit and access funding to make it all possible.
               </p>
               <p>
                 Today, I&apos;ve helped over <span className="text-white font-semibold">247 drivers</span> start 
@@ -154,7 +154,7 @@ export default function About() {
                 <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center mb-6">
                   <span className="text-3xl">🚛</span>
                 </div>
-                <h3 className="text-2xl font-bold mb-4">Coys Logistics</h3>
+                <h3 className="text-2xl font-bold mb-4">Logademy</h3>
                 <p className="text-gray-400 mb-6">
                   My trucking mentorship and training company. We offer dispatch academy, 1-on-1 mentorship, 
                   backend support, and fleet solutions for aspiring and established trucking entrepreneurs.
@@ -168,13 +168,13 @@ export default function About() {
                 <div className="w-16 h-16 bg-gradient-to-br from-amber-500 to-orange-600 rounded-2xl flex items-center justify-center mb-6">
                   <span className="text-3xl">💳</span>
                 </div>
-                <h3 className="text-2xl font-bold mb-4">CreditPreneurs</h3>
+                <h3 className="text-2xl font-bold mb-4">Credtegy</h3>
                 <p className="text-gray-400 mb-6">
                   My credit repair and funding company. We help entrepreneurs fix their credit, access 
                   business funding, and build the financial foundation for their dreams.
                 </p>
-                <a href="https://creditprenuers.netlify.app" target="_blank" rel="noopener noreferrer" className="text-amber-400 font-semibold hover:text-amber-300">
-                  Visit CreditPreneurs →
+                <a href="https://credtegy.netlify.app" target="_blank" rel="noopener noreferrer" className="text-amber-400 font-semibold hover:text-amber-300">
+                  Visit Credtegy →
                 </a>
               </div>
             </div>
@@ -268,10 +268,10 @@ export default function About() {
               <div className="flex items-center gap-3">
                 <img 
                   src="/images/coyslogo.jpg" 
-                  alt="Coys Logistics" 
+                  alt="Logademy" 
                   className="w-12 h-12 rounded-lg object-cover"
                 />
-                <span className="font-bold text-xl">Coys Logistics</span>
+                <span className="font-bold text-xl">Logademy</span>
               </div>
               <div className="flex gap-8 text-gray-400 text-sm">
                 <Link href="/" className="hover:text-green-400">Home</Link>
@@ -281,7 +281,7 @@ export default function About() {
               </div>
             </div>
             <div className="border-t border-white/10 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-              <p className="text-gray-500 text-sm">© 2024 Coys Logistics. All rights reserved.</p>
+              <p className="text-gray-500 text-sm">© 2024 Logademy. All rights reserved.</p>
               <div className="text-center md:text-right">
                 <p className="text-gray-500 text-sm">
                   Powered by{' '}

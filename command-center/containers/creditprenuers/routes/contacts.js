@@ -1,6 +1,6 @@
 /**
  * ══════════════════════════════════════════════════════════════
- * CREDITPRENUERS - CONTACTS ROUTES
+ * CREDTEGY - CONTACTS ROUTES
  * ══════════════════════════════════════════════════════════════
  */
 
@@ -12,10 +12,10 @@ const { validateContact } = require('../../../shared/middleware/validation');
 const logger = require('../../../shared/utils/logger');
 
 const prisma = new PrismaClient();
-const BUSINESS_ID = 'creditprenuers';
+const BUSINESS_ID = 'credtegy';
 
 // ─────────────────────────────────────────────────────────────
-// GET /api/creditprenuers/contacts - List all contacts
+// GET /api/credtegy/contacts - List all contacts
 // ─────────────────────────────────────────────────────────────
 router.get('/', authenticate, async (req, res) => {
   try {
@@ -74,7 +74,7 @@ router.get('/', authenticate, async (req, res) => {
 });
 
 // ─────────────────────────────────────────────────────────────
-// GET /api/creditprenuers/contacts/:id - Get single contact
+// GET /api/credtegy/contacts/:id - Get single contact
 // ─────────────────────────────────────────────────────────────
 router.get('/:id', authenticate, async (req, res) => {
   try {
@@ -109,7 +109,7 @@ router.get('/:id', authenticate, async (req, res) => {
 });
 
 // ─────────────────────────────────────────────────────────────
-// POST /api/creditprenuers/contacts - Create contact
+// POST /api/credtegy/contacts - Create contact
 // ─────────────────────────────────────────────────────────────
 router.post('/', authenticate, validateContact, async (req, res) => {
   try {
@@ -158,7 +158,7 @@ router.post('/', authenticate, validateContact, async (req, res) => {
 });
 
 // ─────────────────────────────────────────────────────────────
-// PUT /api/creditprenuers/contacts/:id - Update contact
+// PUT /api/credtegy/contacts/:id - Update contact
 // ─────────────────────────────────────────────────────────────
 router.put('/:id', authenticate, async (req, res) => {
   try {
@@ -217,7 +217,7 @@ router.put('/:id', authenticate, async (req, res) => {
 });
 
 // ─────────────────────────────────────────────────────────────
-// DELETE /api/creditprenuers/contacts/:id - Delete contact
+// DELETE /api/credtegy/contacts/:id - Delete contact
 // ─────────────────────────────────────────────────────────────
 router.delete('/:id', authenticate, authorize(['owner', 'admin']), async (req, res) => {
   try {
@@ -243,7 +243,7 @@ router.delete('/:id', authenticate, authorize(['owner', 'admin']), async (req, r
 });
 
 // ─────────────────────────────────────────────────────────────
-// POST /api/creditprenuers/contacts/:id/tags - Add tags
+// POST /api/credtegy/contacts/:id/tags - Add tags
 // ─────────────────────────────────────────────────────────────
 router.post('/:id/tags', authenticate, async (req, res) => {
   try {
@@ -275,7 +275,7 @@ router.post('/:id/tags', authenticate, async (req, res) => {
 });
 
 // ─────────────────────────────────────────────────────────────
-// GET /api/creditprenuers/contacts/:id/timeline - Activity timeline
+// GET /api/credtegy/contacts/:id/timeline - Activity timeline
 // ─────────────────────────────────────────────────────────────
 router.get('/:id/timeline', authenticate, async (req, res) => {
   try {

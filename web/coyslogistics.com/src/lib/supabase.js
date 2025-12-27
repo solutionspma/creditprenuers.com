@@ -2,11 +2,11 @@ import { createClient } from '@supabase/supabase-js'
 
 /**
  * ==============================================
- * COYS LOGISTICS MULTI-DATABASE SUPABASE CLIENT
+ * LOGADEMY MULTI-DATABASE SUPABASE CLIENT
  * ==============================================
  * 
  * Architecture:
- * 1. LOCAL: Coys Logistics own Supabase (hkfcfooyqaonbszhnrpx)
+ * 1. LOCAL: Logademy own Supabase (hkfcfooyqaonbszhnrpx)
  * 2. SYNC → Pitch Marketing Agency (bwycunbaajaemhcgufiz) 
  * 3. SYNC → Pitch Modular Spaces MASTER (uksjnwnvarhldlxyymef)
  */
@@ -15,7 +15,7 @@ import { createClient } from '@supabase/supabase-js'
 // DATABASE CONFIGURATION
 // ==============================================
 
-// LOCAL: Coys Logistics own database (PRIMARY)
+// LOCAL: Logademy own database (PRIMARY)
 const LOCAL_URL = 'https://hkfcfooyqaonbszhnrpx.supabase.co'
 const LOCAL_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhrZmNmb295cWFvbmJzemhucnB4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjY3NzA0ODIsImV4cCI6MjA4MjM0NjQ4Mn0.YrkH0TwpkKFVmh-FL7f-B996c0yQg3PhcPEu3GJmiuE'
 
@@ -31,7 +31,7 @@ const MASTER_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYm
 // SUPABASE CLIENTS
 // ==============================================
 
-// Local database (Coys Logistics own DB - PRIMARY)
+// Local database (Logademy own DB - PRIMARY)
 export const localSupabase = createClient(LOCAL_URL, LOCAL_ANON_KEY)
 
 // Pitch Marketing Agency (sync target)
@@ -53,7 +53,7 @@ export const supabase = localSupabase
  * Capture a lead and sync to all upstream databases
  * 
  * Flow:
- * 1. Save to Coys Logistics DB (local - always)
+ * 1. Save to Logademy DB (local - always)
  * 2. Sync to Pitch Marketing Agency (if configured)  
  * 3. Sync to Pitch Modular Spaces (master - always)
  */
@@ -72,7 +72,7 @@ export async function captureLead(leadData) {
     phone: leadData.phone || null,
     company: leadData.company || null,
     message: leadData.message || null,
-    source: 'coyslogistics',
+    source: 'logademy',
     form_id: leadData.form_id || 'website-lead-form',
     product_id: leadData.product_id || null,
     
@@ -97,7 +97,7 @@ export async function captureLead(leadData) {
   }
   
   // ==============================================
-  // 1. SAVE TO LOCAL DATABASE (Coys Logistics)
+  // 1. SAVE TO LOCAL DATABASE (Logademy)
   // ==============================================
   try {
     const { data, error } = await localSupabase
@@ -108,10 +108,10 @@ export async function captureLead(leadData) {
     
     if (error) throw error
     results.local = data
-    console.log('✓ Lead saved to Coys Logistics DB')
+    console.log('✓ Lead saved to Logademy DB')
   } catch (err) {
     results.errors.push({ db: 'local', error: err.message })
-    console.error('✗ Failed to save to Coys Logistics DB:', err.message)
+    console.error('✗ Failed to save to Logademy DB:', err.message)
   }
   
   // ==============================================
@@ -121,7 +121,7 @@ export async function captureLead(leadData) {
     try {
       const agencyLead = {
         ...lead,
-        synced_from: 'coyslogistics',
+        synced_from: 'logademy',
         original_id: results.local?.id || null
       }
       
@@ -146,7 +146,7 @@ export async function captureLead(leadData) {
   try {
     const masterLead = {
       ...lead,
-      synced_from: 'coyslogistics',
+      synced_from: 'logademy',
       original_id: results.local?.id || null
     }
     
@@ -235,7 +235,7 @@ export async function captureBooking(bookingData) {
     .from('bookings')
     .insert({
       ...booking,
-      synced_from: 'coyslogistics',
+      synced_from: 'logademy',
       original_id: localBooking?.id
     })
     .select()

@@ -1,6 +1,6 @@
 /**
  * ══════════════════════════════════════════════════════════════
- * CREDITPRENUERS - DOCUMENTS ROUTES
+ * CREDTEGY - DOCUMENTS ROUTES
  * ══════════════════════════════════════════════════════════════
  */
 
@@ -13,7 +13,7 @@ const { authenticate } = require('../../../shared/middleware/auth');
 
 const prisma = new PrismaClient();
 const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_KEY);
-const BUSINESS_ID = 'creditprenuers';
+const BUSINESS_ID = 'credtegy';
 
 const upload = multer({ 
   storage: multer.memoryStorage(),

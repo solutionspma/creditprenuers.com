@@ -1,5 +1,5 @@
 /**
- * COYS LOGISTICS - DOCUMENTS ROUTES
+ * LOGADEMY - DOCUMENTS ROUTES
  */
 const express = require('express');
 const router = express.Router();
@@ -10,7 +10,7 @@ const { authenticate } = require('../../../shared/middleware/auth');
 
 const prisma = new PrismaClient();
 const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_KEY);
-const BUSINESS_ID = 'coyslogistics';
+const BUSINESS_ID = 'logademy';
 const upload = multer({ storage: multer.memoryStorage(), limits: { fileSize: 10 * 1024 * 1024 } });
 
 router.get('/', authenticate, async (req, res) => {

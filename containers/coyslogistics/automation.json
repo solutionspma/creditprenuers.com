@@ -194,7 +194,7 @@
             "name": "{{first_name}} {{last_name}}",
             "email": "{{email}}",
             "phone": "{{phone}}",
-            "source": "coyslogistics.com",
+            "source": "logademy.com",
             "campaign": "{{utm_campaign}}",
             "interest": "{{interest_type}}",
             "timestamp": "{{submitted_at}}"

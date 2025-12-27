@@ -1,6 +1,6 @@
 /**
  * ══════════════════════════════════════════════════════════════
- * CREDITPRENUERS - BILLING ROUTES
+ * CREDTEGY - BILLING ROUTES
  * Stripe Integration for eBook, Mentorship, Consultations
  * ══════════════════════════════════════════════════════════════
  */
@@ -13,7 +13,7 @@ const { authenticate } = require('../../../shared/middleware/auth');
 
 const prisma = new PrismaClient();
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
-const BUSINESS_ID = 'creditprenuers';
+const BUSINESS_ID = 'credtegy';
 
 // ─────────────────────────────────────────────────────────────
 // PRODUCTS

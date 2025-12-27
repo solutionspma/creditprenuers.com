@@ -18,16 +18,16 @@ export default function SignIn() {
     setError('')
 
     // Demo login - check credentials locally
-    if (email === 'admin@creditprenuers.com' && password === 'Admin123!') {
+    if (email === 'admin@credtegy.com' && password === 'Admin123!') {
       // Store demo user
-      localStorage.setItem('token', 'demo-token-creditprenuers-2024')
+      localStorage.setItem('token', 'demo-token-credtegy-2024')
       localStorage.setItem('user', JSON.stringify({
         id: '1',
-        email: 'admin@creditprenuers.com',
+        email: 'admin@credtegy.com',
         firstName: 'Shakur',
         lastName: 'Mac',
         role: 'owner',
-        business: 'creditprenuers'
+        business: 'credtegy'
       }))
       window.location.href = '/dashboard'
       return
@@ -53,7 +53,7 @@ export default function SignIn() {
         setError(data.error || 'Invalid credentials')
       }
     } catch (err) {
-      setError('Invalid email or password. Try demo: admin@creditprenuers.com / Admin123!')
+      setError('Invalid email or password. Try demo: admin@credtegy.com / Admin123!')
     } finally {
       setIsLoading(false)
     }
@@ -74,7 +74,7 @@ export default function SignIn() {
             <div className="inline-block bg-gray-800 rounded-lg p-3 mb-4">
               <img 
                 src="/images/logo.png" 
-                alt="CreditPreneurs" 
+                alt="Credtegy" 
                 className="h-12 w-auto"
               />
             </div>
@@ -195,7 +195,7 @@ export default function SignIn() {
           {/* Demo Credentials */}
           <div className="mt-6 p-4 bg-gray-800/50 rounded-lg border border-gray-700">
             <p className="text-sm text-gray-400 text-center">
-              <span className="text-accent-gold font-medium">Demo:</span> admin@creditprenuers.com / Admin123!
+              <span className="text-accent-gold font-medium">Demo:</span> admin@credtegy.com / Admin123!
             </p>
           </div>
         </motion.div>

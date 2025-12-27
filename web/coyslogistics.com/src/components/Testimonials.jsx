@@ -4,7 +4,7 @@ export default function Testimonials() {
       name: 'Marcus J.',
       role: 'Fleet Owner',
       image: '👨🏾',
-      quote: "The dispatch academy changed everything for me. Went from driving to owning 3 trucks in under 2 years. Coy's mentorship is the real deal.",
+      quote: "The dispatch academy changed everything for me. Went from driving to owning 3 trucks in under 2 years. Logademy's mentorship is the real deal.",
       result: '3 Truck Owner',
     },
     {

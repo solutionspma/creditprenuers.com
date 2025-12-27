@@ -1,7 +1,7 @@
 # MBOCC Command Center
 
 ## Multi-Business Owner Command Center (MBOCC)
-Backend CRM system for **CreditPreneurs** (Credit Repair) and **Coys Logistics** (Trucking/Freight)
+Backend CRM system for **Credtegy** (Credit Repair) and **Logademy** (Trucking/Freight)
 
 ---
 
@@ -25,7 +25,7 @@ command-center/
 │   ├── integrations.js          # Third-party integrations
 │   └── index.js                 # Utils exports
 └── containers/
-    ├── creditprenuers/          # Credit Repair CRM
+    ├── credtegy/          # Credit Repair CRM
     │   ├── config.json          # Business configuration
     │   └── routes/              # API routes
     │       ├── contacts.js
@@ -36,7 +36,7 @@ command-center/
     │       ├── communication.js
     │       ├── billing.js
     │       └── cms.js
-    └── coyslogistics/           # Logistics CRM
+    └── logademy/           # Logistics CRM
         ├── config.json          # Business configuration
         └── routes/              # API routes
             ├── fleet.js
@@ -102,7 +102,7 @@ All API routes require JWT authentication (except webhooks).
 // Login
 POST /api/auth/login
 {
-  "email": "admin@creditprenuers.com",
+  "email": "admin@credtegy.com",
   "password": "Admin123!"
 }
 
@@ -126,40 +126,40 @@ All routes follow: `/api/:businessId/:resource`
 
 | Business | Slug |
 |----------|------|
-| CreditPreneurs | `creditprenuers` |
-| Coys Logistics | `coyslogistics` |
+| Credtegy | `credtegy` |
+| Logademy | `logademy` |
 
-### CreditPreneurs Routes
-
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/api/creditprenuers/contacts` | List contacts |
-| POST | `/api/creditprenuers/contacts` | Create contact |
-| GET | `/api/creditprenuers/contacts/:id` | Get contact |
-| PUT | `/api/creditprenuers/contacts/:id` | Update contact |
-| DELETE | `/api/creditprenuers/contacts/:id` | Delete contact |
-| GET | `/api/creditprenuers/funding` | List funding applications |
-| POST | `/api/creditprenuers/funding` | Create funding application |
-| POST | `/api/creditprenuers/funding/:id/vault` | Add vault item |
-| GET | `/api/creditprenuers/pipelines` | List pipelines |
-| POST | `/api/creditprenuers/documents/upload` | Upload document |
-| GET | `/api/creditprenuers/analytics/dashboard` | Dashboard metrics |
-
-### Coys Logistics Routes
+### Credtegy Routes
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| GET | `/api/coyslogistics/fleet` | List trucks |
-| POST | `/api/coyslogistics/fleet` | Add truck |
-| GET | `/api/coyslogistics/fleet/:id/location` | Get GPS location |
-| GET | `/api/coyslogistics/loads` | List loads |
-| POST | `/api/coyslogistics/loads` | Create load |
-| PUT | `/api/coyslogistics/loads/:id/status` | Update load status |
-| POST | `/api/coyslogistics/loads/:id/bol` | Generate BOL |
-| GET | `/api/coyslogistics/drivers` | List drivers |
-| POST | `/api/coyslogistics/drivers` | Add driver |
-| POST | `/api/coyslogistics/billing/invoice` | Generate invoice |
-| GET | `/api/coyslogistics/analytics/dashboard` | Fleet metrics |
+| GET | `/api/credtegy/contacts` | List contacts |
+| POST | `/api/credtegy/contacts` | Create contact |
+| GET | `/api/credtegy/contacts/:id` | Get contact |
+| PUT | `/api/credtegy/contacts/:id` | Update contact |
+| DELETE | `/api/credtegy/contacts/:id` | Delete contact |
+| GET | `/api/credtegy/funding` | List funding applications |
+| POST | `/api/credtegy/funding` | Create funding application |
+| POST | `/api/credtegy/funding/:id/vault` | Add vault item |
+| GET | `/api/credtegy/pipelines` | List pipelines |
+| POST | `/api/credtegy/documents/upload` | Upload document |
+| GET | `/api/credtegy/analytics/dashboard` | Dashboard metrics |
+
+### Logademy Routes
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/logademy/fleet` | List trucks |
+| POST | `/api/logademy/fleet` | Add truck |
+| GET | `/api/logademy/fleet/:id/location` | Get GPS location |
+| GET | `/api/logademy/loads` | List loads |
+| POST | `/api/logademy/loads` | Create load |
+| PUT | `/api/logademy/loads/:id/status` | Update load status |
+| POST | `/api/logademy/loads/:id/bol` | Generate BOL |
+| GET | `/api/logademy/drivers` | List drivers |
+| POST | `/api/logademy/drivers` | Add driver |
+| POST | `/api/logademy/billing/invoice` | Generate invoice |
+| GET | `/api/logademy/analytics/dashboard` | Fleet metrics |
 
 ---
 
@@ -206,11 +206,11 @@ All routes follow: `/api/:businessId/:resource`
 - `Invoice` - Billing
 - `Automation` - Workflow triggers
 
-### CreditPreneurs Specific
+### Credtegy Specific
 - `FundingApplication` - Credit repair applications
 - Vault items (JSON in FundingApplication)
 
-### Coys Logistics Specific
+### Logademy Specific
 - `Truck` - Fleet vehicles
 - `Driver` - CDL drivers
 - `Load` - Shipments
@@ -226,14 +226,14 @@ All routes follow: `/api/:businessId/:resource`
 
 ### Stripe Webhooks
 ```
-POST /api/webhooks/stripe/creditprenuers
-POST /api/webhooks/stripe/coyslogistics
+POST /api/webhooks/stripe/credtegy
+POST /api/webhooks/stripe/logademy
 ```
 
 ### TELNYX Webhooks
 ```
-POST /api/webhooks/telnyx/creditprenuers
-POST /api/webhooks/telnyx/coyslogistics
+POST /api/webhooks/telnyx/credtegy
+POST /api/webhooks/telnyx/logademy
 ```
 
 ### DocuSign Webhooks
@@ -245,14 +245,14 @@ POST /api/webhooks/docusign
 
 ## 📊 Products & Pricing
 
-### CreditPreneurs
+### Credtegy
 | Product | Price | Type |
 |---------|-------|------|
 | Trucking Business eBook | $27 | One-time |
 | Monthly Mentorship | $47/mo | Subscription |
 | 1-on-1 Consultation | $150 | One-time |
 
-### Coys Logistics
+### Logademy
 | Service | Pricing |
 |---------|---------|
 | Freight Hauling | Per load (flat/per mile) |
@@ -307,10 +307,10 @@ npx prisma migrate reset
 
 ## 📄 License
 
-Proprietary - CreditPreneurs x Coys Logistics © 2024
+Proprietary - Credtegy x Logademy © 2024
 
 ---
 
 ## 👤 Author
 
-Built by **Shakur Mac** / CreditPreneurs
+Built by **Shakur Mac** / Credtegy

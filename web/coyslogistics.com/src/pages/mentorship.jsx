@@ -14,7 +14,7 @@ export default function Mentorship() {
   return (
     <>
       <Head>
-        <title>1-on-1 Mentorship | Coys Logistics</title>
+        <title>1-on-1 Mentorship | Logademy</title>
         <meta name="description" content="Get personal mentorship from Shakur Mac. Weekly coaching calls, business strategy, and ongoing support to build your trucking empire." />
       </Head>
 
@@ -25,10 +25,10 @@ export default function Mentorship() {
             <Link href="/" className="flex items-center gap-3">
               <img 
                 src="/images/coyslogo.jpg" 
-                alt="Coys Logistics" 
+                alt="Logademy" 
                 className="w-16 h-10 rounded-lg object-contain bg-slate-800 border-2 border-green-500"
               />
-              <span className="font-bold text-xl hidden sm:block">Coys Logistics</span>
+              <span className="font-bold text-xl hidden sm:block">Logademy</span>
             </Link>
             <div className="hidden md:flex items-center gap-8">
               <Link href="/" className="text-gray-300 hover:text-green-400 transition-colors">Home</Link>
@@ -77,7 +77,7 @@ export default function Mentorship() {
               {[
                 { icon: '📞', title: 'Weekly Coaching Calls', desc: 'One-hour private sessions with Shakur to discuss strategy, troubleshoot problems, and plan your next moves.' },
                 { icon: '📋', title: 'Custom Business Plan', desc: 'A tailored roadmap for your specific situation — whether starting fresh or scaling an existing operation.' },
-                { icon: '💰', title: 'Funding Guidance', desc: 'Access to credit building and funding resources through CreditPreneurs partnership.' },
+                { icon: '💰', title: 'Funding Guidance', desc: 'Access to credit building and funding resources through Credtegy partnership.' },
                 { icon: '🔧', title: 'Backend Support Option', desc: 'Add dispatch and admin services so you can focus on driving and business development.' },
                 { icon: '👥', title: 'Private Community', desc: 'Connect with other mentees, share wins, ask questions, and build your network.' },
                 { icon: '📱', title: 'Direct Access', desc: 'Text/call Shakur directly for urgent questions between sessions. Priority response guaranteed.' },
@@ -181,7 +181,7 @@ export default function Mentorship() {
                     'Priority scheduling',
                     'Emergency support line',
                     'Backend dispatch at discounted rate',
-                    'CreditPreneurs VIP access',
+                    'Credtegy VIP access',
                   ].map((item, idx) => (
                     <li key={idx} className="flex items-center gap-3 text-sm">
                       <span className="text-green-400">✓</span>
@@ -292,10 +292,10 @@ export default function Mentorship() {
               <div className="flex items-center gap-3">
                 <img 
                   src="/images/coyslogo.jpg" 
-                  alt="Coys Logistics" 
+                  alt="Logademy" 
                   className="w-12 h-12 rounded-lg object-cover"
                 />
-                <span className="font-bold text-xl">Coys Logistics</span>
+                <span className="font-bold text-xl">Logademy</span>
               </div>
               <div className="flex gap-8 text-gray-400 text-sm">
                 <Link href="/" className="hover:text-green-400">Home</Link>
@@ -305,7 +305,7 @@ export default function Mentorship() {
               </div>
             </div>
             <div className="border-t border-white/10 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-              <p className="text-gray-500 text-sm">© 2024 Coys Logistics. All rights reserved.</p>
+              <p className="text-gray-500 text-sm">© 2024 Logademy. All rights reserved.</p>
               <div className="text-center md:text-right">
                 <p className="text-gray-500 text-sm">
                   Powered by{' '}

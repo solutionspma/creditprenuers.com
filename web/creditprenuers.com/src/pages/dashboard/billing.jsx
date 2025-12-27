@@ -7,12 +7,12 @@ export default function BillingPage() {
   const [activeTab, setActiveTab] = useState('invoices')
 
   const invoices = [
-    { id: 'INV-2024-089', client: 'Marcus Johnson', business: 'creditprenuers', service: 'Credit Repair Package', amount: 599, status: 'Paid', date: '2024-12-20', dueDate: '2024-12-27' },
-    { id: 'INV-2024-090', client: 'Amazon FBA', business: 'coyslogistics', service: 'Load LD-2024-001', amount: 3200, status: 'Paid', date: '2024-12-22', dueDate: '2024-12-29' },
-    { id: 'INV-2024-091', client: 'Keisha Williams', business: 'creditprenuers', service: 'Premium Mentorship', amount: 1499, status: 'Pending', date: '2024-12-24', dueDate: '2024-12-31' },
-    { id: 'INV-2024-092', client: 'FedEx Ground', business: 'coyslogistics', service: 'Load LD-2024-002', amount: 2100, status: 'Paid', date: '2024-12-23', dueDate: '2024-12-30' },
-    { id: 'INV-2024-093', client: 'Jerome Smith', business: 'creditprenuers', service: 'Business Credit Build', amount: 899, status: 'Overdue', date: '2024-12-10', dueDate: '2024-12-17' },
-    { id: 'INV-2024-094', client: 'Target DC', business: 'coyslogistics', service: 'Load LD-2024-004', amount: 850, status: 'Draft', date: '2024-12-26', dueDate: '2025-01-02' },
+    { id: 'INV-2024-089', client: 'Marcus Johnson', business: 'credtegy', service: 'Credit Repair Package', amount: 599, status: 'Paid', date: '2024-12-20', dueDate: '2024-12-27' },
+    { id: 'INV-2024-090', client: 'Amazon FBA', business: 'logademy', service: 'Load LD-2024-001', amount: 3200, status: 'Paid', date: '2024-12-22', dueDate: '2024-12-29' },
+    { id: 'INV-2024-091', client: 'Keisha Williams', business: 'credtegy', service: 'Premium Mentorship', amount: 1499, status: 'Pending', date: '2024-12-24', dueDate: '2024-12-31' },
+    { id: 'INV-2024-092', client: 'FedEx Ground', business: 'logademy', service: 'Load LD-2024-002', amount: 2100, status: 'Paid', date: '2024-12-23', dueDate: '2024-12-30' },
+    { id: 'INV-2024-093', client: 'Jerome Smith', business: 'credtegy', service: 'Business Credit Build', amount: 899, status: 'Overdue', date: '2024-12-10', dueDate: '2024-12-17' },
+    { id: 'INV-2024-094', client: 'Target DC', business: 'logademy', service: 'Load LD-2024-004', amount: 850, status: 'Draft', date: '2024-12-26', dueDate: '2025-01-02' },
   ]
 
   const subscriptions = [
@@ -103,7 +103,7 @@ export default function BillingPage() {
                     <div className="flex items-center gap-2">
                       <span className="text-accent-gold font-mono font-bold">{invoice.id}</span>
                       <span className={`w-2 h-2 rounded-full ${
-                        invoice.business === 'creditprenuers' ? 'bg-accent-gold' : 'bg-blue-400'
+                        invoice.business === 'credtegy' ? 'bg-accent-gold' : 'bg-blue-400'
                       }`}></span>
                     </div>
                   </td>

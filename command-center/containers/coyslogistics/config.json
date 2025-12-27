@@ -1,6 +1,6 @@
 {
-  "businessId": "coyslogistics",
-  "businessName": "Coys Logistics",
+  "businessId": "logademy",
+  "businessName": "Logademy",
   "owner": "Shakur Mac",
   "industry": "Trucking & Freight Logistics",
   "timezone": "America/New_York",
@@ -161,8 +161,8 @@
   },
   
   "urls": {
-    "frontend": "https://coyslogistics.netlify.app",
-    "api": "https://api.coyslogistics.com",
-    "webhooks": "https://api.coyslogistics.com/webhooks"
+    "frontend": "https://logademy.netlify.app",
+    "api": "https://api.logademy.com",
+    "webhooks": "https://api.logademy.com/webhooks"
   }
 }

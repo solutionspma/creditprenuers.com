@@ -1,6 +1,6 @@
 /**
  * ══════════════════════════════════════════════════════════════
- * CREDITPRENUERS - FUNDING ROUTES
+ * CREDTEGY - FUNDING ROUTES
  * Credit Repair & Funding Tracking System
  * ══════════════════════════════════════════════════════════════
  */
@@ -12,10 +12,10 @@ const { authenticate } = require('../../../shared/middleware/auth');
 const logger = require('../../../shared/utils/logger');
 
 const prisma = new PrismaClient();
-const BUSINESS_ID = 'creditprenuers';
+const BUSINESS_ID = 'credtegy';
 
 // ─────────────────────────────────────────────────────────────
-// GET /api/creditprenuers/funding/dashboard - Funding dashboard stats
+// GET /api/credtegy/funding/dashboard - Funding dashboard stats
 // ─────────────────────────────────────────────────────────────
 router.get('/dashboard', authenticate, async (req, res) => {
   try {
@@ -94,7 +94,7 @@ router.get('/dashboard', authenticate, async (req, res) => {
 });
 
 // ─────────────────────────────────────────────────────────────
-// GET /api/creditprenuers/funding/contacts/:contactId - Contact funding profile
+// GET /api/credtegy/funding/contacts/:contactId - Contact funding profile
 // ─────────────────────────────────────────────────────────────
 router.get('/contacts/:contactId', authenticate, async (req, res) => {
   try {
@@ -143,7 +143,7 @@ router.get('/contacts/:contactId', authenticate, async (req, res) => {
 });
 
 // ─────────────────────────────────────────────────────────────
-// POST /api/creditprenuers/funding/records - Create funding record
+// POST /api/credtegy/funding/records - Create funding record
 // ─────────────────────────────────────────────────────────────
 router.post('/records', authenticate, async (req, res) => {
   try {
@@ -200,7 +200,7 @@ router.post('/records', authenticate, async (req, res) => {
 });
 
 // ─────────────────────────────────────────────────────────────
-// POST /api/creditprenuers/funding/credit-scores - Record credit score
+// POST /api/credtegy/funding/credit-scores - Record credit score
 // ─────────────────────────────────────────────────────────────
 router.post('/credit-scores', authenticate, async (req, res) => {
   try {
@@ -243,7 +243,7 @@ router.post('/credit-scores', authenticate, async (req, res) => {
 });
 
 // ─────────────────────────────────────────────────────────────
-// POST /api/creditprenuers/funding/disputes - Create dispute record
+// POST /api/credtegy/funding/disputes - Create dispute record
 // ─────────────────────────────────────────────────────────────
 router.post('/disputes', authenticate, async (req, res) => {
   try {
@@ -291,7 +291,7 @@ router.post('/disputes', authenticate, async (req, res) => {
 });
 
 // ─────────────────────────────────────────────────────────────
-// PUT /api/creditprenuers/funding/disputes/:id - Update dispute status
+// PUT /api/credtegy/funding/disputes/:id - Update dispute status
 // ─────────────────────────────────────────────────────────────
 router.put('/disputes/:id', authenticate, async (req, res) => {
   try {
@@ -326,7 +326,7 @@ router.put('/disputes/:id', authenticate, async (req, res) => {
 });
 
 // ─────────────────────────────────────────────────────────────
-// GET /api/creditprenuers/funding/goals - Funding goal tracker
+// GET /api/credtegy/funding/goals - Funding goal tracker
 // ─────────────────────────────────────────────────────────────
 router.get('/goals', authenticate, async (req, res) => {
   try {

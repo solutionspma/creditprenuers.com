@@ -1,6 +1,6 @@
 // MBOCC Command Center - Prisma Schema
 // Multi-Business Owner Command Center Database Schema
-// Supports: CreditPreneurs (Credit Repair) & Coys Logistics (Trucking)
+// Supports: Credtegy (Credit Repair) & Logademy (Trucking)
 
 generator client {
   provider = "prisma-client-js"
@@ -17,7 +17,7 @@ datasource db {
 
 model Business {
   id          String   @id @default(uuid())
-  slug        String   @unique // 'creditprenuers' or 'coyslogistics'
+  slug        String   @unique // 'credtegy' or 'logademy'
   name        String
   type        String   // 'credit_repair' or 'logistics'
   config      Json     // Business-specific configuration
@@ -35,10 +35,10 @@ model Business {
   pages       Page[]
   invoices    Invoice[]
   
-  // CreditPreneurs specific
+  // Credtegy specific
   fundingApplications FundingApplication[]
   
-  // Coys Logistics specific
+  // Logademy specific
   trucks      Truck[]
   drivers     Driver[]
   loads       Load[]
@@ -112,10 +112,10 @@ model Contact {
   activities    Activity[]
   invoices      Invoice[]
   
-  // CreditPreneurs specific
+  // Credtegy specific
   fundingApplications FundingApplication[]
   
-  // Coys Logistics specific
+  // Logademy specific
   loads         Load[]    @relation("ShipperContact")
   rateHistory   RateHistory[]
 
@@ -329,7 +329,7 @@ model Invoice {
   business      Business @relation(fields: [businessId], references: [id], onDelete: Cascade)
   contact       Contact? @relation(fields: [contactId], references: [id])
   
-  // Coys Logistics
+  // Logademy
   load          Load?
 
   @@map("invoices")
@@ -420,7 +420,7 @@ model Activity {
 }
 
 // ==========================================
-// CREDITPRENUERS SPECIFIC MODELS
+// CREDTEGY SPECIFIC MODELS
 // ==========================================
 
 model FundingApplication {
@@ -466,7 +466,7 @@ model FundingApplication {
 }
 
 // ==========================================
-// COYS LOGISTICS SPECIFIC MODELS
+// LOGADEMY SPECIFIC MODELS
 // ==========================================
 
 model Truck {

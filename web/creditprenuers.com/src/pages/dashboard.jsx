@@ -5,15 +5,15 @@ import { useRouter } from 'next/router'
 import DashboardLayout from '@/components/DashboardLayout'
 
 export default function Dashboard() {
-  const [currentBusiness, setCurrentBusiness] = useState('creditprenuers')
+  const [currentBusiness, setCurrentBusiness] = useState('credtegy')
   const router = useRouter()
 
   useEffect(() => {
-    const savedBusiness = localStorage.getItem('currentBusiness') || 'creditprenuers'
+    const savedBusiness = localStorage.getItem('currentBusiness') || 'credtegy'
     setCurrentBusiness(savedBusiness)
   }, [])
 
-  // CreditPreneurs Stats
+  // Credtegy Stats
   const creditStats = [
     { label: 'Total Contacts', value: '247', change: '+12%', icon: '👥' },
     { label: 'Active Clients', value: '89', change: '+8%', icon: '✅' },
@@ -21,7 +21,7 @@ export default function Dashboard() {
     { label: 'Pending Funding', value: '34', change: '+5%', icon: '📋' },
   ]
 
-  // Coys Logistics Stats
+  // Logademy Stats
   const logisticsStats = [
     { label: 'Active Loads', value: '18', change: '+15%', icon: '📦' },
     { label: 'Fleet Trucks', value: '12', change: '0%', icon: '🚛' },
@@ -29,9 +29,9 @@ export default function Dashboard() {
     { label: 'Drivers Active', value: '14', change: '+2%', icon: '👨‍✈️' },
   ]
 
-  const stats = currentBusiness === 'coyslogistics' ? logisticsStats : creditStats
+  const stats = currentBusiness === 'logademy' ? logisticsStats : creditStats
 
-  // CreditPreneurs Activity
+  // Credtegy Activity
   const creditActivity = [
     { action: 'New lead submitted', name: 'Marcus Johnson', time: '2 mins ago' },
     { action: 'Funding approved', name: 'Keisha Williams', time: '15 mins ago' },
@@ -40,7 +40,7 @@ export default function Dashboard() {
     { action: 'Credit score update', name: 'Jerome Smith', time: '5 hours ago' },
   ]
 
-  // Coys Logistics Activity
+  // Logademy Activity
   const logisticsActivity = [
     { action: 'Load delivered', name: 'Load #LD-004521 to Atlanta', time: '10 mins ago' },
     { action: 'New load booked', name: '$3,200 - Dallas to Miami', time: '25 mins ago' },
@@ -49,9 +49,9 @@ export default function Dashboard() {
     { action: 'Invoice paid', name: 'ABC Freight - $4,850', time: '4 hours ago' },
   ]
 
-  const recentActivity = currentBusiness === 'coyslogistics' ? logisticsActivity : creditActivity
+  const recentActivity = currentBusiness === 'logademy' ? logisticsActivity : creditActivity
 
-  // CreditPreneurs Pipeline
+  // Credtegy Pipeline
   const creditPipeline = [
     { stage: 'New Lead', count: 23, color: 'bg-red-500' },
     { stage: 'Consultation', count: 15, color: 'bg-orange-500' },
@@ -62,7 +62,7 @@ export default function Dashboard() {
     { stage: 'Funded', count: 34, color: 'bg-accent-gold' },
   ]
 
-  // Coys Logistics Pipeline
+  // Logademy Pipeline
   const logisticsPipeline = [
     { stage: 'Quote Request', count: 8, color: 'bg-gray-500' },
     { stage: 'Quoted', count: 12, color: 'bg-red-500' },
@@ -74,7 +74,7 @@ export default function Dashboard() {
     { stage: 'Paid', count: 142, color: 'bg-accent-gold' },
   ]
 
-  const pipeline = currentBusiness === 'coyslogistics' ? logisticsPipeline : creditPipeline
+  const pipeline = currentBusiness === 'logademy' ? logisticsPipeline : creditPipeline
 
   // Quick Actions based on business
   const creditActions = [
@@ -91,16 +91,16 @@ export default function Dashboard() {
     { icon: '📡', label: 'Dispatch', href: '/dashboard/dispatch' },
   ]
 
-  const quickActions = currentBusiness === 'coyslogistics' ? logisticsActions : creditActions
+  const quickActions = currentBusiness === 'logademy' ? logisticsActions : creditActions
 
   return (
     <DashboardLayout activePage="dashboard">
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-white">
-          {currentBusiness === 'coyslogistics' ? '🚛 Coys Logistics' : '💳 CreditPreneurs'} Dashboard
+          {currentBusiness === 'logademy' ? '🚛 Logademy' : '💳 Credtegy'} Dashboard
         </h1>
         <p className="text-gray-400 mt-1">
-          {currentBusiness === 'coyslogistics' 
+          {currentBusiness === 'logademy' 
             ? 'Trucking & Logistics Management' 
             : 'Credit Repair & Funding Platform'}
         </p>
@@ -160,7 +160,7 @@ export default function Dashboard() {
       {/* Pipeline Overview */}
       <div className="mt-8 bg-gray-800 rounded-xl p-6 border border-gray-700">
         <h2 className="text-xl font-bold text-white mb-4">
-          {currentBusiness === 'coyslogistics' ? 'Load Pipeline' : 'Client Pipeline'}
+          {currentBusiness === 'logademy' ? 'Load Pipeline' : 'Client Pipeline'}
         </h2>
         <div className="flex gap-4 overflow-x-auto pb-4">
           {pipeline.map((stage, index) => (
@@ -174,7 +174,7 @@ export default function Dashboard() {
       </div>
 
       {/* Logistics-specific: Active Loads Map Placeholder */}
-      {currentBusiness === 'coyslogistics' && (
+      {currentBusiness === 'logademy' && (
         <div className="mt-8 bg-gray-800 rounded-xl p-6 border border-gray-700">
           <h2 className="text-xl font-bold text-white mb-4">🗺️ Active Loads Map</h2>
           <div className="bg-gray-700 rounded-lg h-64 flex items-center justify-center">

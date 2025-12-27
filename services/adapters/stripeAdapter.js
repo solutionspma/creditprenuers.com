@@ -1,14 +1,14 @@
 /**
  * Stripe Payment Adapter
- * Handles all payment processing for CreditPreneurs and Coys Logistics
+ * Handles all payment processing for Credtegy and Logademy
  * 
  * Products/Pricing:
- * CreditPreneurs:
+ * Credtegy:
  *   - eBook: $27 one-time
  *   - Membership: $47/month
  *   - White Label Course: $197 or $497
  * 
- * Coys Logistics:
+ * Logademy:
  *   - Dispatch Academy Starter: $197
  *   - Dispatch Academy Pro: $497
  */
@@ -18,7 +18,7 @@ const STRIPE_CONFIG = {
   publishableKey: 'pk_test_dummy_key_replace_in_production',
   // Secret key should ONLY be used server-side
   businessConfigs: {
-    creditprenuers: {
+    credtegy: {
       businessId: 'BC_CREDITPREN_STAGING',
       products: {
         ebook: {
@@ -30,7 +30,7 @@ const STRIPE_CONFIG = {
         membership: {
           priceId: 'price_membership_47',
           amount: 4700,
-          name: 'CreditPreneurs Monthly Membership',
+          name: 'Credtegy Monthly Membership',
           type: 'recurring',
           interval: 'month',
         },
@@ -48,7 +48,7 @@ const STRIPE_CONFIG = {
         },
       },
     },
-    coyslogistics: {
+    logademy: {
       businessId: 'BC_COYSLOG_STAGING',
       products: {
         dispatchStarter: {

@@ -68,7 +68,7 @@ export default function LeadGate({ children }) {
       // Store lead data (can be sent to Supabase later)
       const leadData = {
         ...formData,
-        source: 'coyslogistics.com',
+        source: 'logademy.com',
         timestamp: new Date().toISOString(),
         userAgent: navigator.userAgent
       }
@@ -172,7 +172,7 @@ export default function LeadGate({ children }) {
               >
                 <div className="inline-flex items-center gap-3 mb-4">
                   <span className="text-5xl">🚛</span>
-                  <span className="text-3xl font-bold text-white">Coys Logistics</span>
+                  <span className="text-3xl font-bold text-white">Logademy</span>
                 </div>
                 <div className="h-1 w-24 bg-gradient-to-r from-green-500 to-orange-500 mx-auto rounded-full"></div>
               </motion.div>

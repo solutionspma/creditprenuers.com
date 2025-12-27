@@ -4,8 +4,8 @@
  * ==============================================
  * 
  * Tests:
- * 1. CreditPreneurs local DB connection
- * 2. Coys Logistics local DB connection
+ * 1. Credtegy local DB connection
+ * 2. Logademy local DB connection
  * 3. Pitch Modular Spaces (Master) connection
  * 4. Lead sync from child to master
  */
@@ -16,14 +16,14 @@ const https = require('https');
 // DATABASE CONFIGURATION
 // ==============================================
 const DATABASES = {
-  creditprenuers: {
-    name: 'CreditPreneurs',
+  credtegy: {
+    name: 'Credtegy',
     url: 'https://cxbgwvlimlcljttvkdjn.supabase.co',
     anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN4Ymd3dmxpbWxjbGp0dHZrZGpuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjY3MTg3MTYsImV4cCI6MjA4MjI5NDcxNn0.a20a1yT0jlEtF4Ofl-u8mOFlSHuS5qM3iHsUNCqw_wc',
     serviceKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN4Ymd3dmxpbWxjbGp0dHZrZGpuIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc2NjcxODcxNiwiZXhwIjoyMDgyMjk0NzE2fQ.rJckNQzWqrHEDol6ATCcKT6l9CxC3A_y-8MG3JEBC8Y'
   },
-  coyslogistics: {
-    name: 'Coys Logistics',
+  logademy: {
+    name: 'Logademy',
     url: 'https://hkfcfooyqaonbszhnrpx.supabase.co',
     anonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhrZmNmb295cWFvbmJzemhucnB4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjY3NzA0ODIsImV4cCI6MjA4MjM0NjQ4Mn0.YrkH0TwpkKFVmh-FL7f-B996c0yQg3PhcPEu3GJmiuE',
     serviceKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhrZmNmb295cWFvbmJzemhucnB4Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc2Njc3MDQ4MiwiZXhwIjoyMDgyMzQ2NDgyfQ.iksdxVuxSKbz_oIlWZgXAm4Pt8iOXLg4MKzW7qd2f90'
@@ -170,25 +170,25 @@ async function runTests() {
     await checkTable(dbKey, 'bookings');
   }
   
-  // Test 3: Test insert to CreditPreneurs
+  // Test 3: Test insert to Credtegy
   console.log('\n3. TESTING LEAD CAPTURE\n');
   
   const testLead = {
     name: 'Test User',
     email: `test-${Date.now()}@example.com`,
     phone: '+15551234567',
-    source: 'creditprenuers',
+    source: 'credtegy',
     message: 'Test lead from sync test',
     status: 'new'
   };
   
-  console.log('Inserting test lead to CreditPreneurs...');
-  const cpResult = await testInsert('creditprenuers', 'crm_leads', testLead);
+  console.log('Inserting test lead to Credtegy...');
+  const cpResult = await testInsert('credtegy', 'crm_leads', testLead);
   
-  console.log('\nInserting test lead to Coys Logistics...');
-  testLead.source = 'coyslogistics';
+  console.log('\nInserting test lead to Logademy...');
+  testLead.source = 'logademy';
   testLead.email = `test-coys-${Date.now()}@example.com`;
-  const coysResult = await testInsert('coyslogistics', 'crm_leads', testLead);
+  const coysResult = await testInsert('logademy', 'crm_leads', testLead);
   
   console.log('\nInserting test lead to Master (Pitch Modular Spaces)...');
   testLead.source = 'pitchmarketing';
@@ -202,12 +202,12 @@ async function runTests() {
   console.log(`
 Database Architecture:
 ┌─────────────────────────────────────┐
-│   CreditPreneurs                    │ ${cpResult ? '✓ READY' : '✗ NEEDS SETUP'}
+│   Credtegy                    │ ${cpResult ? '✓ READY' : '✗ NEEDS SETUP'}
 │   cxbgwvlimlcljttvkdjn              │
 └──────────────────┬──────────────────┘
                    │
 ┌─────────────────────────────────────┐
-│   Coys Logistics                    │ ${coysResult ? '✓ READY' : '✗ NEEDS SETUP'}
+│   Logademy                    │ ${coysResult ? '✓ READY' : '✗ NEEDS SETUP'}
 │   hkfcfooyqaonbszhnrpx              │
 └──────────────────┬──────────────────┘
                    │
@@ -221,11 +221,11 @@ Database Architecture:
   if (!cpResult || !coysResult) {
     console.log('\n⚠️  ACTION REQUIRED:');
     if (!cpResult) {
-      console.log('   Run: supabase/creditprenuers-setup.sql in');
+      console.log('   Run: supabase/credtegy-setup.sql in');
       console.log('   https://supabase.com/dashboard/project/cxbgwvlimlcljttvkdjn/sql/new\n');
     }
     if (!coysResult) {
-      console.log('   Run: supabase/coyslogistics-setup.sql in');
+      console.log('   Run: supabase/logademy-setup.sql in');
       console.log('   https://supabase.com/dashboard/project/hkfcfooyqaonbszhnrpx/sql/new\n');
     }
   } else {

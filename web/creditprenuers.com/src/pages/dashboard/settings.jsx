@@ -84,7 +84,7 @@ export default function SettingsPage() {
                 </div>
                 <div>
                   <label className="block text-gray-400 text-sm mb-2">Email</label>
-                  <input type="email" defaultValue="admin@creditprenuers.com" className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-accent-gold" />
+                  <input type="email" defaultValue="admin@credtegy.com" className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-accent-gold" />
                 </div>
                 <div>
                   <label className="block text-gray-400 text-sm mb-2">Phone</label>
@@ -106,7 +106,7 @@ export default function SettingsPage() {
                       💳
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-white">CreditPreneurs</h3>
+                      <h3 className="text-xl font-bold text-white">Credtegy</h3>
                       <p className="text-gray-400">Credit Repair & Business Funding</p>
                       <span className="text-xs bg-accent-gold/20 text-accent-gold px-2 py-1 rounded mt-2 inline-block">Primary</span>
                     </div>
@@ -121,7 +121,7 @@ export default function SettingsPage() {
                       🚛
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-white">Coys Logistics</h3>
+                      <h3 className="text-xl font-bold text-white">Logademy</h3>
                       <p className="text-gray-400">Trucking & Freight Services</p>
                     </div>
                   </div>

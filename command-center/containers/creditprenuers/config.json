@@ -1,6 +1,6 @@
 {
-  "businessId": "creditprenuers",
-  "businessName": "CreditPreneurs",
+  "businessId": "credtegy",
+  "businessName": "Credtegy",
   "owner": "Shakur Mac",
   "industry": "Credit Repair & Financial Education",
   "timezone": "America/New_York",
@@ -37,7 +37,7 @@
     },
     "mentorship": {
       "id": "mentorship_47",
-      "name": "CreditPreneurs Mentorship",
+      "name": "Credtegy Mentorship",
       "price": 4700,
       "type": "recurring",
       "interval": "month"
@@ -132,8 +132,8 @@
   },
   
   "urls": {
-    "frontend": "https://creditprenuers.netlify.app",
-    "api": "https://api.creditprenuers.com",
-    "webhooks": "https://api.creditprenuers.com/webhooks"
+    "frontend": "https://credtegy.netlify.app",
+    "api": "https://api.credtegy.com",
+    "webhooks": "https://api.credtegy.com/webhooks"
   }
 }

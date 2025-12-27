@@ -38,7 +38,7 @@ export default function LoginScreen() {
 
   // Demo login helper
   function handleDemoLogin() {
-    setEmail('driver@coyslogistics.com');
+    setEmail('driver@logademy.com');
     setPassword('test123');
   }
 
@@ -108,7 +108,7 @@ export default function LoginScreen() {
 
         {/* Footer */}
         <View style={styles.footer}>
-          <Text style={styles.footerText}>Powered by Coys Logistics</Text>
+          <Text style={styles.footerText}>Powered by Logademy</Text>
           <Text style={styles.footerSubtext}>Part of the ModCRM Platform</Text>
         </View>
       </KeyboardAvoidingView>

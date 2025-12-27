@@ -1,5 +1,5 @@
 -- ==============================================
--- CREDITPRENUERS / CREDTEGY SUPABASE DATABASE SETUP
+-- CREDTEGY / CREDTEGY SUPABASE DATABASE SETUP
 -- ==============================================
 -- Run this in: https://supabase.com/dashboard/project/cxbgwvlimlcljttvkdjn/sql/new
 -- ==============================================
@@ -16,14 +16,14 @@ CREATE TABLE IF NOT EXISTS crm_leads (
   company TEXT,
   
   -- Source tracking
-  source TEXT DEFAULT 'creditprenuers',
+  source TEXT DEFAULT 'credtegy',
   form_id TEXT,
   product_id TEXT,
   
   -- Message/inquiry
   message TEXT,
   
-  -- CreditPreneurs specific
+  -- Credtegy specific
   credit_score INTEGER,
   funding_amount DECIMAL,
   business_type TEXT,
@@ -108,7 +108,7 @@ CREATE TABLE IF NOT EXISTS contacts (
   
   -- Source
   lead_id UUID REFERENCES crm_leads(id),
-  source TEXT DEFAULT 'creditprenuers',
+  source TEXT DEFAULT 'credtegy',
   
   -- Status
   status TEXT DEFAULT 'active',
@@ -295,7 +295,7 @@ CREATE TRIGGER update_disputes_updated_at
     EXECUTE FUNCTION update_updated_at_column();
 
 -- ==============================================
--- DONE! CreditPreneurs / Credtegy database ready.
+-- DONE! Credtegy / Credtegy database ready.
 -- Tables: crm_leads, bookings, contacts, disputes, 
 --         dispute_documents, credit_reports
 -- ==============================================

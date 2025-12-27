@@ -7,7 +7,7 @@ export default function MembershipSection() {
         <div className="text-center mb-16">
           <h2 className="section-title">Ready to Go Deeper?</h2>
           <p className="section-subtitle max-w-2xl mx-auto">
-            Join the CreditPreneurs Inner Circle for direct mentorship, community access, and accelerated results.
+            Join the Credtegy Inner Circle for direct mentorship, community access, and accelerated results.
           </p>
         </div>
 

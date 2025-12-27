@@ -4,8 +4,8 @@
  * ==============================================
  * 
  * Architecture:
- * - CreditPreneurs DB → syncs to → Pitch Marketing Agency → syncs to → Pitch Modular Spaces
- * - Coys Logistics DB → syncs to → Pitch Marketing Agency → syncs to → Pitch Modular Spaces
+ * - Credtegy DB → syncs to → Pitch Marketing Agency → syncs to → Pitch Modular Spaces
+ * - Logademy DB → syncs to → Pitch Marketing Agency → syncs to → Pitch Modular Spaces
  * 
  * Each child database writes locally first, then syncs upline.
  */
@@ -37,22 +37,22 @@ const DATABASES = {
     syncTo: 'pitchModularSpaces'
   },
   
-  // CreditPreneurs (child)
-  creditprenuers: {
-    name: 'CreditPreneurs',
-    url: process.env.CREDITPRENUERS_SUPABASE_URL,
-    serviceKey: process.env.CREDITPRENUERS_SERVICE_KEY,
-    anonKey: process.env.CREDITPRENUERS_ANON_KEY,
+  // Credtegy (child)
+  credtegy: {
+    name: 'Credtegy',
+    url: process.env.CREDTEGY_SUPABASE_URL,
+    serviceKey: process.env.CREDTEGY_SERVICE_KEY,
+    anonKey: process.env.CREDTEGY_ANON_KEY,
     isMaster: false,
     syncTo: 'pitchMarketingAgency'
   },
   
-  // Coys Logistics (child)
-  coyslogistics: {
-    name: 'Coys Logistics',
-    url: process.env.COYSLOGISTICS_SUPABASE_URL,
-    serviceKey: process.env.COYSLOGISTICS_SERVICE_KEY,
-    anonKey: process.env.COYSLOGISTICS_ANON_KEY,
+  // Logademy (child)
+  logademy: {
+    name: 'Logademy',
+    url: process.env.LOGADEMY_SUPABASE_URL,
+    serviceKey: process.env.LOGADEMY_SERVICE_KEY,
+    anonKey: process.env.LOGADEMY_ANON_KEY,
     isMaster: false,
     syncTo: 'pitchMarketingAgency'
   }

@@ -1,6 +1,6 @@
 /**
  * ══════════════════════════════════════════════════════════════
- * COYS LOGISTICS - FLEET MANAGEMENT ROUTES
+ * LOGADEMY - FLEET MANAGEMENT ROUTES
  * Truck & Vehicle Management System
  * ══════════════════════════════════════════════════════════════
  */
@@ -12,10 +12,10 @@ const { authenticate, authorize } = require('../../../shared/middleware/auth');
 const logger = require('../../../shared/utils/logger');
 
 const prisma = new PrismaClient();
-const BUSINESS_ID = 'coyslogistics';
+const BUSINESS_ID = 'logademy';
 
 // ─────────────────────────────────────────────────────────────
-// GET /api/coyslogistics/fleet - List all trucks
+// GET /api/logademy/fleet - List all trucks
 // ─────────────────────────────────────────────────────────────
 router.get('/', authenticate, async (req, res) => {
   try {
@@ -47,7 +47,7 @@ router.get('/', authenticate, async (req, res) => {
 });
 
 // ─────────────────────────────────────────────────────────────
-// GET /api/coyslogistics/fleet/:id - Get single truck
+// GET /api/logademy/fleet/:id - Get single truck
 // ─────────────────────────────────────────────────────────────
 router.get('/:id', authenticate, async (req, res) => {
   try {
@@ -71,7 +71,7 @@ router.get('/:id', authenticate, async (req, res) => {
 });
 
 // ─────────────────────────────────────────────────────────────
-// POST /api/coyslogistics/fleet - Add new truck
+// POST /api/logademy/fleet - Add new truck
 // ─────────────────────────────────────────────────────────────
 router.post('/', authenticate, authorize(['owner', 'admin']), async (req, res) => {
   try {
@@ -117,7 +117,7 @@ router.post('/', authenticate, authorize(['owner', 'admin']), async (req, res) =
 });
 
 // ─────────────────────────────────────────────────────────────
-// PUT /api/coyslogistics/fleet/:id - Update truck
+// PUT /api/logademy/fleet/:id - Update truck
 // ─────────────────────────────────────────────────────────────
 router.put('/:id', authenticate, async (req, res) => {
   try {
@@ -140,7 +140,7 @@ router.put('/:id', authenticate, async (req, res) => {
 });
 
 // ─────────────────────────────────────────────────────────────
-// PUT /api/coyslogistics/fleet/:id/status - Update truck status
+// PUT /api/logademy/fleet/:id/status - Update truck status
 // ─────────────────────────────────────────────────────────────
 router.put('/:id/status', authenticate, async (req, res) => {
   try {
@@ -176,7 +176,7 @@ router.put('/:id/status', authenticate, async (req, res) => {
 });
 
 // ─────────────────────────────────────────────────────────────
-// POST /api/coyslogistics/fleet/:id/maintenance - Log maintenance
+// POST /api/logademy/fleet/:id/maintenance - Log maintenance
 // ─────────────────────────────────────────────────────────────
 router.post('/:id/maintenance', authenticate, async (req, res) => {
   try {
@@ -215,7 +215,7 @@ router.post('/:id/maintenance', authenticate, async (req, res) => {
 });
 
 // ─────────────────────────────────────────────────────────────
-// GET /api/coyslogistics/fleet/dashboard - Fleet dashboard
+// GET /api/logademy/fleet/dashboard - Fleet dashboard
 // ─────────────────────────────────────────────────────────────
 router.get('/stats/dashboard', authenticate, async (req, res) => {
   try {

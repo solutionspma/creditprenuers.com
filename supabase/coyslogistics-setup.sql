@@ -1,5 +1,5 @@
 -- ==============================================
--- COYS LOGISTICS SUPABASE DATABASE SETUP
+-- LOGADEMY SUPABASE DATABASE SETUP
 -- ==============================================
 -- Run this in: https://supabase.com/dashboard/project/hkfcfooyqaonbszhnrpx/sql/new
 -- ==============================================
@@ -16,14 +16,14 @@ CREATE TABLE IF NOT EXISTS crm_leads (
   company TEXT,
   
   -- Source tracking
-  source TEXT DEFAULT 'coyslogistics',
+  source TEXT DEFAULT 'logademy',
   form_id TEXT,
   product_id TEXT,
   
   -- Message/inquiry
   message TEXT,
   
-  -- Coys Logistics specific
+  -- Logademy specific
   fleet_size TEXT,
   equipment_type TEXT,
   mc_number TEXT,
@@ -251,5 +251,5 @@ CREATE TRIGGER update_loads_updated_at
     EXECUTE FUNCTION update_updated_at_column();
 
 -- ==============================================
--- DONE! Coys Logistics database ready.
+-- DONE! Logademy database ready.
 -- ==============================================

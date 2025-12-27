@@ -1,5 +1,5 @@
 /**
- * COYS LOGISTICS - BILLING ROUTES
+ * LOGADEMY - BILLING ROUTES
  */
 const express = require('express');
 const router = express.Router();
@@ -9,7 +9,7 @@ const { authenticate } = require('../../../shared/middleware/auth');
 
 const prisma = new PrismaClient();
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
-const BUSINESS_ID = 'coyslogistics';
+const BUSINESS_ID = 'logademy';
 
 router.get('/invoices', authenticate, async (req, res) => {
   try {

@@ -6,12 +6,12 @@ const BUSINESS_ID = Constants.expoConfig?.extra?.businessId || 'BC_COYSLOG_STAGI
 
 // Demo credentials for testing
 const DEMO_USERS = {
-  'driver@coyslogistics.com': {
+  'driver@logademy.com': {
     password: 'test123',
     user: {
       id: 'usr_demo_001',
       name: 'Demo Driver',
-      email: 'driver@coyslogistics.com',
+      email: 'driver@logademy.com',
       phone: '+15551234567',
       role: 'driver',
       driverId: 'DRV-2024-001',

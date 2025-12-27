@@ -1,15 +1,15 @@
 # 🚀 MBOCC - Multi-Business Owner Command Center
-## CreditPreneurs x Coys Logistics Platform
+## Credtegy x Logademy Platform
 
 **Client:** Shakur Mac  
-**Platform URL:** https://creditprenuers.netlify.app  
-**Demo Login:** admin@creditprenuers.com / Admin123!
+**Platform URL:** https://credtegy.netlify.app  
+**Demo Login:** admin@credtegy.com / Admin123!
 
 ---
 
 ## 🎯 EXECUTIVE SUMMARY
 
-The MBOCC (Multi-Business Owner Command Center) is a comprehensive CRM and business management platform designed specifically for entrepreneurs operating multiple businesses. This platform seamlessly manages **CreditPreneurs** (Credit Repair & Business Funding) and **Coys Logistics** (Trucking & Freight) from a single unified dashboard.
+The MBOCC (Multi-Business Owner Command Center) is a comprehensive CRM and business management platform designed specifically for entrepreneurs operating multiple businesses. This platform seamlessly manages **Credtegy** (Credit Repair & Business Funding) and **Logademy** (Trucking & Freight) from a single unified dashboard.
 
 ---
 
@@ -18,12 +18,12 @@ The MBOCC (Multi-Business Owner Command Center) is a comprehensive CRM and busin
 ### 🔄 Business Switcher
 - **One-Click Toggle** - Switch between businesses instantly
 - **Persistent State** - Your selected business stays selected across sessions
-- **Visual Indicators** - Gold branding for CreditPreneurs, Blue for Coys Logistics
+- **Visual Indicators** - Gold branding for Credtegy, Blue for Logademy
 - **Contextual Menus** - Navigation adapts to show relevant features per business
 
 ---
 
-## 💳 CREDITPRENEURS FEATURES
+## 💳 CREDTEGY FEATURES
 
 ### 📊 Dashboard Overview
 - Real-time stats: Active Clients, Disputes Filed, Avg Score Increase, Revenue
@@ -101,7 +101,7 @@ The MBOCC (Multi-Business Owner Command Center) is a comprehensive CRM and busin
 
 ---
 
-## 🚛 COYS LOGISTICS FEATURES
+## 🚛 LOGADEMY FEATURES
 
 ### 📊 Dashboard Overview
 - Fleet status: Active trucks, Idle, Maintenance
@@ -177,7 +177,7 @@ The MBOCC (Multi-Business Owner Command Center) is a comprehensive CRM and busin
   - Checklists
   - Guides
 - File type support: PDF, DOCX, XLSX, ZIP
-- Business tagging (CreditPreneurs/Coys Logistics)
+- Business tagging (Credtegy/Logademy)
 - Download and edit capabilities
 - Version tracking
 
@@ -202,7 +202,7 @@ The MBOCC (Multi-Business Owner Command Center) is a comprehensive CRM and busin
 
 ### 💬 Communication Center
 - **Unified Inbox:**
-  - Client messages (CreditPreneurs)
+  - Client messages (Credtegy)
   - Broker messages (Logistics)
   - Driver communications
 - Conversation threading
@@ -231,12 +231,12 @@ The MBOCC (Multi-Business Owner Command Center) is a comprehensive CRM and busin
 - **Combined Business Metrics:**
   - Total combined revenue
   - Revenue breakdown by business
-- **CreditPreneurs Analytics:**
+- **Credtegy Analytics:**
   - Monthly revenue
   - Active clients
   - Average score improvement
   - Total funded amount
-- **Coys Logistics Analytics:**
+- **Logademy Analytics:**
   - Monthly revenue
   - Loads completed
   - Miles driven
@@ -277,8 +277,8 @@ The MBOCC (Multi-Business Owner Command Center) is a comprehensive CRM and busin
 ### Color Palette
 - **Primary Background:** #111827 (Dark Gray)
 - **Secondary Background:** #1F2937 (Gray 800)
-- **CreditPreneurs Accent:** #F59E0B (Gold)
-- **Coys Logistics Accent:** #3B82F6 (Blue)
+- **Credtegy Accent:** #F59E0B (Gold)
+- **Logademy Accent:** #3B82F6 (Blue)
 - **Success:** #10B981 (Green)
 - **Warning:** #F59E0B (Yellow)
 - **Error:** #EF4444 (Red)
@@ -322,7 +322,7 @@ The MBOCC (Multi-Business Owner Command Center) is a comprehensive CRM and busin
 
 ## 📱 NAVIGATION STRUCTURE
 
-### CreditPreneurs Menu
+### Credtegy Menu
 1. Dashboard
 2. Contacts
 3. Pipeline
@@ -336,7 +336,7 @@ The MBOCC (Multi-Business Owner Command Center) is a comprehensive CRM and busin
 11. Analytics
 12. Settings
 
-### Coys Logistics Menu
+### Logademy Menu
 1. Dashboard
 2. Contacts
 3. Pipeline
@@ -354,14 +354,14 @@ The MBOCC (Multi-Business Owner Command Center) is a comprehensive CRM and busin
 
 ## 🚀 FUTURE ENHANCEMENTS (PHASE 2)
 
-### CreditPreneurs
+### Credtegy
 - [ ] Automated dispute letter generation with bureau API
 - [ ] Credit score monitoring integration (TransUnion, Equifax, Experian)
 - [ ] Client portal for self-service
 - [ ] E-signature integration for contracts
 - [ ] White-label options for mentees
 
-### Coys Logistics
+### Logademy
 - [ ] Real-time GPS tracking map
 - [ ] ELD integration (Samsara, KeepTruckin)
 - [ ] Load board API integration (DAT, Truckstop)
@@ -380,9 +380,9 @@ The MBOCC (Multi-Business Owner Command Center) is a comprehensive CRM and busin
 
 ## 📞 SUPPORT & ACCESS
 
-**Live Platform:** https://creditprenuers.netlify.app  
-**Demo Credentials:** admin@creditprenuers.com / Admin123!  
-**GitHub Repository:** https://github.com/solutionspma/creditprenuers.com
+**Live Platform:** https://credtegy.netlify.app  
+**Demo Credentials:** admin@credtegy.com / Admin123!  
+**GitHub Repository:** https://github.com/solutionspma/credtegy.com
 
 ---
 

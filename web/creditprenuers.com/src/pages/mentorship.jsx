@@ -7,8 +7,8 @@ export default function Mentorship() {
   return (
     <>
       <Head>
-        <title>CreditPreneurs Mentorship | Direct Access to Success</title>
-        <meta name="description" content="Join the CreditPreneurs mentorship program. Get direct access to Shakur Mac, weekly calls, and a community of winners building wealth together." />
+        <title>Credtegy Mentorship | Direct Access to Success</title>
+        <meta name="description" content="Join the Credtegy mentorship program. Get direct access to Shakur Mac, weekly calls, and a community of winners building wealth together." />
       </Head>
 
       <div className="min-h-screen bg-white">
@@ -22,7 +22,7 @@ export default function Mentorship() {
                 🎯 LIMITED SPOTS AVAILABLE
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                CreditPreneurs<br />Inner Circle
+                Credtegy<br />Inner Circle
               </h1>
               <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
                 Stop trying to figure it out alone. Get direct mentorship from Shakur Mac and a community of action-takers building wealth together.
@@ -73,7 +73,7 @@ export default function Mentorship() {
                   </div>
                   <h3 className="text-xl font-bold mb-2">Full Course Library</h3>
                   <p className="text-gray-600">
-                    Access to all CreditPreneurs courses, guides, and resources. Updated monthly.
+                    Access to all Credtegy courses, guides, and resources. Updated monthly.
                   </p>
                 </div>
 

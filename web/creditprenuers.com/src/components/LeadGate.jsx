@@ -29,7 +29,7 @@ export default function LeadGate({ children }) {
 
   useEffect(() => {
     // Check if user already submitted
-    const hasAccess = localStorage.getItem('creditpreneurs_lead_captured')
+    const hasAccess = localStorage.getItem('credtegy_lead_captured')
     if (hasAccess) {
       setIsUnlocked(true)
     }
@@ -68,19 +68,19 @@ export default function LeadGate({ children }) {
       // Store lead data (can be sent to Supabase later)
       const leadData = {
         ...formData,
-        source: 'creditprenuers.com',
+        source: 'credtegy.com',
         timestamp: new Date().toISOString(),
         userAgent: navigator.userAgent
       }
 
       // Store locally for now - can integrate with Supabase
-      const existingLeads = JSON.parse(localStorage.getItem('creditpreneurs_leads') || '[]')
+      const existingLeads = JSON.parse(localStorage.getItem('credtegy_leads') || '[]')
       existingLeads.push(leadData)
-      localStorage.setItem('creditpreneurs_leads', JSON.stringify(existingLeads))
+      localStorage.setItem('credtegy_leads', JSON.stringify(existingLeads))
       
       // Mark as captured
-      localStorage.setItem('creditpreneurs_lead_captured', 'true')
-      localStorage.setItem('creditpreneurs_lead_data', JSON.stringify(leadData))
+      localStorage.setItem('credtegy_lead_captured', 'true')
+      localStorage.setItem('credtegy_lead_data', JSON.stringify(leadData))
 
       // Simulate API delay for smooth UX
       await new Promise(resolve => setTimeout(resolve, 1500))
@@ -172,7 +172,7 @@ export default function LeadGate({ children }) {
               >
                 <div className="inline-flex items-center gap-3 mb-4">
                   <span className="text-5xl">💳</span>
-                  <span className="text-3xl font-bold bg-gradient-to-r from-yellow-400 to-amber-500 bg-clip-text text-transparent">CreditPreneurs</span>
+                  <span className="text-3xl font-bold bg-gradient-to-r from-yellow-400 to-amber-500 bg-clip-text text-transparent">Credtegy</span>
                 </div>
                 <div className="h-1 w-24 bg-gradient-to-r from-yellow-400 to-amber-500 mx-auto rounded-full"></div>
               </motion.div>

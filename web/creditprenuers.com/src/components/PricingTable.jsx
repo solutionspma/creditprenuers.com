@@ -2,7 +2,7 @@ export default function PricingTable({ showFull = false }) {
   const products = [
     {
       id: 'ebook_27',
-      name: 'CreditPreneurs eBook',
+      name: 'Credtegy eBook',
       price: 27,
       originalPrice: 97,
       type: 'one-time',

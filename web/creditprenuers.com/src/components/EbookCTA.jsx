@@ -17,7 +17,7 @@ export default function EbookCTA() {
               📚 THE BLUEPRINT
             </div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-              Get the CreditPreneurs eBook
+              Get the Credtegy eBook
             </h2>
             <p className="text-xl text-gray-300 mb-8">
               Over 100 pages of actionable strategies, templates, and insider knowledge to transform your credit and secure funding.
@@ -62,7 +62,7 @@ export default function EbookCTA() {
               {/* Book representation */}
               <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg p-8 shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500">
                 <div className="border-2 border-white/30 rounded-lg p-6">
-                  <div className="text-accent-gold font-bold text-sm mb-2">CREDITPRENEURS</div>
+                  <div className="text-accent-gold font-bold text-sm mb-2">CREDTEGY</div>
                   <h3 className="text-2xl font-bold mb-4">The Credit Blueprint</h3>
                   <p className="text-gray-300 text-sm mb-6">
                     Master Your Credit. Secure Your Funding. Build Your Empire.

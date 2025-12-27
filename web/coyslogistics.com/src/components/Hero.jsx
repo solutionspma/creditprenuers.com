@@ -24,7 +24,7 @@ export default function Hero() {
             
             <p className="text-xl text-green-100 mb-8 max-w-lg">
               Master trucking. Build your fleet. Launch your dispatch career. 
-              Coys Logistics is your complete roadmap to success in the logistics industry.
+              Logademy is your complete roadmap to success in the logistics industry.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">

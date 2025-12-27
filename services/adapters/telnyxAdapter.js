@@ -1,10 +1,10 @@
 /**
  * TELNYX/ModCellular Communication Adapter
- * Handles SMS, Voice, and messaging for both CreditPreneurs and Coys Logistics
+ * Handles SMS, Voice, and messaging for both Credtegy and Logademy
  * 
  * Phone Numbers:
- * - CreditPreneurs: +10000000000 (placeholder)
- * - Coys Logistics: +10000000001 (placeholder)
+ * - Credtegy: +10000000000 (placeholder)
+ * - Logademy: +10000000001 (placeholder)
  */
 
 // TELNYX Configuration - Replace with actual credentials in production
@@ -14,17 +14,17 @@ const TELNYX_CONFIG = {
   apiUrl: 'https://api.telnyx.com/v2',
   
   businesses: {
-    creditprenuers: {
+    credtegy: {
       businessId: 'BC_CREDITPREN_STAGING',
       phoneNumber: '+10000000000',
       messagingProfileId: 'MSG_PROFILE_CREDITPREN',
-      displayName: 'CreditPreneurs',
+      displayName: 'Credtegy',
     },
-    coyslogistics: {
+    logademy: {
       businessId: 'BC_COYSLOG_STAGING',
       phoneNumber: '+10000000001',
       messagingProfileId: 'MSG_PROFILE_COYSLOG',
-      displayName: 'Coys Logistics',
+      displayName: 'Logademy',
     },
   },
   
@@ -33,15 +33,15 @@ const TELNYX_CONFIG = {
 
 // Message templates
 const MESSAGE_TEMPLATES = {
-  creditprenuers: {
-    welcome: 'Welcome to CreditPreneurs! 🎉 Your journey to financial freedom starts now. Check your email for your eBook download link.',
+  credtegy: {
+    welcome: 'Welcome to Credtegy! 🎉 Your journey to financial freedom starts now. Check your email for your eBook download link.',
     ebookDelivery: 'Your "Build Your Credit Empire" eBook is ready! Download here: {{download_link}}',
-    membershipWelcome: 'Welcome to the CreditPreneurs inner circle! 💎 Access your member dashboard here: {{dashboard_link}}',
+    membershipWelcome: 'Welcome to the Credtegy inner circle! 💎 Access your member dashboard here: {{dashboard_link}}',
     mentorshipReminder: 'Hey {{name}}, don\'t forget! Your mentorship call with Coy Mac is scheduled for {{date}} at {{time}}. Join here: {{zoom_link}}',
     fundingUpdate: 'Great news, {{name}}! Your funding application has been moved to: {{stage}}. Next steps: {{action}}',
   },
-  coyslogistics: {
-    welcome: 'Welcome to Coys Logistics Academy! 🚛 Your dispatch training begins now.',
+  logademy: {
+    welcome: 'Welcome to Logademy Academy! 🚛 Your dispatch training begins now.',
     loadAlert: '🔔 New load available! {{origin}} → {{destination}} | Rate: {{rate}} | Miles: {{miles}}',
     dispatchUpdate: 'Load {{load_id}} update: {{status}}. Contact dispatch if you have questions.',
     driverETA: 'ETA notification: Driver arriving at {{location}} in approximately {{eta}} minutes.',

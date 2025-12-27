@@ -1,10 +1,10 @@
 {
   "container_id": "BC_COYSLOG_STAGING",
-  "business_name": "Coys Logistics",
+  "business_name": "Logademy",
   "owner": "Shakur Coy Mac",
-  "email": "admin@coyslogistics.com",
+  "email": "admin@logademy.com",
   "industry": "Trucking & Logistics",
-  "domains": ["https://coyslogistics.com"],
+  "domains": ["https://logademy.com"],
   "modules": [
     "contacts",
     "pipelines",
@@ -33,7 +33,7 @@
   "branding": {
     "primary_color": "#16A34A",
     "secondary_color": "#15803D",
-    "logo_url": "/assets/coyslogistics-logo.png"
+    "logo_url": "/assets/logademy-logo.png"
   },
   "compliance": {
     "fmcsa_enabled": true,

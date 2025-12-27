@@ -1,6 +1,6 @@
 /**
  * ══════════════════════════════════════════════════════════════
- * CREDITPRENUERS - PIPELINES ROUTES
+ * CREDTEGY - PIPELINES ROUTES
  * ══════════════════════════════════════════════════════════════
  */
 
@@ -10,7 +10,7 @@ const { PrismaClient } = require('@prisma/client');
 const { authenticate } = require('../../../shared/middleware/auth');
 
 const prisma = new PrismaClient();
-const BUSINESS_ID = 'creditprenuers';
+const BUSINESS_ID = 'credtegy';
 
 router.get('/', authenticate, async (req, res) => {
   try {
