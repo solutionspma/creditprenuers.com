@@ -1,5 +1,5 @@
 -- ==============================================
--- CREDITPRENUERS SUPABASE DATABASE SETUP
+-- CREDITPRENUERS / CREDTEGY SUPABASE DATABASE SETUP
 -- ==============================================
 -- Run this in: https://supabase.com/dashboard/project/cxbgwvlimlcljttvkdjn/sql/new
 -- ==============================================
@@ -96,6 +96,12 @@ CREATE TABLE IF NOT EXISTS contacts (
   phone TEXT,
   company TEXT,
   
+  -- Address
+  address TEXT,
+  city TEXT,
+  state TEXT,
+  zip TEXT,
+  
   -- Credit profile
   credit_score INTEGER,
   credit_goal TEXT,
@@ -113,11 +119,89 @@ CREATE TABLE IF NOT EXISTS contacts (
   updated_at TIMESTAMPTZ DEFAULT NOW()
 );
 
--- 4. ENABLE ROW LEVEL SECURITY
+-- 4. CREATE DISPUTES TABLE (Credtegy Dispute Center)
+-- ==============================================
+CREATE TABLE IF NOT EXISTS disputes (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  
+  -- Client reference
+  client_id UUID REFERENCES contacts(id),
+  
+  -- Dispute details
+  bureau TEXT NOT NULL CHECK (bureau IN ('Equifax', 'Experian', 'TransUnion')),
+  creditor TEXT NOT NULL,
+  account_number TEXT,
+  amount DECIMAL,
+  reason TEXT NOT NULL,
+  
+  -- Letter info
+  letter_type TEXT NOT NULL,
+  letter_url TEXT,
+  letter_sent_date DATE,
+  tracking_number TEXT,
+  
+  -- Response tracking
+  response_received BOOLEAN DEFAULT FALSE,
+  response_date DATE,
+  response_notes TEXT,
+  
+  -- Status workflow
+  status TEXT DEFAULT 'Pending' CHECK (status IN ('Pending', 'Sent', 'Replied', 'Deleted', 'Won', 'Lost')),
+  
+  -- Follow-up
+  follow_up_date DATE,
+  round INTEGER DEFAULT 1,
+  
+  -- Timestamps
+  created_at TIMESTAMPTZ DEFAULT NOW(),
+  updated_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+-- 5. CREATE DISPUTE_DOCUMENTS TABLE
+-- ==============================================
+CREATE TABLE IF NOT EXISTS dispute_documents (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  dispute_id UUID REFERENCES disputes(id) ON DELETE CASCADE,
+  
+  -- Document info
+  name TEXT NOT NULL,
+  type TEXT, -- letter, response, evidence, etc.
+  url TEXT NOT NULL,
+  
+  -- Timestamps
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+-- 6. CREATE CREDIT_REPORTS TABLE
+-- ==============================================
+CREATE TABLE IF NOT EXISTS credit_reports (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  client_id UUID REFERENCES contacts(id),
+  
+  -- Scores
+  equifax_score INTEGER,
+  experian_score INTEGER,
+  transunion_score INTEGER,
+  
+  -- Report date
+  report_date DATE NOT NULL,
+  report_url TEXT,
+  
+  -- Notes
+  notes TEXT,
+  
+  -- Timestamps
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+-- 7. ENABLE ROW LEVEL SECURITY
 -- ==============================================
 ALTER TABLE crm_leads ENABLE ROW LEVEL SECURITY;
 ALTER TABLE bookings ENABLE ROW LEVEL SECURITY;
 ALTER TABLE contacts ENABLE ROW LEVEL SECURITY;
+ALTER TABLE disputes ENABLE ROW LEVEL SECURITY;
+ALTER TABLE dispute_documents ENABLE ROW LEVEL SECURITY;
+ALTER TABLE credit_reports ENABLE ROW LEVEL SECURITY;
 
 -- 5. CREATE POLICIES FOR ANONYMOUS ACCESS (website forms)
 -- ==============================================
@@ -142,6 +226,18 @@ CREATE POLICY "bookings_update_public" ON bookings FOR UPDATE USING (true);
 DROP POLICY IF EXISTS "contacts_all_authenticated" ON contacts;
 CREATE POLICY "contacts_all_authenticated" ON contacts FOR ALL USING (true);
 
+-- Disputes
+DROP POLICY IF EXISTS "disputes_all_public" ON disputes;
+CREATE POLICY "disputes_all_public" ON disputes FOR ALL USING (true);
+
+-- Dispute Documents
+DROP POLICY IF EXISTS "dispute_docs_all_public" ON dispute_documents;
+CREATE POLICY "dispute_docs_all_public" ON dispute_documents FOR ALL USING (true);
+
+-- Credit Reports
+DROP POLICY IF EXISTS "credit_reports_all_public" ON credit_reports;
+CREATE POLICY "credit_reports_all_public" ON credit_reports FOR ALL USING (true);
+
 -- 6. CREATE INDEXES
 -- ==============================================
 CREATE INDEX IF NOT EXISTS idx_leads_email ON crm_leads(email);
@@ -155,6 +251,14 @@ CREATE INDEX IF NOT EXISTS idx_bookings_date ON bookings(date);
 CREATE INDEX IF NOT EXISTS idx_bookings_status ON bookings(status);
 
 CREATE INDEX IF NOT EXISTS idx_contacts_email ON contacts(email);
+
+CREATE INDEX IF NOT EXISTS idx_disputes_client ON disputes(client_id);
+CREATE INDEX IF NOT EXISTS idx_disputes_status ON disputes(status);
+CREATE INDEX IF NOT EXISTS idx_disputes_bureau ON disputes(bureau);
+CREATE INDEX IF NOT EXISTS idx_disputes_created ON disputes(created_at);
+
+CREATE INDEX IF NOT EXISTS idx_credit_reports_client ON credit_reports(client_id);
+CREATE INDEX IF NOT EXISTS idx_credit_reports_date ON credit_reports(report_date);
 
 -- 7. CREATE UPDATED_AT TRIGGER
 -- ==============================================
@@ -184,6 +288,14 @@ CREATE TRIGGER update_contacts_updated_at
     FOR EACH ROW
     EXECUTE FUNCTION update_updated_at_column();
 
+DROP TRIGGER IF EXISTS update_disputes_updated_at ON disputes;
+CREATE TRIGGER update_disputes_updated_at
+    BEFORE UPDATE ON disputes
+    FOR EACH ROW
+    EXECUTE FUNCTION update_updated_at_column();
+
 -- ==============================================
--- DONE! CreditPreneurs database ready.
+-- DONE! CreditPreneurs / Credtegy database ready.
+-- Tables: crm_leads, bookings, contacts, disputes, 
+--         dispute_documents, credit_reports
 -- ==============================================
